@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
+</head>
+
+<body>
+    <!-- 배경 -->
+    <div class="w_back">
+        <!-- 글쓰기 탭 -->
+        <div class="w_page">
+            <!-- 1. 탭 설명 -->
+            <div class="wr_title">
+                <h2 class="page_title">작성중...</h2>
+            </div>
+            <!-- 2. 사진 가져오기 / 아티스트 입력 / 곡 입력 / 기분 선택 -->
+            <div class="wr_head">
+                <!-- 앨범 이미지 가져오기 -->
+                <div class="upload_cov">
+                    <input id="cov_image" type="file" class="upload_file" accept="image/png,image/jpeg" name="cover" />
+                </div>
+                <!-- 아티스트 / 곡 / 감정 입력 -->
+                <div class="head_r_side">
+                    <input class="artist_name" type="text" placeholder="아티스트 이름" maxlength="20" required>
+                    <br>
+                    <input class="song_title" type="text" placeholder="곡 이름" maxlength="20" required>
+                    <br>
+                    <div class="emoji_select">
+                        <input type="radio" name="emoji" id="emoji_Happy" value="Happy" checked>
+                        <div>
+                            <img src="./image/happy.png">
+                        </div>
+                        </input>
+                        <input type="radio" name="emoji" id="emoji_Sad" value="Sad">
+                        <div>
+                            <img src="./image/sad.png">
+                        </div>
+                        </input>
+                        <input type="radio" name="emoji" id="emoji_Chill" value="Chill">
+                        <div>
+                            <img src="./image/chill.png">
+                        </div>
+                        </input>
+                        <input type="radio" name="emoji" id="emoji_Excited" value="Excited">
+                        <div>
+                            <img src="./image/excited.png">
+                        </div>
+                        </input>
+                        <input type="radio" name="emoji" id="emoji_Touched" value="Touched">
+                        <div>
+                            <img src="./image/touched.png">
+                        </div>
+                        </input>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- 3. 제목 / 해시태그 / 본문 글쓰기 -->
+    <div class="wr_body">
+        <input class="wr_body_title" type="text" placeholder="제목을 입력하세요.">
+        <br>
+        <!-- 해쉬태그 / 입력창 -->
+        <div class="hash_container">
+            <div class="hash">태그입력</div>
+            <div class="hash">최대3개</div>
+            <div class="hash">4글자</div>
+            <input class="hash_input" type="text" placeholder="태그를 입력하세요">
+        </div>
+        <br>
+        <textarea class="body_text" id="W_text" name="" placeholder="당신의 아티스트와 곡을 마음껏 자랑해주세요!"></textarea>
+    </div>
+    <!-- 4. 업로드 / 작성취소 버튼 -->
+    <div class="wr_foot" class="Btns_wrap">
+        <button class="selectBtns" type="submit">업로드 하기</button>
+        <button class="quitBtns" type="reset">작성취소</button>
+    </div>
+    </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+* {
+  font-family: "Noto Sans KR";
+}
+
+.w_back {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F6F4F1;
+}
+
+.w_page {
+  border-radius: 40px;
+  background-color: white;
+  max-width: 434px;
+}
+
+.wr_title {
+  padding: 35px 38px 0px 38px;
+  border-bottom: 1px solid #DCDCDC;
+  display: block;
+}
+
+.wr_head {
+  padding: 0px 28px 0px 28px;
+  display: flex;
+  margin-top: 35px;
+  /* background-color: #9664FF; */
+}
+
+.wr_body {
+  padding: 0px 38px;
+  /* background-color: #9664FF; */
+  display: block;
+  margin-top: 38px;
+}
+
+.wr_foot {
+  padding: 38px 38px 35px 38px;
+  display: block;
+  /* background-color: aqua; */
+}
+
+.page_title {
+  border-bottom: #DCDCDC;
+  font-size: 32px;
+}
+
+.upload_cov {
+  width: 170px;
+  height: 170px;
+  border-radius: 20px;
+  background: url('./image/file_select.png');
+  overflow: hidden;
+}
+
+.upload_file {
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  cursor: pointer;
+  /* background-color: #64ff71; */
+}
+
+.upload_file::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.head_r_side {
+  /* background-color: #64ff71; */
+  justify-content: center;
+  align-item: center;
+  width: 180px;
+  margin-left: 20px;
+}
+
+.artist_name {
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 18px;
+  width: 180px;
+  height: 30px;
+  font-size: 14px;
+}
+
+.song_title {
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 18px;
+  width: 180px;
+  height: 30px;
+  font-size: 14px;
+}
+
+.emoji_select>input {
+  display: none;
+}
+
+.wr_body_title {
+  font-size: 20px;
+  border: none;
+  margin-bottom: 18px;
+}
+
+.hash_container {
+  margin-bottom: 18px;
+  display: inline-block;
+  gap: 5px;
+}
+
+.hash {
+  font-size: 14px;
+  display: inline-flex;
+  text-align: center;
+  background-color: #F1EEEA;
+  border-radius: 12px;
+  color: #999999;
+  width: fit-content;
+  border: none;
+  cursor: text;
+  padding: 4px 8px 4px 8px
+}
+
+.hash_input {
+  border: none;
+  font-size: 14px;
+}
+
+.body_text {
+  width: 100%;
+  min-height: 437px;
+  font-size: 14px;
+  color: #999999;
+  border: none;
+}
+
+.Btns_wrap {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 24px;
+}
+
+.selectBtns {
+  background-color: #9664FF;
+  color: white;
+  border-radius: 40px;
+  border-width: 0px;
+  font-size: 14px;
+  width: 176px;
+  height: 45px;
+  padding: 12px 24px 12px 24px;
+}
+
+.quitBtns {
+  background-color: #F1EEEA;
+  color: #FC5555;
+  border-radius: 40px;
+  border-width: 0px;
+  font-size: 14px;
+  width: 176px;
+  height: 45px;
+  padding: 12px 24px 12px 24px;
+}
