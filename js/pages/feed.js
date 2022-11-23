@@ -13,6 +13,7 @@ import {
   authService
 } from "../firebase.js";
 
+
 export const save_comment = async (event) => {
   event.preventDefault();
   const comment = document.getElementById("comment");
@@ -139,4 +140,11 @@ export const getCommentList = async () => {
     div.innerHTML = temp_html;
     commnetList.appendChild(div);
   });
+
+
+
+let today = new Date().toDateString();   
+
+const tmp  = document.getElementById('today_date')
+tmp.innerText = `${today}`
 };
