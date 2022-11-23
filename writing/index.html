@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="./style.css">
 
 </head>
@@ -24,13 +27,22 @@
             <div class="wr_head">
                 <!-- 앨범 이미지 가져오기 -->
                 <div class="upload_cov">
-                    <input id="cov_image" type="file" class="upload_file" accept="image/png,image/jpeg" name="cover" />
+                    <label for="cov_image">
+                        <div class="upload_disc">
+                            <div class="camera"></div>
+                            <p class="upload_text">사진을 추가하세요.</p>
+                        </div>
+                        <input id="cov_image" type="file" class="upload_file" accept="image/png,image/jpeg"
+                            name="cover" />
+                    </label>
                 </div>
                 <!-- 아티스트 / 곡 / 감정 입력 -->
                 <div class="head_r_side">
                     <input class="artist_name" type="text" placeholder="아티스트 이름" maxlength="20" required>
 
                     <input class="song_title" type="text" placeholder="곡 이름" maxlength="20" required>
+
+                    <p class="emoji_caption">곡을 들을 때 당신의 기분은?</p>
 
                     <div class="emoji_group">
 
@@ -85,21 +97,25 @@
             <!-- 3. 제목 / 해시태그 / 본문 글쓰기 -->
             <div class="wr_body">
                 <input class="wr_body_title" type="text" placeholder="제목을 입력하세요.">
-                <br>
                 <!-- 해쉬태그 / 입력창 -->
-                <div class="hash_container">
-                    <div class="hash">태그입력</div>
-                    <div class="hash">최대3개</div>
-                    <div class="hash">4글자</div>
-                    <input class="hash_input" type="text" placeholder="태그를 입력하세요">
+                <div class="hash_mkr">
+                    <div class="hash_container">
+                        <div class="hash">#태그입력</div>
+                        <div class="hash">#최대3개</div>
+                        <div class="hash">#4글자</div>
+                    </div>
+                    <div>
+                        <input class="hash_input" type="text" placeholder="태그를 입력하세요">
+                    </div>
                 </div>
-                <br>
                 <textarea class="body_text" id="W_text" name="" placeholder="당신의 아티스트와 곡을 마음껏 자랑해주세요!"></textarea>
             </div>
             <!-- 4. 업로드 / 작성취소 버튼 -->
-            <div class="wr_foot" class="Btns_wrap">
-                <button class="selectBtns" type="submit">업로드 하기</button>
-                <button class="quitBtns" type="reset">작성취소</button>
+            <div class="wr_foot">
+                <div class="Btns_wrap">
+                    <button class="selectBtns" type="submit">업로드 하기</button>
+                    <button class="quitBtns" type="reset">작성취소</button>
+                </div>
             </div>
         </div>
     </div>
