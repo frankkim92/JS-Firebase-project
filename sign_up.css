@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(88, 86, 86, 0.7);
+    background-size: cover;
+}
+
+body::before {
+    content: "";
+    position: absolute; z-index: 1;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(42, 41, 41, 0.7);
+}
+
+.login-form {    
+    display: fixed; 
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 20px 40px 0px;
+    gap: 20px;
+
+    width: 300px;
+    height: 340px;
+    left: 0px;
+    top: 0px;
+
+    background: #FFFFFF;
+
+    box-shadow: 0px 4px 8px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 30px;
+    text-align: center;
+    position: relative; z-index: 2;}
+
+.btn-close {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 86.34%;
+    right: 8.33%;
+    top: 6.33%;
+    bottom: 23.33%;
+    border: none;
+    border-radius: 10px;
+    background: #292D32;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.btn-close:hover {
+    background-color: #9664FF;
+    transition: 0.3s;
+    box-shadow: 0px 0px 1px 1px #b393f8;
+}
+
+.login-form h2 {
+    padding: 12px 20px 0px 30px;
+    font-size: 23px; color: #292929;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 0px;
+}
+.int-area {    
+    width: 250px; position: relative;
+    margin-top: 15px;
+    left: 25px;
+}
+.email {
+    font-size: 14px;
+    font-weight: 300;
+}
+.int-area input {
+    width: 100%;
+    padding: 20px 10px 3px;
+    background-color: #FFF;
+    border: none;
+    border-bottom: 1px solid #9664FF;
+    font-size: 13px; color: rgba(62, 60, 60, 0.7);
+    outline: none;
+}
+.int-area label {
+    position: absolute; left: 10px; top: 15px;
+    font-size: 10px; color: #909090;
+    transition: all .5s ease;
+}
+.int-area label.warning {
+    color: #9664FF; !important;
+    animation: warning .3s ease;
+    animation-iteration-count: 3;
+}
+@keyframes warning {
+    0% {transform: translateX(-8px);} 
+    25% {transform: translateX(8px);}
+    50% {transform: translateX(-8px);}
+    75% {transform: translateX(8px);}
+}
+
+
+.btn-area {margin-top: 12px;}
+.btn-area button {
+    position: relative; left: 10px;
+    width: 90%; height: 35px;
+    background: #9664FF;
+    color: #FFF;
+    font-size: 10px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.btn-area button:hover {
+    transition: 0.3s;
+    box-shadow: 0px 0px 1px 1px #b393f8;
+}
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link href="sign_up.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="login-form">  
+            <button type='button' class="btn-close" name="close" id="close" 
+            onClick='window.close()'>x</button>
+        <h2>회원가입</h2>
+        <form action="">
+            <p class="email">Email</p>
+            <div class="int-area">
+                <input type="text" name="id" id="id"
+                autocomplete="off" required>
+                <label for="id">E-MAIL</label>
+            </div>
+
+            <div class="int-area">
+                <input type="password" name="pw" id="pw"
+                autocomplete="off" required>
+                <label for="pw">PASSWORD</label>
+            </div>
+
+
+            <div class="int-area">
+                <input type="password" name="pw" id="pw"
+                autocomplete="off" required>
+                <label for="pw">비밀번호 확인</label>
+            </div>
+
+            <div class="btn-area">
+                <button type="submit">완료</button>
+            </div>
+        </form>
+    </section> 
+
+    <script>
+        let id = $('#id');
+        let pw = $('#pw');
+        let btn = $('#btn');
+
+        $(btn).on('click', function() {
+            if($(id).val() == "") {
+                $(id).next('label').addClass('warning');
+                setTimeout(function() {
+                    $('label').removeClass('warning')
+                },1500);
+            }
+            else if($(pw).val() == "") {
+                $(pw).next('label').addClass('warning');
+            }
+        });
+    </script>
+
+</body>
+</html>
