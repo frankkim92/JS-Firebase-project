@@ -45,6 +45,7 @@ window.logout = logout;
 window.onFileChange = onFileChange;
 window.imageRemove = imageRemove;
 window.tagWrite = tagWrite;
+
 window.changeProfile = changeProfile;
 window.save_comment = save_comment;
 window.update_comment = update_comment;

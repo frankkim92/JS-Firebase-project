@@ -1,18 +1,26 @@
 import {
   authService,
-  storageService
+  storageService,
+  dbService,
 } from "../firebase.js";
 import {
   ref,
   uploadString,
   getDownloadURL,
+ 
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
+import{
+  addDoc,
+  collection
+}from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 import {
   updateProfile
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 import {
   v4 as uuidv4
 } from "https://jspm.dev/uuid";
+
+
 
 export const changeProfile = async (event) => {
   // event.preventDefault();
@@ -35,8 +43,6 @@ export const changeProfile = async (event) => {
     console.log('response', response)
     downloadUrl = await getDownloadURL(response.ref);
   }
-
-  tagWrite()
   await updateProfile(authService.currentUser, {
       displayName: newNickname ? newNickname : null,
       photoURL: downloadUrl ? downloadUrl : null,
@@ -50,7 +56,26 @@ export const changeProfile = async (event) => {
       alert("프로필 수정 실패");
       console.log("error:", error);
     });
-   
+    let tagList = []
+    const tagTexts = document.querySelectorAll('.tagView')
+    const introInput = document.getElementById("intro_txt");
+    tagTexts.forEach((tag)=>{
+      console.log(tag)
+      const newTag= tag.textContent.substring(2,tag.textContent.length - 1)
+      tagList.push(newTag);
+    })
+
+    console.log(tagTexts, introInput.value)
+    try {
+      await addDoc(collection(dbService, "infor"), {
+        tagInput:tagList,
+        introTxt: introInput.value,
+      });
+     
+    } catch (error) {
+      alert(error);
+      console.log("error in addDoc:", error);
+    }
 };
 
 
@@ -98,6 +123,4 @@ export const tagWrite = (event) => {
     return false
   }
 
-  ㅠ
 }
-

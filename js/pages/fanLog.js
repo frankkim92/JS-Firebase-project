@@ -19,8 +19,9 @@ export const save_comment = async (event) => {
   const {
     uid,
     photoURL,
-    displayName
+    displayName,
   } = authService.currentUser;
+  console.log(authService.currentUser)
   try {
     await addDoc(collection(dbService, "comments"), {
       text: comment.value,
