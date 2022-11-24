@@ -178,6 +178,7 @@ input:checked+.emoji_btns {
   border: none;
   margin-bottom: 18px;
   outline: none;
+  width: 100%;
 }
 
 .wr_body_title::placeholder {

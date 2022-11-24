@@ -17,17 +17,17 @@
       </form>
       <!-- 아티스트 / 곡 / 감정 입력 -->
       <div class="head_r_side">
-        <input id="artistName" class="artist_name" type="text" placeholder="아티스트 이름" maxlength="20" required>
+        <input class="artist_name" type="text" placeholder="아티스트 이름" maxlength="20" required>
 
-        <input id="songName" class="song_title" type="text" placeholder="곡 이름" maxlength="20" required>
+        <input class="song_title" type="text" placeholder="곡 이름" maxlength="20" required>
 
         <p class="emoji_caption">곡을 들을 때 당신의 기분은?</p>
 
-        <form id class="emoji_group">
+        <div class="emoji_group">
 
           <div class="emoji_container">
-            <label for="emojiHappy">
-              <input onclick="selectEmoji(event)" id="emojiHappy" type="radio" name="emoji" value="Happy">
+            <label for="emoji_Happy">
+              <input id="emoji_Happy" type="radio" name="emoji" value="Happy">
               <div class="emoji_btns">
                 <img src="./image/happy.png">
               </div>
@@ -35,8 +35,8 @@
           </div>
 
           <div class="emoji_container">
-            <label for="emojiSad">
-              <input onclick="selectEmoji(event)" id="emojiSad" type="radio" name="emoji" value="Sad">
+            <label for="emoji_Sad">
+              <input id="emoji_Sad" type="radio" name="emoji" value="Sad">
               <div class="emoji_btns">
                 <img src="./image/sad.png">
               </div>
@@ -45,8 +45,8 @@
 
 
           <div class="emoji_container">
-            <label for="emojiChill">
-              <input onclick="selectEmoji(event)" id="emojiChill" type="radio" name="emoji" value="Chill">
+            <label for="emoji_Chill">
+              <input id="emoji_Chill" type="radio" name="emoji" value="Chill">
               <div class="emoji_btns">
                 <img src="./image/chill.png">
               </div>
@@ -54,8 +54,8 @@
           </div>
 
           <div class="emoji_container">
-            <label for="emojiExcited">
-              <input onclick="selectEmoji(event)" id="emojiExcited" type="radio" name="emoji" value="Excited">
+            <label for="emoji_Excited">
+              <input id="emoji_Excited" type="radio" name="emoji" value="Excited">
               <div class="emoji_btns">
                 <img src="./image/excited.png">
               </div>
@@ -63,20 +63,19 @@
           </div>
 
           <div class="emoji_container">
-            <label for="emojiTouched">
-              <input onclick="selectEmoji(event)" id="emojiTouched" type="radio" name="emoji" value="Touched">
+            <label for="emoji_Touched">
+              <input id="emoji_Touched" type="radio" name="emoji" value="Touched">
               <div class="emoji_btns">
                 <img src="./image/touched.png">
               </div>
             </label>
           </div>
-
-        </form>
+        </div>
       </div>
     </div>
     <!-- 3. 제목 / 해시태그 / 본문 글쓰기 -->
     <div class="wr_body">
-      <input id="title" class="wr_body_title" type="text" placeholder="제목을 입력하세요.">
+      <input class="wr_body_title" type="text" placeholder="제목을 입력하세요.">
       <!-- 해쉬태그 / 입력창 -->
       <div class="hash_mkr">
         <div class="hash_container">
@@ -85,15 +84,15 @@
           <div class="hash">#4글자</div>
         </div>
         <div>
-          <input id="hashTag" class="hash_input" type="text" placeholder="태그를 입력하세요">
+          <input class="hash_input" type="text" placeholder="태그를 입력하세요">
         </div>
       </div>
-      <textarea id="bodyText" class="body_text" name="" placeholder="당신의 아티스트와 곡을 마음껏 자랑해주세요!"></textarea>
+      <textarea class="body_text" id="W_text" name="" placeholder="당신의 아티스트와 곡을 마음껏 자랑해주세요!"></textarea>
     </div>
     <!-- 4. 업로드 / 작성취소 버튼 -->
     <div class="wr_foot">
       <div class="Btns_wrap">
-        <button onclick="save_writing(event)" id="writeBtn" type="button">업로드 하기</button>
+        <button id="writeBtn" type="submit">업로드 하기</button>
         <button id="quitBtn" type="reset">작성취소</button>
       </div>
     </div>
