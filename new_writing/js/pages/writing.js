@@ -4,8 +4,14 @@ import {
   uploadString,
   getDownloadURL,
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
-import { updateWrite } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+// import { updateWrite } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
+
+const storage = firebase.storage();
+
+var storageRef = storage.ref();
+var 저장할경로 = storageRef.child('image/' + '파일명');
+var 업로드작업 = 저장할경로.put(업로드한 파일 JS로 찾은거)
 
 export const changeWrite = async (event) => {
   event.preventDefault();
@@ -44,11 +50,12 @@ export const changeWrite = async (event) => {
 export const onCoverChange = (event) => {
   const theCover = event.target.files[0]; // file 객체
   const reader = new FileReader();
+  console.log(theCover);
   reader.readAsDataURL(theCover); // file 객체를 브라우저가 읽을 수 있는 data URL로 읽음.
   reader.onloadend = (finishedEvent) => {
     // 파일리더가 파일객체를 data URL로 변환 작업을 끝났을 때
     const imgDataUrl = finishedEvent.currentTarget.result;
     localStorage.setItem("imgDataUrl", imgDataUrl);
-    document.getElementById("profileView").src = imgDataUrl;
+    document.getElementById("coverView").src = imgDataUrl;
   };
 };
