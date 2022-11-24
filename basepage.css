@@ -68,11 +68,11 @@ header {
   margin: 0px;
   z-index: 1px;
 }
-/* .login {
+.login {
   display: flex;
   flex-direction: column;
   align-items: center;
-} */
+}
 .login:hover .dropdown-menu {
   display: flex;
   flex-direction: column;
