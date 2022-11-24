@@ -9,15 +9,12 @@
     <!-- 2. 사진 가져오기 / 아티스트 입력 / 곡 입력 / 기분 선택 -->
     <div class="wr_head">
       <!-- 앨범 이미지 가져오기 -->
-      <div class="upload_cov">
-        <label for="cov_image">
-          <div class="upload_disc">
-            <div class="camera"></div>
-            <p class="upload_text">사진을 추가하세요.</p>
-          </div>
-          <input id="cov_image" type="file" class="upload_file" accept="image/png,image/jpeg" name="cover" />
+      <form id="coverForm" onsubmit="changeWrite(event)" class="upload_cov">
+        <label for="coverInput">
+          <img id="coverView" src="/image/select_file.png" />
+          <input onchange="onCoverChange(event)" id="coverInput" type="file" class="upload_file" accept="image/*" />
         </label>
-      </div>
+      </form>
       <!-- 아티스트 / 곡 / 감정 입력 -->
       <div class="head_r_side">
         <input class="artist_name" type="text" placeholder="아티스트 이름" maxlength="20" required>
@@ -95,8 +92,8 @@
     <!-- 4. 업로드 / 작성취소 버튼 -->
     <div class="wr_foot">
       <div class="Btns_wrap">
-        <button class="selectBtns" type="submit">업로드 하기</button>
-        <button class="quitBtns" type="reset">작성취소</button>
+        <button id="writeBtn" type="submit">업로드 하기</button>
+        <button id="quitBtn" type="reset">작성취소</button>
       </div>
     </div>
   </div>
