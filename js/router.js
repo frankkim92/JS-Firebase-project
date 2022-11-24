@@ -6,7 +6,7 @@ const routes = {
   "/": "/pages/auth.html",
   fanLog: "/pages/fanLog.html",
   feed: "/pages/feed.html",
-  // profile: "/pages/profile.html",
+  profile: "/pages/profile.html",
   profileModify: "/pages/profilemodify.html",
 };
 import { getCommentList } from "./pages/feed.js";

@@ -20,10 +20,10 @@
     </div>
 
     <div class="profileModify">
-      <form id="profileForm" >
+      <form id="profileForm">
         <div class="profile-main">
           <input id="profileNickname" class="profileNickname tit_20" type="text" placeholder="현재 닉네임" value="" />
-          <span id="profileBtn" onsubmit="changeProfile(event)">완료</span>
+          <span id="profileBtn" onclick="changeProfile(event)">완료</ㄴ>
         </div>
       </form>
       <div class="hashtag">
@@ -34,11 +34,11 @@
         </div>
         <div id="tag-list" class="tag_list"></div>
       </div>
-      <div class="intro_my">
-        <input id="intro_input" onchange="introInput(event)" class="profile-self" type="text" placeholder="당신에 대한 간단한 한 줄 소개를 적어주세요.(30자 이내)" value=""  maxlength="30"/>
+      <div class="profile-hash" style="display: none">
+       
       </div>
-      <div class="intro_my_View">
-        
+      <div class="intro">
+        <input class="profile-self" type="text" placeholder="당신에 대한 간단한 한 줄 소개를 적어주세요.(30자 이내)"/>
       </div>
     </div>
   </div>

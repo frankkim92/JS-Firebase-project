@@ -145,6 +145,9 @@ export const getCommentList = async () => {
 
 let today = new Date().toDateString();   
 
+
 const tmp  = document.getElementById('today_date')
 tmp.innerText = `${today}`
+console.log(tmp)
+
 };

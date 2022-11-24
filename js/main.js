@@ -1,15 +1,9 @@
 import { handleAuth, onToggle, logout } from "./pages/auth.js";
 // import { changeProfile, onFileChange } from "./pages/profile.js";
-import { changeProfile, onFileChange, imageRemove,tagWrite, introInput} from "./pages/profilemodify.js";
+import { changeProfile, onFileChange, imageRemove,tagWrite} from "./pages/profilemodify.js";
 import { socialLogin } from "./pages/auth.js";
 import { handleLocation, goToProfile } from "./router.js";
 import { authService } from "./firebase.js";
-// import {
-//   save_comment,
-//   update_comment,
-//   onEditing,
-//   delete_comment,
-// } from "./pages/fanLog.js";
 import {
   save_comment,
   update_comment,
@@ -51,7 +45,6 @@ window.logout = logout;
 window.onFileChange = onFileChange;
 window.imageRemove = imageRemove;
 window.tagWrite = tagWrite;
-window.introInput = introInput;
 window.changeProfile = changeProfile;
 window.save_comment = save_comment;
 window.update_comment = update_comment;

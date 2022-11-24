@@ -36,11 +36,12 @@ export const changeProfile = async (event) => {
     downloadUrl = await getDownloadURL(response.ref);
   }
 
+  tagWrite()
   await updateProfile(authService.currentUser, {
       displayName: newNickname ? newNickname : null,
       photoURL: downloadUrl ? downloadUrl : null,
     })
-  
+    // tagWrite()
     .then(() => {
       alert("프로필 수정 완료");
       window.location.hash = "#style";
@@ -61,7 +62,6 @@ export const onFileChange = (event) => {
   reader.onloadend = (finishedEvent) => {
     // 파일리더가 파일객체를 data URL로 변환 작업을 끝났을 때
     const imgDataUrl = finishedEvent.currentTarget.result;
-    console.log('imgDataUrl:', imgDataUrl)
     localStorage.setItem("imgDataUrl", imgDataUrl);
     document.getElementById("profileView").src = imgDataUrl;
   };
@@ -74,6 +74,7 @@ export const imageRemove = async (event) => {
 }
 
 export const tagWrite = (event) => {
+
   const tagInput = document.getElementById("tagName");
   const tagInputValue = tagInput.value;
   const tagList  = document.getElementById("tag-list")
@@ -87,7 +88,6 @@ export const tagWrite = (event) => {
   }
 
   tagText.addEventListener('click', removeTag)
-  // localStorage.setItem('tagInputValue',tagInputValue)
 
   if(tagInputValue.keyCode == 13){
     tagList.appendChild(tagText)
@@ -97,12 +97,7 @@ export const tagWrite = (event) => {
   }else{
     return false
   }
+
+  ㅠ
 }
 
-export const introInput = (event) => {
-  const intro_input = document.getElementById('intro_input');
-  const intro_Value = intro_input.value;
-  console.log(intro_Value)
-
-
-}
