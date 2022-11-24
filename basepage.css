@@ -23,7 +23,7 @@ header {
   /* background-color: #f6f4f1; */
   /* padding: 0px; */
 }
-. o {
+.login {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -81,6 +81,11 @@ header {
 }
 .dropdown-menu a:hover {
   color: #9664ff;
+}
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 h1 {
