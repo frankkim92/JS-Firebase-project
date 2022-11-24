@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="box">
+    <div>
+      <h2 class="profile-header">내 프로필 수정</h2>
+    </div>
+
+    <div class="profile-second">
+      <img src="../img/몽자.jpeg" class="profile-img1" />
+      <img src="../img/noimage.jpeg" class="profile-img2" style="display: none" />
+    </div>
+
+    <div class="profile-third">
+      <button onclick="이미지제거()" class="btn-delete">이미지 제거</button>
+      <input type="file" id="file" />
+      <button class="btn-modify"  >
+        <input onchange="onFileChange(event)" id="imgInput" type="file" accept="images/*" />
+        <label for="file" id="uploadBtn">이미지 수정
+        </label>
+      </button>
+    </div>
+    <div class="profile-main">
+      <p style="color: gray">닉네임</p>
+      <span>완료</span>
+    </div>
+    <div class="hashtag">
+      <input type="text" id="tag" size="20" placeholder="#태그입력" />
+      <ul id="tag-list"></ul>
+    </div>
+    <div class="profile-hash" style="display: none">
+      <span class="tag1">#태그입력</span>
+      <span class="tag2">#콘솔로그</span>
+      <span class="tag3">#디버깅</span>
+    </div>
+
+    <form>
+      <div class="profile-bottom">
+        <div>
+          당신에 대한 간단한 한 줄 소개를 적어주세요.(30자 이내)<i></i>
+        </div>
+      </div>
+
+      <input class="profile-self" type="text>" />
+      <i class="fa-regular fa-paper-plane"></i>
+    </form>
+  </div>
+</div>
