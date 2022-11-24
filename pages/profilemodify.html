@@ -1,46 +1,46 @@
 <div class="container">
-  <div class="box">
-    <div>
-      <h2 class="profile-header">내 프로필 수정</h2>
+  <div class="main_right">
+    <div class="tit_wrap">
+      <h2 class="main_tit">내 프로필 수정</h2>
     </div>
-
-    <div class="profile-second">
-      <img src="../img/몽자.jpeg" class="profile-img1" />
-      <img src="../img/noimage.jpeg" class="profile-img2" style="display: none" />
+  <div class="profile_wrap">
+    <div class="profile-second img profile_large">
+      <img id="profileView" src="/assets/blankProfile.webp" />
     </div>
 
     <div class="profile-third">
-      <button onclick="이미지제거()" class="btn-delete">이미지 제거</button>
+      <button onclick="imageRemove(event)" class="btn btn_small btn_secondary">이미지 제거</button>
       <input type="file" id="file" />
-      <button class="btn-modify"  >
-        <input onchange="onFileChange(event)" id="imgInput" type="file" accept="images/*" />
-        <label for="file" id="uploadBtn">이미지 수정
+      <button class="btn btn_small btn_default">
+        <label for="imgInput">
+          이미지 수정
+          <input onchange="onFileChange(event)" id="imgInput" type="file" accept="images/*" />
         </label>
       </button>
     </div>
-    <div class="profile-main">
-      <p style="color: gray">닉네임</p>
-      <span>완료</span>
-    </div>
-    <div class="hashtag">
-      <input type="text" id="tag" size="20" placeholder="#태그입력" />
-      <ul id="tag-list"></ul>
-    </div>
-    <div class="profile-hash" style="display: none">
-      <span class="tag1">#태그입력</span>
-      <span class="tag2">#콘솔로그</span>
-      <span class="tag3">#디버깅</span>
-    </div>
 
-    <form>
-      <div class="profile-bottom">
-        <div>
-          당신에 대한 간단한 한 줄 소개를 적어주세요.(30자 이내)<i></i>
+    <div class="profileModify">
+      <form id="profileForm" >
+        <div class="profile-main">
+          <input id="profileNickname" class="profileNickname tit_20" type="text" placeholder="현재 닉네임" value="" />
+          <span id="profileBtn" onsubmit="changeProfile(event)">완료</span>
         </div>
+      </form>
+      <div class="hashtag">
+        <div  class="tag_title">
+          <input type="text" class="tagWrite" id="tagName" value="" placeholder="#태그입력" onchange="tagWrite(event)"
+            maxlength="4" />
+          <span>최대 4글자</span>
+        </div>
+        <div id="tag-list" class="tag_list"></div>
       </div>
-
-      <input class="profile-self" type="text>" />
-      <i class="fa-regular fa-paper-plane"></i>
-    </form>
+      <div class="intro_my">
+        <input id="intro_input" onchange="introInput(event)" class="profile-self" type="text" placeholder="당신에 대한 간단한 한 줄 소개를 적어주세요.(30자 이내)" value=""  maxlength="30"/>
+      </div>
+      <div class="intro_my_View">
+        
+      </div>
+    </div>
+  </div>
   </div>
 </div>

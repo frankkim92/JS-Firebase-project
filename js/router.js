@@ -6,7 +6,8 @@ const routes = {
   "/": "/pages/auth.html",
   fanLog: "/pages/fanLog.html",
   feed: "/pages/feed.html",
-  profile: "/pages/profile.html",
+  // profile: "/pages/profile.html",
+  profileModify: "/pages/profilemodify.html",
 };
 import { getCommentList } from "./pages/feed.js";
 
@@ -38,7 +39,7 @@ export const handleLocation = async () => {
 
     getCommentList();
   }
-  if (path === "profile") {
+  if (path === "profileModify") {
     // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
     document.getElementById("profileView").src =
       authService.currentUser.photoURL ?? "/assets/blankProfile.webp";

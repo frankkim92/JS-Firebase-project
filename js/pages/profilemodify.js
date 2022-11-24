@@ -15,7 +15,10 @@ import {
 } from "https://jspm.dev/uuid";
 
 export const changeProfile = async (event) => {
-  event.preventDefault();
+  // event.preventDefault();
+  if (event.code === "Enter") {
+    event.preventDefault();
+}
   document.getElementById("profileBtn").disabled = true;
   const imgRef = ref(
     storageService,
@@ -23,6 +26,7 @@ export const changeProfile = async (event) => {
   );
 
   const newNickname = document.getElementById("profileNickname").value;
+
   // 프로필 이미지 dataUrl을 Storage에 업로드 후 다운로드 링크를 받아서 photoURL에 저장.
   const imgDataUrl = localStorage.getItem("imgDataUrl");
   let downloadUrl;
@@ -31,24 +35,23 @@ export const changeProfile = async (event) => {
     console.log('response', response)
     downloadUrl = await getDownloadURL(response.ref);
   }
+
   await updateProfile(authService.currentUser, {
       displayName: newNickname ? newNickname : null,
       photoURL: downloadUrl ? downloadUrl : null,
     })
+  
     .then(() => {
       alert("프로필 수정 완료");
-      window.location.hash = "#fanLog";
+      window.location.hash = "#style";
     })
     .catch((error) => {
       alert("프로필 수정 실패");
       console.log("error:", error);
     });
+   
 };
 
-export const imageRemove = async (event) => {
-  const img = document.querySelector('#profileView');
-  img.setAttribute('src', "/assets/blankProfile.webp");
-}
 
 export const onFileChange = (event) => {
   console.log('event.taret.files:', event.target.files)
@@ -65,4 +68,41 @@ export const onFileChange = (event) => {
 };
 
 
+export const imageRemove = async (event) => {
+  const img = document.querySelector('#profileView');
+  img.setAttribute('src', "/assets/blankProfile.webp");
+}
 
+export const tagWrite = (event) => {
+  const tagInput = document.getElementById("tagName");
+  const tagInputValue = tagInput.value;
+  const tagList  = document.getElementById("tag-list")
+  const tagText = document.createElement("p");
+  tagText.textContent = `# ${tagInputValue} x`;
+  tagInput.value = ''
+  tagText.classList.add("tagView");
+
+  const removeTag = () =>{
+    tagList.removeChild(tagText)
+  }
+
+  tagText.addEventListener('click', removeTag)
+  // localStorage.setItem('tagInputValue',tagInputValue)
+
+  if(tagInputValue.keyCode == 13){
+    tagList.appendChild(tagText)
+  }
+  if(tagList.childElementCount <= 2){
+    tagList.appendChild(tagText)
+  }else{
+    return false
+  }
+}
+
+export const introInput = (event) => {
+  const intro_input = document.getElementById('intro_input');
+  const intro_Value = intro_input.value;
+  console.log(intro_Value)
+
+
+}

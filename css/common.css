@@ -3,6 +3,7 @@
 /* Noto sans font */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 @import url(feed.css);
+@import url(profilemodify.css);
 
 /* css 기본변수 */
 :root {
@@ -239,4 +240,12 @@ body {
 /* color */
 .co_gray {
   color: var(--color-gray-dark);
+}
+
+
+.main_right {
+  width: 40%;
+  min-width: 434px;
+  background: var(--color-white);
+  border-radius: var(--border-large) var(--border-large) 0 0;
 }

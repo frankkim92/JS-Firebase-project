@@ -1,5 +1,6 @@
 import { handleAuth, onToggle, logout } from "./pages/auth.js";
-import { changeProfile, onFileChange } from "./pages/profile.js";
+// import { changeProfile, onFileChange } from "./pages/profile.js";
+import { changeProfile, onFileChange, imageRemove,tagWrite, introInput} from "./pages/profilemodify.js";
 import { socialLogin } from "./pages/auth.js";
 import { handleLocation, goToProfile } from "./router.js";
 import { authService } from "./firebase.js";
@@ -48,6 +49,9 @@ window.goToProfile = goToProfile;
 window.socialLogin = socialLogin;
 window.logout = logout;
 window.onFileChange = onFileChange;
+window.imageRemove = imageRemove;
+window.tagWrite = tagWrite;
+window.introInput = introInput;
 window.changeProfile = changeProfile;
 window.save_comment = save_comment;
 window.update_comment = update_comment;

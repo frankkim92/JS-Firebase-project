@@ -30,6 +30,9 @@
 .box2:hover {
   box-shadow: 5px 5px 5px 5px black;
 }
+.profile_wrap{
+  padding:24px;
+}
 
 /* 내 프로필 수정 */
 .profile-header {
@@ -98,12 +101,15 @@
 }
 
 .profile-main {
+  width: 100%;
   margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
+.profileNickname{
+  border:none;
+}
 .profile-main p,
 .profile-bottom p {
   font-size: 24px;
@@ -116,6 +122,7 @@
   color: gray;
   text-decoration-line: underline;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .profile-hash {
@@ -123,21 +130,12 @@
   text-align: left;
 }
 
-.tag1,
-.tag2,
-.tag3 {
-  width: 50px;
-  height: 50px;
-  background-color: #eee;
-  color: #9664ff;
-  border-radius: 15px;
-  padding: 10px;
-  margin-left: 10px;
-  font-size: 15px;
-}
 
-.profile-bottom {
-  margin-top: 50px;
+.intro_my {
+  padding:24px 0;
+}
+.intro_my > input{
+  border:none
 }
 
 .profile-bottom div {
@@ -305,21 +303,6 @@
   color: black;
 }
 
-/* 해시태그 */
-ul {
-  padding: 32px;
-}
-
-ul li {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 14px;
-  letter-spacing: -0.5px;
-}
-
-form {
-  padding-top: 16px;
-}
 
 ul li.tag-item {
   padding: 4px 8px;
@@ -344,19 +327,40 @@ ul li.tag-item {
   margin-left: 8px;
 }
 
-#tag {
-  border: none;
-  border-bottom: 0.5px solid cornflowerblue;
-  padding: 5px;
-  transition: all ease-in-out;
-}
-
-#tag:hover {
-  border-bottom: 2px solid #9664ff;
-}
 
 .hashtag {
-  text-align: left;
-  margin-top: 30px;
-  margin-left: 5px;
+  width: 100%;
+  margin-top: 16px;
+}  
+.tag_title{
+  width: 100%;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.tag_list{
+  display: flex;
+  justify-content: flex-start;
+  gap:4px;
+  width:calc(100% - 50px)
+}
+.tagWrite{
+  border:none;
+  max-width: 50px;
+  border-radius:15px ;
+  padding:4px 8px;
+  background-color: var(--color-dark-beige);
+  font-size: var(--font-small);
+}
+.tagView{
+  cursor: pointer;
+  background-color:var(--color-dark-beige);
+  color: #9664ff;
+  border-radius: 15px;
+  padding: 4px 8px;  
+  font-size: var(--font-small);
+  white-space: nowrap;
 }

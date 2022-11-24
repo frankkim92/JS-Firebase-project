@@ -1,10 +1,4 @@
 
-.main_right {
-  width: 40%;
-  min-width: 434px;
-  background: var(--color-white);
-  border-radius: var(--border-large) var(--border-large) 0 0;
-}
 .con_top {
   position: relative;
   padding:0 24px
