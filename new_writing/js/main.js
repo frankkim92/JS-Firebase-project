@@ -54,6 +54,5 @@ window.update_comment = update_comment;
 window.onEditing = onEditing;
 window.delete_comment = delete_comment;
 window.onCoverChange = onCoverChange;
-// window.changeWrite = changeWrite;
 window.selectEmoji = selectEmoji;
 window.save_writing = save_writing;
