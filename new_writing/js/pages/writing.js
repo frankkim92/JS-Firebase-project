@@ -77,8 +77,8 @@ export const save_writing = async (event) => {
     title.value = "";
     hashTag.value = "";
     bodyText.value = "";
-    // 지워주기
-    getPostList();
+    // 지워주기 >>> 맞는지 확인, 업로드하면 상세페이지로 전환되니까 필요없나?
+    // getPostList();
   } catch (error) {
     alert(error);
     console.log("error in addDoc:", error);

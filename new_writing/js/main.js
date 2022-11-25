@@ -1,7 +1,7 @@
 import { handleAuth, onToggle, logout } from "./pages/auth.js";
 import { changeProfile, onFileChange } from "./pages/profile.js";
 import { selectEmoji, save_writing, onCoverChange } from "./pages/writing.js";
-import { getPostList } from "./pages/main.js";
+import { getPostList } from "./pages/mainpage.js";
 import { socialLogin } from "./pages/auth.js";
 import { handleLocation, goToProfile, route } from "./router.js";
 import { authService } from "./firebase.js";

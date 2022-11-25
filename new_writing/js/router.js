@@ -11,7 +11,7 @@ const routes = {
   fanLog: "/pages/fanLog.html",
   profile: "/pages/profile.html",
   writing: "/pages/writing.html",
-  main: "/pages/main.html",
+  mainpage: "/pages/mainpage.html",
 };
 
 import { getCommentList } from "./pages/fanLog.js";
