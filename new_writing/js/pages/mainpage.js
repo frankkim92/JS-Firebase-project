@@ -63,7 +63,11 @@ export const getPostList = async () => {
           <p class="card-p">by</p>
           <p class="card-p">${postObj.nickname ?? "닉네임 없음"}</p>
         </div>
-        <p class="card-p">${new Date(postObj.createdAt)}</p>
+        <p class="card-p">${new Date(postObj.createdAt)
+          .toString()
+          .slice(0, 4)}, ${new Date(postObj.createdAt)
+      .toString()
+      .slice(4, 8)}</p>
       </div>
     </div>
   </div>`;

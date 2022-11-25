@@ -7,7 +7,7 @@ font-face {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: #2e97f3;
+  background-color: #cfbdff;
 }
 
 .header {
@@ -109,7 +109,7 @@ h2 {
 .home,
 .music,
 .post {
-  background: url("assets/sprite_img.svg") no-repeat;
+  background: url("../assets/sprite_img.svg") no-repeat;
   margin: 5px;
 }
 
