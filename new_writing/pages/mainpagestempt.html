@@ -1,19 +1,19 @@
+<!-- ${postObj.id} 적용 안한거 설명 쓴 버전 -->
 <div class="card">
   <div class="card-head">
-    <img src="assets/Photo.svg" />
+    <img src="${postObj.coverInput}" />
   </div>
   <div class="card-body-wrapper">
     <div class="card-body-head">
       <h3 class="post-title">
-        용기가 필요할 땐 이 노래를..용기가 필요할 땐 이 노래를..용기가
-        필요할 땐 이 노래를..
+        ${postObj.title}
       </h3>
       <div class="post-emoji">
         <img src="./image/happy.png">
       </div>
     </div>
     <p class="body-text">
-      뭐든 될 수 있을거야 듣고 진짜.. 광광 울었어요. 힘든 날 힘이되는 노래... 맨날 이것만 들어요.. 다들 한 번만 들어주세요.
+      ${postObj.bodyText}
 
     </p>
     <div class="tag">
@@ -23,11 +23,46 @@
     </div>
     <div class="card-footer-wrapper">
       <div class="card-user">
-        <img src="assets/image 44.svg" class="footer-img" />
+        <img src="${postObj.profileImg}" class="footer-img" />
         <p class="card-p">by</p>
-        <p class="card-p">${name}</p>
+        <p class="card-p">${postObj.nickname ?? "닉네임 없음"}</p>
       </div>
-      <p class="card-p">${date}</p>
+      <p class="card-p">${new Date(postObj.createdAt)</p>
+      <!-- <p id="${postObj.id}" class="noDisplay"><input class="newCmtInput" type="text" maxlength="30" /><button class="updateBtn" onclick="update_comment(event)">완료</button></p> -->
+    </div>
+  </div>
+</div>
+
+<!-- 사용한 버전 -->
+<div class="card">
+  <div class="card-head">
+    <img src="${postObj.coverInput}" />
+  </div>
+  <div class="card-body-wrapper">
+    <div class="card-body-head">
+      <h3 class="post-title">
+        ${postObj.title}
+      </h3>
+      <div class="post-emoji">
+        <img src="./image/${postObj.emotion.toLowerCase()}.png">
+      </div>
+    </div>
+    <p class="body-text">
+      ${postObj.bodyText}
+
+    </p>
+    <div class="tag">
+      <button type="button" class="hashtag">#힐링</button>
+      <button type="button" class="hashtag">#사랑</button>
+      <button type="button" class="hashtag">#정우최고</button>
+    </div>
+    <div class="card-footer-wrapper">
+      <div class="card-user">
+        <img src="${postObj.profileImg}" class="footer-img" />
+        <p class="card-p">by</p>
+        <p class="card-p">${postObj.nickname ?? "닉네임 없음"}</p>
+      </div>
+      <p class="card-p">${week}, ${month}</p>
     </div>
   </div>
 </div>

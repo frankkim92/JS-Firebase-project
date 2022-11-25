@@ -1,3 +1,15 @@
+import {
+  doc,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  collection,
+  orderBy,
+  query,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+import { dbService, authService } from "../firebase.js";
+
 export const getPostList = async () => {
   let postObjList = [];
   const q = query(
@@ -13,12 +25,16 @@ export const getPostList = async () => {
     };
     postObjList.push(postObj);
   });
-  const postList = document.getElementById("comment-list"); >> 카드 id로 바꿔야함
+  const postList = document.getElementById("post-list");
   const currentUid = authService.currentUser.uid;
   postList.innerHTML = "";
+  console.log(postObjList);
   // 붙여넣기전 기존것들 다 초기화(삭제)
   postObjList.forEach((postObj) => {
     const isOwner = currentUid === postObj.creatorId;
+    // const str = new Date(postObj.createdAt);
+    // const week = str.textCon
+    // const month = str.split(" ", 2);
     const temp_html = `<div class="card">
     <div class="card-head">
       <img src="${postObj.coverInput}" />
@@ -29,7 +45,7 @@ export const getPostList = async () => {
           ${postObj.title}
         </h3>
         <div class="post-emoji">
-          <img src="./image/happy.png">
+          <img src="./image/${postObj.emotion.toLowerCase()}.png">
         </div>
       </div>
       <p class="body-text">
@@ -51,10 +67,10 @@ export const getPostList = async () => {
       </div>
     </div>
   </div>`;
-    
+
     const div = document.createElement("div");
     div.classList.add("mycards");
     div.innerHTML = temp_html;
-    commnetList.appendChild(div);
+    postList.appendChild(div);
   });
 };

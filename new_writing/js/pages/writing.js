@@ -70,15 +70,16 @@ export const save_writing = async (event) => {
       // window.location.hash = "#fanLog";
     });
 
-    coverInput = null;
-    artistName.value = "";
-    songName.value = "";
-    emojiSelect = null;
-    title.value = "";
-    hashTag.value = "";
-    bodyText.value = "";
+    // coverInput = null;
+    // artistName.value = "";
+    // songName.value = "";
+    // emojiSelect = null;
+    // title.value = "";
+    // hashTag.value = "";
+    // bodyText.value = "";
+
     // 지워주기 >>> 맞는지 확인, 업로드하면 상세페이지로 전환되니까 필요없나?
-    // getPostList();
+    await getPostList(event);
   } catch (error) {
     alert(error);
     console.log("error in addDoc:", error);
