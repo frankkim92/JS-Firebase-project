@@ -1,45 +1,57 @@
 export const getPostList = async () => {
-  let cmtObjList = [];
+  let postObjList = [];
   const q = query(
-    collection(dbService, "comments"),
+    collection(dbService, "Writings"),
     orderBy("createdAt", "desc")
   );
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
-    const commentObj = {
+    // console.log("doc.data():", doc.data());
+    const postObj = {
       id: doc.id,
       ...doc.data(),
     };
-    cmtObjList.push(commentObj);
+    postObjList.push(postObj);
   });
-  const commnetList = document.getElementById("comment-list");
+  const postList = document.getElementById("comment-list"); >> 카드 id로 바꿔야함
   const currentUid = authService.currentUser.uid;
-  commnetList.innerHTML = "";
-  cmtObjList.forEach((cmtObj) => {
-    const isOwner = currentUid === cmtObj.creatorId;
-    const temp_html = `<div class="card commentCard">
-          <div class="card-body">
-              <blockquote class="blockquote mb-0">
-                  <p class="commentText">${cmtObj.text}</p>
-                  <p id="${
-                    cmtObj.id
-                  }" class="noDisplay"><input class="newCmtInput" type="text" maxlength="30" /><button class="updateBtn" onclick="update_comment(event)">완료</button></p>
-                  <footer class="quote-footer"><div>BY&nbsp;&nbsp;<img class="cmtImg" width="50px" height="50px" src="${
-                    cmtObj.profileImg
-                  }" alt="profileImg" /><span>${
-      cmtObj.nickname ?? "닉네임 없음"
-    }</span></div><div class="cmtAt">${new Date(cmtObj.createdAt)
-      .toString()
-      .slice(0, 25)}</div></footer>
-              </blockquote>
-              <div class="${isOwner ? "updateBtns" : "noDisplay"}">
-                   <button onclick="onEditing(event)" class="editBtn btn btn-dark">수정</button>
-                <button name="${
-                  cmtObj.id
-                }" onclick="delete_comment(event)" class="deleteBtn btn btn-dark">삭제</button>
-              </div>            
-            </div>
-     </div>`;
+  postList.innerHTML = "";
+  // 붙여넣기전 기존것들 다 초기화(삭제)
+  postObjList.forEach((postObj) => {
+    const isOwner = currentUid === postObj.creatorId;
+    const temp_html = `<div class="card">
+    <div class="card-head">
+      <img src="${postObj.coverInput}" />
+    </div>
+    <div class="card-body-wrapper">
+      <div class="card-body-head">
+        <h3 class="post-title">
+          ${postObj.title}
+        </h3>
+        <div class="post-emoji">
+          <img src="./image/happy.png">
+        </div>
+      </div>
+      <p class="body-text">
+        ${postObj.bodyText}
+  
+      </p>
+      <div class="tag">
+        <button type="button" class="hashtag">#힐링</button>
+        <button type="button" class="hashtag">#사랑</button>
+        <button type="button" class="hashtag">#정우최고</button>
+      </div>
+      <div class="card-footer-wrapper">
+        <div class="card-user">
+          <img src="${postObj.profileImg}" class="footer-img" />
+          <p class="card-p">by</p>
+          <p class="card-p">${postObj.nickname ?? "닉네임 없음"}</p>
+        </div>
+        <p class="card-p">${new Date(postObj.createdAt)}</p>
+      </div>
+    </div>
+  </div>`;
+    
     const div = document.createElement("div");
     div.classList.add("mycards");
     div.innerHTML = temp_html;
