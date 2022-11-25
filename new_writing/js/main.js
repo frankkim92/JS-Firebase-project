@@ -1,11 +1,7 @@
 import { handleAuth, onToggle, logout } from "./pages/auth.js";
 import { changeProfile, onFileChange } from "./pages/profile.js";
-import {
-  selectEmoji,
-  save_writing,
-  // changeWrite,
-  onCoverChange,
-} from "./pages/writing.js";
+import { selectEmoji, save_writing, onCoverChange } from "./pages/writing.js";
+import { getPostList } from "./pages/main.js";
 import { socialLogin } from "./pages/auth.js";
 import { handleLocation, goToProfile, route } from "./router.js";
 import { authService } from "./firebase.js";
@@ -56,3 +52,4 @@ window.delete_comment = delete_comment;
 window.onCoverChange = onCoverChange;
 window.selectEmoji = selectEmoji;
 window.save_writing = save_writing;
+window.getPostList = getPostList;
