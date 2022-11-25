@@ -10,6 +10,8 @@ const routes = {
   profileModify: "/pages/profilemodify.html",
 };
 import { getCommentList } from "./pages/feed.js";
+import {getProfileList} from "./pages/profile.js";
+
 
 export const handleLocation = async () => {
   let path = window.location.hash.replace("#", "");
@@ -34,7 +36,7 @@ export const handleLocation = async () => {
     document.getElementById("nickname").textContent =
       authService.currentUser.displayName ?? "닉네임 없음";
 
-    document.getElementById("profileImg").src =
+    document.getElementById("commentImg").src =
       authService.currentUser.photoURL ?? "../assets/blankProfile.webp";
 
     getCommentList();
@@ -47,6 +49,14 @@ export const handleLocation = async () => {
       authService.currentUser.displayName ?? "닉네임 없음";
   
   }
+  if (path === "profile") {
+    // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
+    document.getElementById("profileView").src =
+      authService.currentUser.photoURL ?? "/assets/blankProfile.webp";
+      getProfileList()
+    
+  }
+
 };
 
 export const goToProfile = () => {

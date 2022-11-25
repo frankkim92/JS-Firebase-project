@@ -1,52 +1,59 @@
-import { authService, storageService } from "../firebase.js";
 import {
-  ref,
-  uploadString,
-  getDownloadURL,
-} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
-import { updateProfile } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-import { v4 as uuidv4 } from "https://jspm.dev/uuid";
+  dbService,
+} from "../firebase.js";
 
-export const changeProfile = async (event) => {
-  event.preventDefault();
-  document.getElementById("profileBtn").disabled = true;
-  const imgRef = ref(
-    storageService,
-    `${authService.currentUser.uid}/${uuidv4()}`
+import {
+  collection,
+  query,
+  getDocs,
+  orderBy
+
+} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+
+
+
+
+
+export const getProfileList = async () => {
+  //프로필 해쉬태그 + 간단한소개 저장
+  let profileObjList = [];
+  console.log(profileObjList)
+  const q = query(
+    collection(dbService, "profileInfor"),
+    orderBy("createdAt", "desc")
   );
+  const querySnapshot = await getDocs(q);
 
-  const newNickname = document.getElementById("profileNickname").value;
-  // 프로필 이미지 dataUrl을 Storage에 업로드 후 다운로드 링크를 받아서 photoURL에 저장.
-  const imgDataUrl = localStorage.getItem("imgDataUrl");
-  let downloadUrl;
-  if (imgDataUrl) {
-    const response = await uploadString(imgRef, imgDataUrl, "data_url");
-    downloadUrl = await getDownloadURL(response.ref);
-  }
-  await updateProfile(authService.currentUser, {
-    displayName: newNickname ? newNickname : null,
-    photoURL: downloadUrl ? downloadUrl : null,
+  querySnapshot.forEach((doc) => {
+    // console.log('doc.data()', doc.data())
+    const profileInfoObj = {
+      id: doc.id,
+      ...doc.data(),
+    };
+    profileObjList.push(profileInfoObj);
+  });
+
+  const userID = document.getElementById("userID");
+  userID.textContent = profileObjList[0].nickname ?? "닉네임 없음";
+ 
+  const tagInputs = profileObjList[0]?.tagInput || [];//나중에 공부..!
+  console.log(profileObjList[0].nickname)
+  tagInputs.forEach((inputs)=>{
+    const span = document.createElement("span");
+    span.classList.add('tagView');  
+    span.innerHTML = inputs;
+  //갯수가 3개 일때 보여주기를 멈춰라.
+   if( document.querySelector('#tagViewList').childElementCount <= 2){
+     document.querySelector('#tagViewList').appendChild(span);
+   }
   })
-    .then(() => {
-      alert("프로필 수정 완료");
-      window.location.hash = "/";
-    })
-    .catch((error) => {
-      alert("프로필 수정 실패");
-      console.log("error:", error);
-    });
-};
 
-export const onFileChange = (event) => {
-  console.log('event.taret.files:', event.target.files)
-  const theFile = event.target.files[0]; // file 객체
-  const reader = new FileReader();
-  reader.readAsDataURL(theFile); // file 객체를 브라우저가 읽을 수 있는 data URL로 읽음.
-  reader.onloadend = (finishedEvent) => {
-    // 파일리더가 파일객체를 data URL로 변환 작업을 끝났을 때
-    const imgDataUrl = finishedEvent.currentTarget.result;
-    localStorage.setItem("imgDataUrl", imgDataUrl);
-    document.getElementById("profileView").src = imgDataUrl;
-  };
-};
+  const line_txt = document.getElementById("line_txt");
+  line_txt.innerText= profileObjList[0].introTxt ?? ''
+  console.log(profileObjList[0])
+}
+getProfileList()
 
+export const changeModify = () =>{
+  window.location.hash = "#profileModify";
+}

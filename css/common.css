@@ -95,7 +95,7 @@ body {
 /* 와이어프레임 */
 .tit_wrap {
   display: flex;
-  padding: 35px 24px;
+  padding:24px;
   border-bottom: 1px solid var(--color-gray);
 }
 
@@ -247,5 +247,5 @@ body {
   width: 40%;
   min-width: 434px;
   background: var(--color-white);
-  border-radius: var(--border-large) var(--border-large) 0 0;
+  border-radius: var(--border-large) var(--border-large);
 }

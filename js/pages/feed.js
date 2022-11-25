@@ -101,7 +101,6 @@ export const getCommentList = async () => {
   const querySnapshot = await getDocs(q);
   console.log('querySnapshot', querySnapshot)
   querySnapshot.forEach((doc) => {
-    console.log('doc.data()', doc.data())
     const commentObj = {
       id: doc.id,
       ...doc.data(),
@@ -122,7 +121,7 @@ export const getCommentList = async () => {
           </div>
           <span class="user_id tit_20">${cmtObj.nickname ?? "닉네임 없음"}</span>
         </div>
-        <span class="comment_date co_gray">${new Date(cmtObj.createdAt).toString().slice(0, 25)}</span>
+        <span class="comment_date co_gray">${new Date(cmtObj.createdAt).toString().slice(0, 3)}, ${new Date(cmtObj.createdAt).toString().slice(8, 10)}</span>
       </div>
     <div>
       <p class="comment_txt">${cmtObj.text}</p>
@@ -139,15 +138,20 @@ export const getCommentList = async () => {
     div.classList.add("mycards");
     div.innerHTML = temp_html;
     commnetList.appendChild(div);
+
+
+
+    let userDay = new Date(cmtObj.createdAt).toString().slice(0, 3)
+    let userDate =new Date(cmtObj.createdAt).toString().slice(8, 10)
+
+    const tmp  = document.getElementById('today_date')
+    tmp.innerText = `${userDay}, ${userDate}`;
+
+    document.getElementById('commentImg').setAttribute(`${cmtObj.profileImg ?? "/assets/blankProfile.webp"}`)
+ 
   });
 
 
 
-let today = new Date().toDateString();   
-
-
-const tmp  = document.getElementById('today_date')
-tmp.innerText = `${today}`
-console.log(tmp)
 
 };
