@@ -8,7 +8,8 @@ const openModal = () => {
 const closeModal = () => {
     modal.classList.add("hidden");
 }
-// overlay.addEventListener("click", closeModal);
-// closeBtn.addEventListener("click", closeModal);
+
+overlay.addEventListener("click", closeModal);
+closeBtn.addEventListener("click", closeModal);
 openButton.addEventListener("click", openModal);
 
