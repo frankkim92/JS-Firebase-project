@@ -21,7 +21,6 @@ export const changeProfile = async (event) => {
   let downloadUrl;
   if (imgDataUrl) {
     const response = await uploadString(imgRef, imgDataUrl, "data_url");
-    console.log('response',response)
     downloadUrl = await getDownloadURL(response.ref);
   }
   await updateProfile(authService.currentUser, {
@@ -46,7 +45,6 @@ export const onFileChange = (event) => {
   reader.onloadend = (finishedEvent) => {
     // 파일리더가 파일객체를 data URL로 변환 작업을 끝났을 때
     const imgDataUrl = finishedEvent.currentTarget.result;
-    console.log('imgDataUrl:', imgDataUrl)
     localStorage.setItem("imgDataUrl", imgDataUrl);
     document.getElementById("profileView").src = imgDataUrl;
   };

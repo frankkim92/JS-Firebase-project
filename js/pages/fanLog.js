@@ -57,8 +57,7 @@ export const onEditing = (event) => {
 export const update_comment = async (event) => {
   event.preventDefault();
   const newComment = event.target.parentNode.children[0].value;
-  console.log('event.target.parentNode.children[0]', event.target.parentNode.children[0])
-  const id = event.target.parentNode.id;
+    const id = event.target.parentNode.id;
 
   const parentNode = event.target.parentNode.parentNode;
   const commentText = parentNode.children[0];

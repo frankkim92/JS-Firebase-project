@@ -21,7 +21,6 @@ export const save_comment = async (event) => {
     uid,
     photoURL,
     displayName,
-    tagName
   } = authService.currentUser;
   try {
     await addDoc(collection(dbService, "comments"), {
@@ -30,7 +29,6 @@ export const save_comment = async (event) => {
       creatorId: uid, //수정, 삭제 컨트롤
       profileImg: photoURL,
       nickname: displayName,
-      hashTag:tagName
     });
     comment.value = "";
     getCommentList();

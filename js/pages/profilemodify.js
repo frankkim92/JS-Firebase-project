@@ -11,7 +11,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
 import{
   addDoc,
-  collection
+  collection,
+  query,
+  getDocs
 }from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 import {
   updateProfile
@@ -56,6 +58,8 @@ export const changeProfile = async (event) => {
       alert("프로필 수정 실패");
       console.log("error:", error);
     });
+
+
     let tagList = []
     const tagTexts = document.querySelectorAll('.tagView')
     const introInput = document.getElementById("intro_txt");
@@ -64,18 +68,19 @@ export const changeProfile = async (event) => {
       const newTag= tag.textContent.substring(2,tag.textContent.length - 1)
       tagList.push(newTag);
     })
-
-    console.log(tagTexts, introInput.value)
+    
     try {
-      await addDoc(collection(dbService, "infor"), {
+      await addDoc(collection(dbService, "profileInfor"), {
         tagInput:tagList,
         introTxt: introInput.value,
       });
-     
+     console.log(getProfileList())
     } catch (error) {
       alert(error);
       console.log("error in addDoc:", error);
     }
+
+    
 };
 
 
@@ -123,4 +128,48 @@ export const tagWrite = (event) => {
     return false
   }
 
+};
+
+export const getProfileList = async() =>{
+  //프로필 해쉬태그 + 간단한소개 저장
+  let profileObjList = [];
+  console.log(profileObjList)
+  const q = query(
+    collection(dbService, "profileInfor"),
+  );
+  const querySnapshot = await getDocs(q);
+
+  querySnapshot.forEach((doc) => {
+    // console.log('doc.data()', doc.data())
+    const profileInfoObj = {
+      id: doc.id,
+      ...doc.data(),
+    };
+    profileObjList.push(profileInfoObj);
+  });
+
+  const userInfoList = document.getElementById("userInfo");
+  
+  const currentUid = authService.currentUser.uid;
+  userInfoList.innerHTML = "";
+  profileObjList.forEach((profObj) => {
+    const temp_html = `<div><h2 class="sub_tit"><span>${profObj.nickname ?? "닉네임 없음"}</span></h2>
+    <div id="tag-list" class="tag_list">
+     <div class="tagView">${profObj.tagInput}</div>
+    </div>
+    <div class="line_intro">
+      <h3 class="sub_tit">한 줄 소개</h3>
+      <p>${profObj.introTxt}</p>
+    </div><div>`;
+    const user_id = document.getElementById("userID").textContent = ``
+    
+    console.log('user_id', user_id)
+    // console.log(profObj.introTxt)
+    const div = document.createElement("div");
+    div.classList.add("profil_txt");
+    div.innerHTML = temp_html;
+    userInfoList.appendChild(div);
+  });
 }
+
+console.log(getProfileList())

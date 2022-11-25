@@ -364,3 +364,9 @@ ul li.tag-item {
   font-size: var(--font-small);
   white-space: nowrap;
 }
+.profile_info .sub_tit{
+  margin-bottom: 16px;
+}
+.line_intro{
+  margin-top:23px;
+}
