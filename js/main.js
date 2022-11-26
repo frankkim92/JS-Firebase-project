@@ -7,7 +7,7 @@ import { changeProfile, onFileChange, imageRemove,tagWrite} from "./pages/profil
 import { socialLogin } from "./pages/auth.js";
 import {save_comment,update_comment, onEditing,delete_comment} from "./pages/feed.js";
 import {selectEmoji,save_writing,onCoverChange,posting} from "./pages/writing.js";
-import {getPostList} from "./pages/mainpage.js";
+import {getPostList, getFirstPostList} from "./pages/mainpage.js";
 import {getMyPostList} from "./pages/myPage.js";
 
 // url 바뀌면 handleLocation 실행하여 화면 변경
@@ -17,6 +17,7 @@ window.addEventListener("hashchange", handleLocation);
 document.addEventListener("DOMContentLoaded", function () {
 
   handleLocation();
+  getFirstPostList()
   // Firebase 연결상태를 감시
   // authService.onAuthStateChanged((user) => {
   //   // Firebase 연결되면 화면 표시
@@ -62,3 +63,4 @@ window.save_writing = save_writing;
 window.onCoverChange = onCoverChange;
 window.getPostList = getPostList;
 window.getMyPostList = getMyPostList;
+window.getFirstPostList = getFirstPostList;

@@ -32,8 +32,10 @@ export const getProfileInfor = async () => {
   });
 
   const userID = document.getElementById("userID");
-  userID.innerText= profileObjList[0]?.nickname || "닉네임 없음";
- 
+  const userNickName = profileObjList[0].nickname ?? "닉네임 없음";
+  userID.innerText = userNickName
+
+
   const tagInputs = profileObjList[0]?.tagInput || []; //나중에 공부..!
   tagInputs.forEach((inputs)=>{
     const span = document.createElement("span");
