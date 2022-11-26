@@ -1,24 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
 
 * {margin: 0; padding: 0; box-sizing: border-box;}
-body {
+.body {
     font-family: 'Noto Sans KR', sans-serif;
+}
+
+.btn-register {
+    all: unset;
+    background-color: steelblue;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: rgba(88, 86, 86, 0.7);
-    background-size: cover;
 }
 
-body::before {
-    content: "";
-    position: absolute; z-index: 1;
-    top: 0; right: 0; bottom: 0; left: 0;
-    background-color: rgba(42, 41, 41, 0.7);
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
 }
 
-.login-form {    
+.hidden {
+    display: none;
+}
+
+.register-form {    
     display: fixed; 
     flex-direction: column;
     align-items: center;
@@ -26,7 +44,7 @@ body::before {
     gap: 20px;
 
     width: 300px;
-    height: 340px;
+    height: 360px;
     left: 0px;
     top: 0px;
 
@@ -37,7 +55,7 @@ body::before {
     text-align: center;
     position: relative; z-index: 2;}
 
-.btn-close {
+.close-btn {
     position: absolute;
     width: 15px;
     height: 15px;
@@ -52,57 +70,62 @@ body::before {
     cursor: pointer;
 }
 
-.btn-close:hover {
+.close-btn:hover {
     background-color: #9664FF;
     transition: 0.3s;
     box-shadow: 0px 0px 1px 1px #b393f8;
 }
 
-.login-form h2 {
+.register-form h2 {
     padding: 12px 20px 0px 30px;
     font-size: 23px; color: #292929;
     font-weight: 700;
     text-align: left;
     margin-bottom: 0px;
 }
-.int-area {    
+.field {    
     width: 250px; position: relative;
     margin-top: 15px;
     left: 25px;
 }
-.email {
-    font-size: 14px;
-    font-weight: 300;
+.title {
+    font-size: 14px; color: #292929;
+    font-weight: 400;
+    text-align: left;
+    padding: 0px 0px 0px 10px;
+    margin-top: 10px;
 }
-.int-area input {
-    width: 100%;
-    padding: 20px 10px 3px;
+
+.field input {
+    width: 96%;
+    padding: 10px 10px 3px;
     background-color: #FFF;
     border: none;
-    border-bottom: 1px solid #9664FF;
+    border-bottom: 1px solid #909090;
     font-size: 13px; color: rgba(62, 60, 60, 0.7);
     outline: none;
 }
-.int-area label {
-    position: absolute; left: 10px; top: 15px;
-    font-size: 10px; color: #909090;
-    transition: all .5s ease;
-}
-.int-area label.warning {
-    color: #9664FF; !important;
-    animation: warning .3s ease;
-    animation-iteration-count: 3;
-}
-@keyframes warning {
-    0% {transform: translateX(-8px);} 
-    25% {transform: translateX(8px);}
-    50% {transform: translateX(-8px);}
-    75% {transform: translateX(8px);}
+
+.field input:hover {
+    box-shadow: 0 4px 4px -4px #909090;
+    transition: 0.3s;
+} 
+
+.field input:focus {
+    box-shadow: 0 4px 4px -4px #9664FF;
+    border-bottom: 1px solid #9664FF;
+    transition: 0.3s;
+} 
+
+.field input::placeholder {
+    color: #909090;
+    font-size: 12px;
+    font-weight: 350;
 }
 
+.btn-complete {margin-top: 20px;}
 
-.btn-area {margin-top: 12px;}
-.btn-area button {
+.btn-complete button {
     position: relative; left: 10px;
     width: 90%; height: 35px;
     background: #9664FF;
@@ -113,7 +136,7 @@ body::before {
     cursor: pointer;
 }
 
-.btn-area button:hover {
+.btn-complete button:hover {
     transition: 0.3s;
     box-shadow: 0px 0px 1px 1px #b393f8;
 }

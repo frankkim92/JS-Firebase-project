@@ -1,3 +1,4 @@
+// 모달
 const openButton = document.getElementById("open");
 const modal = document.querySelector("#modal");
 const overlay = document.querySelector("#modal-overlay");
