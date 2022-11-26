@@ -150,7 +150,8 @@ h2 {
   display: flex;
   margin: 0px auto 200px;
   align-items: stretch;
-  gap: 55px;
+  justify-content: center;
+  gap: 20px;
 }
 
 main {
