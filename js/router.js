@@ -6,6 +6,8 @@ const routes = {
   "/": "/pages/auth.html",
   fanLog: "/pages/fanLog.html",
   login: "/pages/login.html",
+  sign_up: "/pages/sign_up.html",
+  login: "/pages/login.html",
   feed: "/pages/feed.html",
   profile: "/pages/profile.html",
   profileModify: "/pages/profilemodify.html",

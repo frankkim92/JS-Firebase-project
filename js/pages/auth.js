@@ -84,13 +84,14 @@ export const handleAuth = (event) => {
 
 // 로그인, 회원가입 화면 토글링 기능
 export const onToggle = () => {
+  //  window.location.hash = "#sign_up";
   const authBtn = document.querySelector("#authBtn");
   const authToggle = document.querySelector("#authToggle");
   const authTitle = document.querySelector("#authTitle");
   if (authBtn.value === "로그인") {
     authBtn.value = "회원가입";
     authToggle.textContent = "로그인 화면으로";
-    authTitle.textContent = "회원가입 페이지";
+    authTitle.textContent = "회원가입";
   } else {
     authBtn.value = "로그인";
     authToggle.textContent = "회원가입 화면으로";
