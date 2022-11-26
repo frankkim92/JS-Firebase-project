@@ -1,0 +1,27 @@
+
+<!-- <button class="open" id="open" onclick="login_popup(event)">Open Modal</button> -->
+
+<div class="modal " id="modal">
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div class="login-form">
+        <button type='button' class="btn-close" name="close" id="close" onclick="closeModal(event)">x</button>
+        <h2 class="main_tit">로그인</h2>
+        <form onsubmit="handleAuth(event)">
+            <div class="int-area">
+                <input type="text" id="email" type="text" autocomplete="off" >
+                <label for="id">E-mail</label>
+            </div>
+
+            <div class="int-area">
+                <input type="password" id="pw" type="password"  autocomplete="off" >
+                <label for="pw">Password</label>
+            </div>
+            <div class="caption">
+                <a href="">회원가입</a>
+            </div>
+            <div class="btn-area">
+                <input type="submit" id="authBtn" value="로그인"  class="btn btn_large btn_default"/>
+            </div>
+        </form>
+    </div>
+</div>

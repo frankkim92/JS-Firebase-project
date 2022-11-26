@@ -1,4 +1,5 @@
 import { handleAuth, onToggle, logout } from "./pages/auth.js";
+import {login_popup, closeModal} from "./pages/login.js";
 import {changeModify} from "./pages/profile.js";
 import { changeProfile, onFileChange, imageRemove,tagWrite} from "./pages/profilemodify.js";
 import { socialLogin } from "./pages/auth.js";
@@ -51,3 +52,5 @@ window.update_comment = update_comment;
 window.onEditing = onEditing;
 window.delete_comment = delete_comment;
 window.changeModify =changeModify;
+window.login_popup = login_popup;
+window.closeModal = closeModal;
