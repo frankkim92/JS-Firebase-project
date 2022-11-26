@@ -1,31 +1,60 @@
-
-<button  onclick="login_popup(event)">Open Modal</button>
+<button class="open" id="open" onclick="login_popup(event)">Open Modal</button>
 
 <div class="modal hidden" id="modal">
-    <div id="modal-overlay" class="modal-overlay"></div>
-    <div class="login-form">
-        <button type='button' class="btn-close" name="close" id="close" onclick="closeModal(event)">x</button>
-        <h2 class="main_tit" id="authTitle">로그인</h2>
-        <form onsubmit="handleAuth(event)">
-            <div class="int-area">
-                <input type="text"  name="email" id="email" type="text" autocomplete="off" >
-                <label for="email" >E-mail</label>
-            </div>
+  <div id="modal-overlay" class="modal-overlay"></div>
+  <div class="login-form">
+    <button
+      type="button"
+      class="btn-close"
+      name="close"
+      id="close"
+      onclick="closeModal(event)"
+    >
+      X
+    </button>
+    <h2 class="main_tit" id="authTitle">로그인</h2>
+    <form onsubmit="handleAuth(event)">
+      <div class="int-area">
+        <input
+          type="text"
+          name="email"
+          id="email"
+          type="text"
+          autocomplete="off"
+        />
+        <label for="email">E-mail</label>
+      </div>
 
-            <div class="int-area">
-                <input type="password" name="pw" id="pw" type="password"  autocomplete="off" >
-                <label for="pw">Password</label>
-            </div>
-            <div class="caption">
-                <span id="authToggle" onclick="onToggle()">회원가입</span>
-            </div>
-            <div class="btn-area">
-                <input type="submit" id="authBtn" value="로그인"  class="btn btn_large btn_default"/>
-            </div>
-        </form>
-        <section class="socialBtns">
-            <button name="google" onclick="socialLogin(event)">Google Login</button>
-            <button name="github" onclick="socialLogin(event)">Github Login</button>
-        </section>
-    </div>
+      <div class="int-area">
+        <input
+          type="password"
+          name="pw"
+          id="pw"
+          type="password"
+          autocomplete="off"
+        />
+        <label for="pw">Password</label>
+      </div>
+      <div class="caption">
+        <span id="authToggle" onclick="onToggle()">회원가입</span>
+      </div>
+      <div class="btn-area">
+        <input type="submit" id="authBtn" value="로그인" class="login-btn" />
+      </div>
+    </form>
+    <section class="socialBtns">
+      <button
+        name="google"
+        onclick="socialLogin(event)"
+        class="git-button"
+      ></button>
+
+      <button
+        name="github"
+        click="btn_git"
+        onclick="socialLogin(event)"
+        class="google-button"
+      ></button>
+    </section>
+  </div>
 </div>
