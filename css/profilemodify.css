@@ -1,4 +1,3 @@
-
 .box {
   padding: 20px;
   background: white;
@@ -20,8 +19,8 @@
 .box2:hover {
   box-shadow: 5px 5px 5px 5px black;
 }
-.profile_wrap{
-  padding:24px 34px;
+.profile_wrap {
+  padding: 24px 34px;
   /* border-radius: var(--border-large); */
 }
 
@@ -60,14 +59,14 @@
 }
 
 .img.profile-second {
-  margin:20px auto 0;
+  margin: 20px auto 0;
 }
 
 .profile-third {
   display: flex;
   justify-content: center;
-  gap:8px;
-  padding:20px;
+  gap: 8px;
+  padding: 20px;
 }
 
 .btn-delete {
@@ -98,8 +97,8 @@
   align-items: center;
   justify-content: space-between;
 }
-.profileNickname{
-  border:none;
+.profileNickname {
+  border: none;
 }
 
 .profile-main p,
@@ -115,20 +114,19 @@
   text-decoration-line: underline;
   cursor: pointer;
 }
-.profile-main span.modifyBTN{
-  color:var(--color-main);
+.profile-main span.modifyBTN {
+  color: var(--color-main);
 }
 .profile-hash {
   margin-top: 15px;
   text-align: left;
 }
 
-
 .intro_my {
-  padding:24px 0;
+  padding: 24px 0;
 }
-.intro_my > input{
-  border:none
+.intro_my > input {
+  border: none;
 }
 
 .profile-bottom div {
@@ -290,7 +288,6 @@
   color: black;
 }
 
-
 ul li.tag-item {
   padding: 4px 8px;
   background-color: #eee;
@@ -314,46 +311,45 @@ ul li.tag-item {
   margin-left: 8px;
 }
 
-
 .hashtag {
   width: 100%;
   margin-top: 16px;
-}  
-.tag_title{
+}
+.tag_title {
   width: 100%;
   margin-bottom: 16px;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
 }
 
-.tag_list{
+.tag_list {
   display: flex;
   justify-content: flex-start;
-  gap:4px;
-  width:calc(100% - 50px)
+  gap: 4px;
+  width: calc(100% - 50px);
 }
-.tagWrite{
-  border:none;
+.tagWrite {
+  border: none;
   max-width: 50px;
-  border-radius:15px ;
-  padding:4px 8px;
+  border-radius: 15px;
+  padding: 4px 8px;
   background-color: var(--color-dark-beige);
   font-size: var(--font-small);
 }
-.tagView{
+.tagView {
   cursor: pointer;
-  background-color:var(--color-dark-beige);
+  background-color: var(--color-dark-beige);
   color: #9664ff;
   border-radius: 15px;
-  padding: 4px 8px;  
+  padding: 4px 8px;
   font-size: var(--font-small);
   white-space: nowrap;
 }
-.profile_info .sub_tit{
+.profile_info .sub_tit {
   margin-bottom: 16px;
 }
-.line_intro{
-  margin-top:23px;
+.line_intro {
+  margin-top: 23px;
 }
