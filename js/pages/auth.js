@@ -84,7 +84,6 @@ export const handleAuth = (event) => {
 
 // 로그인, 회원가입 화면 토글링 기능
 export const onToggle = () => {
-  //  window.location.hash = "#sign_up";
   const authBtn = document.querySelector("#authBtn");
   const authToggle = document.querySelector("#authToggle");
   const authTitle = document.querySelector("#authTitle");

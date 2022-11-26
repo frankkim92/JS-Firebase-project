@@ -51,7 +51,7 @@ export const getProfileList = async () => {
 
   const line_txt = document.getElementById("line_txt");
   line_txt.innerText= profileObjList[0]?.introTxt || ''
-  console.log(profileObjList[0])
+  // console.log(profileObjList[0])
 }
 getProfileList()
 
