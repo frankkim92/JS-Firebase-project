@@ -1,8 +1,4 @@
 import {
-  doc,
-  addDoc,
-  updateDoc,
-  deleteDoc,
   collection,
   orderBy,
   query,
@@ -46,12 +42,11 @@ export const getPostList = async () => {
           ${postObj.title}
         </h3>
         <div class="post-emoji">
-          <img src="./image/${postObj.emotion.toLowerCase()}.png">
+          <img src="../assets/${postObj.emotion.toLowerCase()}.png">
         </div>
       </div>
       <p class="body-text">
         ${postObj.bodyText}
-  
       </p>
       <div class="tag">
         <button type="button" class="hashtag">#힐링</button>
@@ -60,7 +55,7 @@ export const getPostList = async () => {
       </div>
       <div class="card-footer-wrapper">
         <div class="card-user">
-          <img src="${postObj.profileImg}" class="footer-img" />
+          <img src="${postObj.profileImg ?? "/assets/blankProfile.webp"}" class="footer-img" />
           <p class="card-p">by</p>
           <p class="card-p">${postObj.nickname ?? "닉네임 없음"}</p>
         </div>

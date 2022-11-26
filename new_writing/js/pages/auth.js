@@ -52,7 +52,7 @@ export const handleAuth = (event) => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        window.location.hash = "#fanLog";
+        window.location.hash = "/";
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -90,7 +90,7 @@ export const onToggle = () => {
   if (authBtn.value === "로그인") {
     authBtn.value = "회원가입";
     authToggle.textContent = "로그인 화면으로";
-    authTitle.textContent = "회원가입 페이지";
+    authTitle.textContent = "회원가입";
   } else {
     authBtn.value = "로그인";
     authToggle.textContent = "회원가입 화면으로";

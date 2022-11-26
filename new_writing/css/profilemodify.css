@@ -1,0 +1,359 @@
+
+.box {
+  padding: 20px;
+  background: white;
+  text-align: center;
+  border-radius: 40px;
+  width: 434px;
+  height: 800px;
+  max-width: 80%;
+  display: block;
+  margin-left: 0px;
+  margin-right: 0px;
+  border: 1px solid #9664ff;
+}
+
+.box:hover {
+  box-shadow: 5px 5px 5px 5px cornflowerblue;
+}
+
+.box2:hover {
+  box-shadow: 5px 5px 5px 5px black;
+}
+.profile_wrap{
+  padding:24px 34px;
+  /* border-radius: var(--border-large); */
+}
+
+/* 내 프로필 수정 */
+.profile-header {
+  font-size: 32px;
+  font-weight: bold;
+  padding: 20px;
+  background-color: white;
+  text-align: left;
+  border-bottom: 2px solid #9664ff;
+  transition: all ease-in-out;
+}
+
+.profile-img1 {
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  /* object-fit: cover; */
+}
+
+.profile-img2 {
+  width: 250px;
+  height: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+
+#file {
+  display: none;
+}
+
+.img.profile-second {
+  margin:20px auto 0;
+}
+
+.profile-third {
+  display: flex;
+  justify-content: center;
+  gap:8px;
+  padding:20px;
+}
+
+.btn-delete {
+  border-radius: 20px;
+  font-size: 15px;
+  padding: 10px;
+  background-color: #eee;
+  border: none;
+}
+
+.btn-modify {
+  border-radius: 20px;
+  font-size: 15px;
+  background-color: #9664ff;
+  color: white;
+  padding: 10px;
+  border: none;
+}
+
+#uploadBtn {
+  cursor: pointer;
+}
+
+.profile-main {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profileNickname{
+  border:none;
+}
+
+.profile-main p,
+.profile-bottom p {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.profile-main span {
+  color: gray;
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+.profile-main span.modifyBTN{
+  color:var(--color-main);
+}
+.profile-hash {
+  margin-top: 15px;
+  text-align: left;
+}
+
+
+.intro_my {
+  padding:24px 0;
+}
+.intro_my > input{
+  border:none
+}
+
+.profile-bottom div {
+  color: #9664ff;
+  text-align: left;
+  margin-left: 13px;
+  margin-top: 15px;
+}
+
+.box2 {
+  padding: 20px;
+  background: white;
+  text-align: center;
+  border-radius: 40px;
+  width: 291;
+  height: 620px;
+  max-width: 80%;
+  display: block;
+  margin-left: 0px;
+  margin-right: 0px;
+  border: 1px solid cornflowerblue;
+}
+
+.profile-name {
+  padding: 20px;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.profile-second-2 {
+  margin-top: 10px;
+}
+
+.profile-text {
+  color: gray;
+  padding: 25px;
+  font-size: 18px;
+}
+
+.profile-music {
+  margin-top: 1px;
+}
+
+.profile-music span {
+  padding: 10px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 10px 5px 5px gray;
+}
+
+.profile-music span i {
+  color: #9664ff;
+}
+
+.profile-hash {
+  margin-top: 30px;
+}
+
+.profile-hash-2 {
+  margin-top: 50px;
+}
+
+.profile-hash :hover {
+  background-color: cornflowerblue;
+  color: black;
+  box-shadow: 5px 3px 3px gray;
+}
+
+.header-title {
+  background: red;
+}
+
+.header-text {
+  float: left;
+}
+
+.header-pic {
+  float: left;
+}
+
+.main-title h1 {
+  font-weight: bold;
+  text-align: center;
+  font-size: 32px;
+  padding: 20px;
+  margin-top: -50px;
+  /* background-color: red; */
+}
+
+.main-title p,
+.main-title2 p {
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.main-title2 h1 {
+  font-weight: bold;
+  text-align: center;
+  font-size: 32px;
+  padding: 20px;
+  margin-top: 50px;
+  /* background-color: red; */
+}
+
+/* 애플뮤직ui  */
+
+.box,
+.box2 {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+}
+
+.box,
+.box2 {
+  position: sticky;
+  top: 100px;
+  margin-top: 100px;
+  transition: all 0.5s;
+}
+
+.main-header {
+  background-color: #eee;
+  width: 1600px;
+  height: 1000px;
+  color: blue;
+}
+
+.team-btn {
+  margin-top: 50px;
+  font-size: 28px;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #9664ff;
+  color: white;
+}
+
+.team-btn:active {
+  color: white;
+  background-color: cornflowerblue;
+}
+
+/* 간단한 한줄 */
+.profile-self {
+  width: 90%;
+  /* border-radius: 15px; */
+  margin-top: 12px;
+  border: none;
+  padding: 12px 0 40px;
+  /* display: none; */
+}
+
+.fa-paper-plane {
+  color: #9664ff;
+}
+
+.fa-paper-plane:hover {
+  color: black;
+}
+
+
+ul li.tag-item {
+  padding: 4px 8px;
+  background-color: #eee;
+  color: #9664ff;
+  border-radius: 15px;
+  padding: 10px;
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+.tag-item:hover {
+  background-color: cornflowerblue;
+  color: black;
+  box-shadow: 5px 3px 3px gray;
+}
+
+.del-btn {
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+
+.hashtag {
+  width: 100%;
+  margin-top: 16px;
+}  
+.tag_title{
+  width: 100%;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.tag_list{
+  display: flex;
+  justify-content: flex-start;
+  gap:4px;
+  width:calc(100% - 50px)
+}
+.tagWrite{
+  border:none;
+  max-width: 50px;
+  border-radius:15px ;
+  padding:4px 8px;
+  background-color: var(--color-dark-beige);
+  font-size: var(--font-small);
+}
+.tagView{
+  cursor: pointer;
+  background-color:var(--color-dark-beige);
+  color: #9664ff;
+  border-radius: 15px;
+  padding: 4px 8px;  
+  font-size: var(--font-small);
+  white-space: nowrap;
+}
+.profile_info .sub_tit{
+  margin-bottom: 16px;
+}
+.line_intro{
+  margin-top:23px;
+}

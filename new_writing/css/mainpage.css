@@ -150,7 +150,7 @@ h2 {
   display: flex;
   margin: 0px auto 200px;
   align-items: stretch;
-  gap: 24px;
+  gap: 55px;
 }
 
 main {
@@ -202,8 +202,8 @@ main {
   grid-template-rows: auto;
   gap: 10px;
   margin: 5px;
-  overflow: scroll;
-  scroll-behavior: smooth;
+  /* overflow: scroll;
+  scroll-behavior: smooth; */
 }
 
 .card {
@@ -213,7 +213,7 @@ main {
   justify-content: space-between;
   column-count: 3;
   column-gap: 10px;
-
+  /* margin: 10px; */
   height: 370px;
   background: 0px 4px 8px #ffffff;
   box-shadow: 0px 0px 16px rgba(41, 41, 41, 0.09);
@@ -227,7 +227,7 @@ main {
   justify-items: space-between;
   column-count: 3;
   column-gap: 10px;
-  transform: scale(1.03);
+  transform: scale(1.01);
   background: #ffffff;
   box-shadow: 0px 0px 16px #9664ff;
   border-radius: 16px;
@@ -272,15 +272,13 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  /* margin: 5px 0px 5px 0px; */
+  
   height: 19px;
   margin: 0px;
 }
 
 .post-title {
   display: flex;
-  align-items: center;
   font-size: 15px;
   margin: 0px;
   overflow: hidden;
@@ -369,4 +367,3 @@ a {
   .content {
     grid-template-columns: repeat(1, 1fr);
   }
-} */

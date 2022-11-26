@@ -13,6 +13,7 @@ import {
   authService
 } from "../firebase.js";
 
+
 export const save_comment = async (event) => {
   event.preventDefault();
   const comment = document.getElementById("comment");
@@ -21,7 +22,6 @@ export const save_comment = async (event) => {
     photoURL,
     displayName,
   } = authService.currentUser;
-  console.log(authService.currentUser)
   try {
     await addDoc(collection(dbService, "comments"), {
       text: comment.value,
@@ -45,8 +45,8 @@ export const onEditing = (event) => {
   udBtns.forEach((udBtn) => (udBtn.disabled = "true"));
 
   const cardBody = event.target.parentNode.parentNode;
-  const commentText = cardBody.children[0].children[0];
-  const commentInputP = cardBody.children[0].children[1];
+  const commentText = cardBody.children[1].children[1];
+  const commentInputP = cardBody.children[1].children[1];
 
   commentText.classList.add("noDisplay");
   commentInputP.classList.add("d-flex");
@@ -57,7 +57,8 @@ export const onEditing = (event) => {
 export const update_comment = async (event) => {
   event.preventDefault();
   const newComment = event.target.parentNode.children[0].value;
-    const id = event.target.parentNode.id;
+  console.log('event.target.parentNode.children[0]', event.target.parentNode.children[0])
+  const id = event.target.parentNode.id;
 
   const parentNode = event.target.parentNode.parentNode;
   const commentText = parentNode.children[0];
@@ -100,7 +101,6 @@ export const getCommentList = async () => {
   const querySnapshot = await getDocs(q);
   console.log('querySnapshot', querySnapshot)
   querySnapshot.forEach((doc) => {
-    console.log('doc.data()', doc.data())
     const commentObj = {
       id: doc.id,
       ...doc.data(),
@@ -112,32 +112,46 @@ export const getCommentList = async () => {
   commnetList.innerHTML = "";
   cmtObjList.forEach((cmtObj) => {
     const isOwner = currentUid === cmtObj.creatorId;
-    const temp_html = `<div class="card commentCard">
-          <div class="card-body">
-              <blockquote class="blockquote mb-0">
-                  <p class="commentText">${cmtObj.text}</p>
-                  <p id="${
-                    cmtObj.id
-                  }" class="noDisplay"><input class="newCmtInput" type="text" maxlength="30" /><button class="updateBtn" onclick="update_comment(event)">완료</button></p>
-                  <footer class="quote-footer"><div>BY&nbsp;&nbsp;<img class="cmtImg" width="50px" height="50px" src="${
-                    cmtObj.profileImg
-                  }" alt="profileImg" /><span>${
-      cmtObj.nickname ?? "닉네임 없음"
-    }</span></div><div class="cmtAt">${new Date(cmtObj.createdAt)
-      .toString()
-      .slice(0, 25)}</div></footer>
-              </blockquote>
-              <div class="${isOwner ? "updateBtns" : "noDisplay"}">
-                   <button onclick="onEditing(event)" class="editBtn btn btn-dark">수정</button>
-                <button name="${
-                  cmtObj.id
-                }" onclick="delete_comment(event)" class="deleteBtn btn btn-dark">삭제</button>
-              </div>            
-            </div>
-     </div>`;
+    const temp_html = ` 
+    <div class="comment_wrap">
+      <div class="comment_user ">
+        <div class="comment_id">
+          <div class="img profile_small">
+            <img draggable="false" src="${cmtObj.profileImg ?? "/assets/blankProfile.webp" }" alt="profileImg" />
+          </div>
+          <span class="user_id tit_20">${cmtObj.nickname ?? "닉네임 없음"}</span>
+        </div>
+        <span class="comment_date co_gray">${new Date(cmtObj.createdAt).toString().slice(0, 3)}, ${new Date(cmtObj.createdAt).toString().slice(8, 10)}</span>
+      </div>
+    <div>
+      <p class="comment_txt">${cmtObj.text}</p>
+      <p id="${
+        cmtObj.id
+      }" class="noDisplay"><input class="newCmtInput" type="text" maxlength="30" /><button class="updateBtn" onclick="update_comment(event)">완료</button></p>
+    </div>
+    <div class="btn-Wrap ${isOwner ? "updateBtns" : "noDisplay"}">
+      <button  name="${cmtObj.id}" onclick="delete_comment(event)" class="btn deleteBtn btn_small btn_secondary">삭제</button>
+      <button onclick="onEditing(event)" class="btn editBtn btn_small btn_default">댓글 수정</button>
+    </div>
+  </div>`;
     const div = document.createElement("div");
     div.classList.add("mycards");
     div.innerHTML = temp_html;
     commnetList.appendChild(div);
+
+
+
+    let userDay = new Date(cmtObj.createdAt).toString().slice(0, 3)
+    let userDate =new Date(cmtObj.createdAt).toString().slice(8, 10)
+
+    const tmp  = document.getElementById('today_date')
+    tmp.innerText = `${userDay}, ${userDate}`;
+
+    document.getElementById('commentImg').setAttribute(`${cmtObj.profileImg ?? "/assets/blankProfile.webp"}`)
+ 
   });
+
+
+
+
 };

@@ -1,34 +1,28 @@
 <div class="mainArea">
   <!-- 헤더 -->
   <header>
-    <!-- hidden header -->
+    <!-- 1. hidden header -->
     <div class="header" id="header-after">
       <div class="logo">
-        <img
-          src="../assets/musicnote.svg"
-          alt="musiclogo"
-          class="music-img" />
+        <img src="assets/musicnote.svg" alt="musiclogo" class="music-img" />
         <h1 class="logo">소록소록</h1>
       </div>
-
       <div class="login">
-        <!-- <div class="btn-wrapper">
+        <divs class="btn-wrapper">
           <button class="btn-profile"></button>
           <button class="btn-triangle"></button>
-        </div>
+        </divs>
         <div class="dropdown-menu">
           <a href="#">로그아웃</a>
           <a href="#">마이페이지</a>
-        </div> -->
+        </div>
       </div>
     </div>
-    <!-- login header -->
-    <!-- <div class="header" id="header-before">
+
+    <!-- 2. login header -->
+    <div class="header" id="header-before">
       <div class="logo">
-        <img
-          src="../assets/musicnote.svg"
-          alt="musiclogo"
-          class="music-img" />
+        <img src="assets/musicnote.svg" alt="musiclogo" class="music-img" />
         <h1 class="logo">소록소록</h1>
       </div>
 
@@ -36,8 +30,9 @@
         <a href="#" class="sign-in">로그인</a>
         <a href="#" class="sign-up">회원가입</a>
       </div>
-    </div> -->
+    </div>
   </header>
+
   <!-- 메인 페이지 -->
   <div class="mainWrapper">
 
@@ -62,6 +57,7 @@
           </div>
         </div>
         <div class="content" id="post-list"></div>
+      </main>
     </div>
     <!-- 글쓰기 탭 -->
     <div class="w_page">
@@ -74,7 +70,7 @@
         <!-- 앨범 이미지 가져오기 -->
         <form id="coverForm" onsubmit="changeWrite(event)" class="upload_cov">
           <label for="coverInput">
-            <img id="coverView" src="/image/select_file.png" />
+            <img id="coverView" src="/assets/select_file.png" />
             <input onchange="onCoverChange(event)" id="coverInput" type="file" class="upload_file" accept="image/*" />
           </label>
         </form>
@@ -92,7 +88,7 @@
               <label for="emojiHappy">
                 <input onclick="selectEmoji(event)" id="emojiHappy" type="radio" name="emoji" value="Happy">
                 <div class="emoji_btns">
-                  <img src="./image/happy.png">
+                  <img src="../assets/happy.png">
                 </div>
               </label>
             </div>
@@ -101,7 +97,7 @@
               <label for="emojiSad">
                 <input onclick="selectEmoji(event)" id="emojiSad" type="radio" name="emoji" value="Sad">
                 <div class="emoji_btns">
-                  <img src="./image/sad.png">
+                  <img src="../assets/sad.png">
                 </div>
               </label>
             </div>
@@ -111,7 +107,7 @@
               <label for="emojiChill">
                 <input onclick="selectEmoji(event)" id="emojiChill" type="radio" name="emoji" value="Chill">
                 <div class="emoji_btns">
-                  <img src="./image/chill.png">
+                  <img src="../assets/chill.png">
                 </div>
               </label>
             </div>
@@ -120,7 +116,7 @@
               <label for="emojiExcited">
                 <input onclick="selectEmoji(event)" id="emojiExcited" type="radio" name="emoji" value="Excited">
                 <div class="emoji_btns">
-                  <img src="./image/excited.png">
+                  <img src="../assets/excited.png">
                 </div>
               </label>
             </div>
@@ -129,7 +125,7 @@
               <label for="emojiTouched">
                 <input onclick="selectEmoji(event)" id="emojiTouched" type="radio" name="emoji" value="Touched">
                 <div class="emoji_btns">
-                  <img src="./image/touched.png">
+                  <img src="../assets/touched.png">
                 </div>
               </label>
             </div>
