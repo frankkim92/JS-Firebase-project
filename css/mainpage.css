@@ -145,7 +145,7 @@ h2 {
 
 .mainWrapper {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   width: 100%;
   margin: 0px auto 200px;
   /* align-items: stretch; */
@@ -171,7 +171,7 @@ main {
   /* flex-direction: row;
   align-items: stretch;
    justify-content: center;  */
-} 
+}
 
 .sub-header {
   display: flex;
