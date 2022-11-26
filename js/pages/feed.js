@@ -83,8 +83,7 @@ export const getFeedData = async (event) => {
     div.classList.add("mycards");
     div.innerHTML = temp_html;
 
-    const Selectcard = event.target.parentNode.parentNode;
-    const cardId = Selectcard.id;
+    const cardId = event.target.parentNode.parentNode.id;
     const FeedObjId = FeedObj.id;
     if (FeedObjId == cardId) {
       feedContent.appendChild(div);
