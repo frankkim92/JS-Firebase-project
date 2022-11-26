@@ -8,7 +8,10 @@ import {
   query,
   getDocs,
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
-import { dbService, authService } from "../firebase.js";
+import {
+  dbService,
+  authService
+} from "../firebase.js";
 
 
 export const getFeedData = async (event) => {
@@ -84,13 +87,11 @@ export const getFeedData = async (event) => {
     div.classList.add("mycards");
     div.innerHTML = temp_html;
 
-    const Selectcard = event.target.parentNode.parentNode;
-    const cardId = Selectcard.id;
+    const cardId = event.target.parentNode.parentNode.id;
     const FeedObjId = FeedObj.id;
     if (FeedObjId == cardId) {
       feedContent.appendChild(div);
     }
-
     console.log(FeedObjId);
     console.log(cardId);
   });
@@ -99,7 +100,11 @@ export const getFeedData = async (event) => {
 export const save_comment = async (event) => {
   event.preventDefault();
   const comment = document.getElementById("comment");
-  const { uid, photoURL, displayName } = authService.currentUser;
+  const {
+    uid,
+    photoURL,
+    displayName
+  } = authService.currentUser;
   try {
     await addDoc(collection(dbService, "comments"), {
       text: comment.value,
