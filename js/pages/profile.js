@@ -12,9 +12,7 @@ import {
 
 
 
-
-
-export const getProfileList = async () => {
+export const getProfileInfor = async () => {
   //프로필 해쉬태그 + 간단한소개 저장
   let profileObjList = [];
   console.log(profileObjList)
@@ -34,11 +32,9 @@ export const getProfileList = async () => {
   });
 
   const userID = document.getElementById("userID");
-  userID.textContent = profileObjList[0]?.nickname || "닉네임 없음";
-  // console.log( profileObjList[0]?.nickname || "닉네임 없음")
+  userID.innerText= profileObjList[0]?.nickname || "닉네임 없음";
  
-  const tagInputs = profileObjList[0]?.tagInput || [];//나중에 공부..!
-
+  const tagInputs = profileObjList[0]?.tagInput || []; //나중에 공부..!
   tagInputs.forEach((inputs)=>{
     const span = document.createElement("span");
     span.classList.add('tagView');  
@@ -50,10 +46,10 @@ export const getProfileList = async () => {
   })
 
   const line_txt = document.getElementById("line_txt");
-  line_txt.innerText= profileObjList[0]?.introTxt || ''
-  // console.log(profileObjList[0])
+  line_txt.innerText= profileObjList[0]?.introTxt || '당신에 대한 간단한 한 줄 소개를 적어주세요.';
+  console.log(profileObjList[0])
 }
-getProfileList()
+
 
 export const changeModify = () =>{
   window.location.hash = "#profileModify";

@@ -1,45 +1,66 @@
-<div class="container">
-  <div class="main_right">
-    <div class="tit_wrap">
-      <h2 class="main_tit">내 프로필 수정</h2>
-    </div>
-    <div class="profile_wrap">
-      <div class="profile-second img profile_large">
-        <img id="profileView" src="/assets/blankProfile.webp" />
-      </div>
-
-      <div class="profile-third">
-        <button onclick="imageRemove(event)" class="btn btn_small btn_secondary">이미지 제거</button>
-        <input type="file" id="file" />
-        <button class="btn btn_small btn_default">
-          <label for="imgInput">
-            이미지 수정
-            <input onchange="onFileChange(event)" id="imgInput" type="file" accept="images/*" />
-          </label>
+<div class="container2">
+  <div class="wrapper">
+    <div class="main_left">
+      <nav class="nav">
+        <button onclick="home(event)" type="button" class="home">
+          <p></p>
         </button>
-      </div>
-
-      <div class="profileModify">
-        <form id="profileForm">
-          <div class="profile-main">
-            <input id="profileNickname" class="profileNickname tit_20" type="text" placeholder="현재 닉네임" value="" />
-            <span id="profileBtn" onclick="changeProfile(event)">완료</span>
+        <button onclick="myPost(event)" type="button" class="music">
+          <p></p>
+        </button>
+      </nav>
+      <main>
+        <div class="sub-header">
+          <h2 class="main_tit">오늘의 음악</h2>
+          <div class="info">
+            <div class="date" id="date">날짜</div>
+            <button onclick="posting(event) " type="button" class="post"></button>
           </div>
-        </form>
-        <div class="hashtag">
-          <div class="tag_title">
-            <input type="text" class="tagWrite" id="tagName" value="" placeholder="#태그입력" onchange="tagWrite(event)"
-              maxlength="4" />
-            <span>최대 4글자</span>
-          </div>
-          <div id="tag-list" class="tag_list"></div>
         </div>
-    
-        <div class="intro">
-          <input id="intro_txt" class="profile-self" type="text" placeholder="당신에 대한 간단한 한 줄 소개를 적어주세요.(30자 이내)" />
-        </div>        
+        <div class="content" id="post-list"></div>
+      </main>
+    </div>
+    <div class="main_right">
+      <div class="tit_wrap">
+        <h2 class="main_tit">내 프로필 수정</h2>
       </div>
-<!-- 
+      <div class="profile_wrap">
+        <div class="profile-second img profile_large">
+          <img id="profileView" src="/assets/blankProfile.webp" />
+        </div>
+
+        <div class="profile-third">
+          <button onclick="imageRemove(event)" class="btn btn_small btn_secondary">이미지 제거</button>
+          <input type="file" id="file" />
+          <button class="btn btn_small btn_default">
+            <label for="imgInput">
+              이미지 수정
+              <input onchange="onFileChange(event)" id="imgInput" type="file" accept="images/*" />
+            </label>
+          </button>
+        </div>
+
+        <div class="profileModify">
+          <form id="profileForm">
+            <div class="profile-main">
+              <input id="profileNickname" class="profileNickname tit_20" type="text" placeholder="현재 닉네임" value="" />
+              <span id="profileBtn" onclick="changeProfile(event)">완료</span>
+            </div>
+          </form>
+          <div class="hashtag">
+            <div class="tag_title">
+              <input type="text" class="tagWrite" id="tagName" value="" placeholder="#태그입력" onchange="tagWrite(event)"
+                maxlength="4" />
+              <span>최대 4글자</span>
+            </div>
+            <div id="tag-list" class="tag_list"></div>
+          </div>
+
+          <div class="intro">
+            <input id="intro_txt" class="profile-self" type="text" placeholder="당신에 대한 간단한 한 줄 소개를 적어주세요.(30자 이내)" />
+          </div>
+        </div>
+        <!-- 
       <div class="profile_info" id="userInfo">
         <h2 class="sub_tit" id="userID">아이디</h2>
         <div id="tagViewList" class="tag_list">
@@ -51,6 +72,7 @@
         </div>
       </div> -->
 
+      </div>
     </div>
   </div>
 </div>

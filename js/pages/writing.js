@@ -20,6 +20,11 @@ export const selectEmoji = async (event) => {
   });
 };
 
+export const posting = (event) => {
+  // window.location.hash = "#login"
+  window.location.hash = "#writePage";
+}
+
 export const save_writing = async (event) => {
   event.preventDefault();
 
