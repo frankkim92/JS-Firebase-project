@@ -272,7 +272,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  
+
   height: 19px;
   margin: 0px;
 }
@@ -355,15 +355,8 @@ a {
   border: none;
 }
 
-@media screen and (max-width: 950px) {
-  .container {
+@media screen and (max-width: 1000px) {
+  main {
     display: none;
   }
-  /* .content {
-    grid-template-columns: repeat(1, 1fr);
-  } */
 }
-/* @media screen and (max-width: 770px) {
-  .content {
-    grid-template-columns: repeat(1, 1fr);
-  }
