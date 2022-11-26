@@ -24,13 +24,13 @@ export const getMyPostList = async () => {
   const postList = document.getElementById("post-list");
   const currentUid = authService.currentUser.uid;
 
-  postList.innerHTML = "";
+  // postList.innerHTML = "";
   // 붙여넣기전 기존것들 다 초기화(삭제)
 console.log(currentUid)
   
   postObjList.forEach((postObj) => {
  
-    const isOwner = currentUid === postObj.creatorId;
+    // const isOwner = currentUid === postObj.creatorId;
     const temp_html = `<div class="card">
     <div class="card-head">
       <img src="${postObj.coverInput}" />

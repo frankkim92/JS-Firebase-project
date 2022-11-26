@@ -10,7 +10,7 @@ import {
   tagWrite,
 } from "./pages/profilemodify.js";
 import { socialLogin } from "./pages/auth.js";
-import {save_comment,update_comment, onEditing,delete_comment} from "./pages/feed.js";
+import {save_comment,update_comment, onEditing,delete_comment,getFeedData} from "./pages/feed.js";
 import {selectEmoji,save_writing,onCoverChange,posting} from "./pages/writing.js";
 import {getPostList, getFirstPostList} from "./pages/mainpage.js";
 import {getMyPostList} from "./pages/myPage.js";
@@ -67,9 +67,9 @@ window.selectEmoji = selectEmoji;
 window.save_writing = save_writing;
 window.onCoverChange = onCoverChange;
 window.getPostList = getPostList;
-<<<<<<< HEAD
+
 window.getMyPostList = getMyPostList;
 window.getFirstPostList = getFirstPostList;
-=======
+
 window.getFeedData = getFeedData;
->>>>>>> dy_mypage
+

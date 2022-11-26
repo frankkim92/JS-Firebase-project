@@ -95,7 +95,6 @@ export const getFeedData = async (event) => {
     console.log(cardId);
   });
 };
->>>>>>> dy_mypage
 
 export const save_comment = async (event) => {
   event.preventDefault();
