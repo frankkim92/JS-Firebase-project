@@ -3,8 +3,9 @@ import { authService } from "./firebase.js";
 const routes = {
   404: "/pages/404.html",
   style: "/style.html",
-  "/": "/pages/auth.html",
+  "/": "/pages/mainPage.html",
   fanLog: "/pages/fanLog.html",
+  mypage: "/pages/mypage.html",
   login: "/pages/login.html",
   sign_up: "/pages/sign_up.html",
   login: "/pages/login.html",
@@ -14,7 +15,7 @@ const routes = {
 };
 import { getCommentList } from "./pages/feed.js";
 import {getProfileList} from "./pages/profile.js";
-
+// import { getPostList } from "./pages/mainpage.js";
 
 export const handleLocation = async () => {
   let path = window.location.hash.replace("#", "");
@@ -50,14 +51,16 @@ export const handleLocation = async () => {
       authService.currentUser.photoURL ?? "/assets/blankProfile.webp";
     document.getElementById("profileNickname").placeholder =
       authService.currentUser.displayName ?? "닉네임 없음";
-  
   }
   if (path === "profile") {
     // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
     document.getElementById("profileView").src =
       authService.currentUser.photoURL ?? "/assets/blankProfile.webp";
       getProfileList()
-    
+  }
+
+  if (path === "/") {
+    getPostList();
   }
 
 };

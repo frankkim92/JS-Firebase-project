@@ -1,16 +1,13 @@
+import { authService } from "./firebase.js";
+import { handleLocation, goToProfile } from "./router.js";
 import { handleAuth, onToggle, logout } from "./pages/auth.js";
 import {login_popup, closeModal} from "./pages/login.js";
 import {changeModify} from "./pages/profile.js";
 import { changeProfile, onFileChange, imageRemove,tagWrite} from "./pages/profilemodify.js";
 import { socialLogin } from "./pages/auth.js";
-import { handleLocation, goToProfile } from "./router.js";
-import { authService } from "./firebase.js";
-import {
-  save_comment,
-  update_comment,
-  onEditing,
-  delete_comment,
-} from "./pages/feed.js";
+import {save_comment,update_comment, onEditing,delete_comment} from "./pages/feed.js";
+import {selectEmoji,save_writing,onCoverChange} from "./pages/writing.js";
+import {getPostList} from "./pages/mainpage.js";
 
 // url 바뀌면 handleLocation 실행하여 화면 변경
 window.addEventListener("hashchange", handleLocation);
@@ -54,3 +51,7 @@ window.delete_comment = delete_comment;
 window.changeModify =changeModify;
 window.login_popup = login_popup;
 window.closeModal = closeModal;
+window.selectEmoji = selectEmoji;
+window.save_writing = save_writing;
+window.onCoverChange = onCoverChange;
+window.getPostList = getPostList;

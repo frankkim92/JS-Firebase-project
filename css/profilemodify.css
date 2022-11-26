@@ -1,14 +1,4 @@
 
-
-.container {
-  /* background: white; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
-}
-
 .box {
   padding: 20px;
   background: white;

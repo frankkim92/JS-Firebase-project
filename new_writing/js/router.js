@@ -55,6 +55,9 @@ export const handleLocation = async () => {
   if (path === "mainpage") {
     getPostList();
   }
+  if (path === "mainPage") {
+    getPostList();
+  }
 };
 
 export const goToProfile = () => {
