@@ -53,7 +53,7 @@ export const changeProfile = async (event) => {
     // tagWrite()
     .then(() => {
       alert("프로필 수정 완료");
-      window.location.hash = "#profile";
+      window.location.hash = "#mypage";
     })
     .catch((error) => {
       alert("프로필 수정 실패");
@@ -78,7 +78,7 @@ export const changeProfile = async (event) => {
       createdAt: Date.now(),
       nickname: displayName,
     });
-    getProfileList()
+    // getProfileList()
   } catch (error) {
     alert(error);
     console.log("error in addDoc:", error);
@@ -134,40 +134,40 @@ export const tagWrite = (event) => {
 
 };
 
-export const getProfileList = async () => {
-  //프로필 해쉬태그 + 간단한소개 저장
-  let profileObjList = [];
-  console.log(profileObjList)
-  const q = query(
-    collection(dbService, "profileInfor"),
-    orderBy("createdAt", "desc")
-  );
-  const querySnapshot = await getDocs(q);
+// export const getProfileList = async () => {
+//   //프로필 해쉬태그 + 간단한소개 저장
+//   let profileObjList = [];
+//   console.log(profileObjList)
+//   const q = query(
+//     collection(dbService, "profileInfor"),
+//     orderBy("createdAt", "desc")
+//   );
+//   const querySnapshot = await getDocs(q);
 
-  querySnapshot.forEach((doc) => {
-    // console.log('doc.data()', doc.data())
-    const profileInfoObj = {
-      id: doc.id,
-      ...doc.data(),
-    };
-    profileObjList.push(profileInfoObj);
-  });
+//   querySnapshot.forEach((doc) => {
+//     // console.log('doc.data()', doc.data())
+//     const profileInfoObj = {
+//       id: doc.id,
+//       ...doc.data(),
+//     };
+//     profileObjList.push(profileInfoObj);
+//   });
 
-  const userID = document.getElementById("userID");
-  userID.innerText= profileObjList[0]?.nickname || "닉네임 없음";
+//   const userID = document.getElementById("userID");
+//   userID.innerText= profileObjList[0]?.nickname || "닉네임 없음";
  
-  const tagInputs = profileObjList[0]?.tagInput || []; //나중에 공부..!
-  tagInputs.forEach((inputs)=>{
-    const span = document.createElement("span");
-    span.classList.add('tagView');  
-    span.innerHTML = inputs;
-  //갯수가 3개 일때 보여주기를 멈춰라.
-   if( document.querySelector('#tagViewList').childElementCount <= 2){
-     document.querySelector('#tagViewList').appendChild(span);
-   }
-  })
+//   const tagInputs = profileObjList[0]?.tagInput || []; //나중에 공부..!
+//   tagInputs.forEach((inputs)=>{
+//     const span = document.createElement("span");
+//     span.classList.add('tagView');  
+//     span.innerHTML = inputs;
+//   //갯수가 3개 일때 보여주기를 멈춰라.
+//    if( document.querySelector('#tagViewList').childElementCount <= 2){
+//      document.querySelector('#tagViewList').appendChild(span);
+//    }
+//   })
 
-  const line_txt = document.getElementById("line_txt");
-  line_txt.innerText= profileObjList[0]?.introTxt || '';
-  console.log(profileObjList[0])
-}
+//   const line_txt = document.getElementById("line_txt");
+//   line_txt.innerText= profileObjList[0]?.introTxt || '';
+//   console.log(profileObjList[0])
+// }

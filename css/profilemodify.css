@@ -311,7 +311,7 @@ ul li.tag-item {
   margin-left: 8px;
 }
 
-.hash_tag {
+.hashtag {
   width: 100%;
   margin-top: 16px;
 }
@@ -352,8 +352,4 @@ ul li.tag-item {
 }
 .line_intro {
   margin-top: 23px;
-}
-
-.imgchoose {
-  display: none;
 }

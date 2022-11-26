@@ -55,9 +55,7 @@ export const getPostList = async () => {
       </div>
       <div class="card-footer-wrapper">
         <div class="card-user">
-          <img src="${
-            postObj.profileImg ?? "/assets/blankProfile.webp"
-          }" class="footer-img" />
+          <img src="${postObj.profileImg ?? "/assets/blankProfile.webp"}" class="footer-img" />
           <p class="card-p">by</p>
           <p class="card-p">${postObj.nickname ?? "닉네임 없음"}</p>
         </div>

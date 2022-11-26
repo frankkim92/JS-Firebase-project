@@ -18,6 +18,7 @@
   min-height: 900px;
   max-height: 90%;
   height: auto;
+  filter: drop-shadow(0px 6px 15px rgba(0, 0, 0, 0.9));
 }
 
 .wr_title {
@@ -274,13 +275,4 @@ input:checked + .emoji_btns {
   height: 45px;
   padding: 12px 24px 12px 24px;
   cursor: pointer;
-}
-
-/* 로그인 버튼 */
-
-.btn.btn_large {
-  width: 100%;
-  border-radius: var(--border-large);
-  padding: 12px 24px;
-  white-space: nowrap;
 }

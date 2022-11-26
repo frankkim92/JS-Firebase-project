@@ -12,17 +12,107 @@
 <body>
   <div id="root">
     <nav id="main-nav">
-      <a href="#" onclick="route(event)">mainPage</a>
+      <a href="" onclick="route(event)">main</a>
+      <a href="#writePage" onclick="route(event)">writepage</a>
       <a href="#style" onclick="route(event)">style</a>
       <a href="#fanLog" onclick="route(event)">fanlog</a>
       <a href="#mypage" onclick="route(event)">mypage</a>
       <a href="#feed" onclick="route(event)">feed</a>
       <a href="#login" onclick="route(event)">login</a>
-      <a href="#sign_up" onclick="route(event)">sign_up</a>
-      <a href="#profile" onclick="route(event)">profile</a>
+      <!-- <a href="#sign_up" onclick="route(event)">sign_up</a> -->
+      <!-- <a href="#profile" onclick="route(event)">profile</a> -->
       <a href="#profileModify" onclick="route(event)">profileModify</a>
     </nav>
 
+    <!-- 헤더 -->
+    <header>
+      <!-- 1. hidden header -->
+      <div class="header" id="header-after">
+        <div class="logo">
+          <img src="assets/musicnote.svg" alt="musiclogo" class="music-img" />
+          <h1 class="logo">소록소록</h1>
+        </div>
+        <div class="login">
+          <divs class="btn-wrapper">
+            <button class="btn-profile"></button>
+            <button class="btn-triangle"></button>
+          </divs>
+          <div class="dropdown-menu">
+            <a href="#">로그아웃</a>
+            <a href="#">마이페이지</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. login header -->
+      <div class="header" id="header-before">
+        <div class="logo">
+          <img src="assets/musicnote.svg" alt="musiclogo" class="music-img" />
+          <h1 class="logo">소록소록</h1>
+        </div>
+
+        <div class="login">
+          <a href="#" class="sign-in" id="open" onclick="login_popup(event)">로그인</a>
+
+        </div>
+        <div class="modal hidden" id="modal">
+          <div id="modal-overlay" class="modal-overlay"></div>
+          <div class="login-form">
+            <button type='button' class="btn-close" name="close" id="close" onclick="closeModal(event)">x</button>
+            <h2 class="main_tit" id="authTitle">로그인</h2>
+            <form onsubmit="handleAuth(event)">
+              <div class="int-area">
+                <input type="text" name="email" id="email" type="text" autocomplete="off">
+                <label for="email">E-mail</label>
+              </div>
+
+              <div class="int-area">
+                <input type="password" name="pw" id="pw" type="password" autocomplete="off">
+                <label for="pw">Password</label>
+              </div>
+              <div class="caption">
+                <span id="authToggle" onclick="onToggle()">회원가입</span>
+              </div>
+              <div class="btn-area">
+                <input type="submit" id="authBtn" value="로그인" class="btn btn_large btn_default" />
+              </div>
+            </form>
+            <section class="socialBtns">
+              <button name="google" onclick="socialLogin(event)">Google Login</button>
+              <button name="github" onclick="socialLogin(event)">Github Login</button>
+            </section>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="modal hidden" id="modal">
+      <div id="modal-overlay" class="modal-overlay"></div>
+      <div class="login-form">
+        <button type='button' class="btn-close" name="close" id="close" onclick="closeModal(event)">x</button>
+        <h2 class="main_tit" id="authTitle">로그인</h2>
+        <form onsubmit="handleAuth(event)">
+          <div class="int-area">
+            <input type="text" name="email" id="email" type="text" autocomplete="off">
+            <label for="email">E-mail</label>
+          </div>
+
+          <div class="int-area">
+            <input type="password" name="pw" id="pw" type="password" autocomplete="off">
+            <label for="pw">Password</label>
+          </div>
+          <div class="caption">
+            <span id="authToggle" onclick="onToggle()">회원가입</span>
+          </div>
+          <div class="btn-area">
+            <input type="submit" id="authBtn" value="로그인" class="btn btn_large btn_default" />
+          </div>
+        </form>
+        <section class="socialBtns">
+          <button name="google" onclick="socialLogin(event)">Google Login</button>
+          <button name="github" onclick="socialLogin(event)">Github Login</button>
+        </section>
+      </div>
+    </div>
     <div id="main-page"></div>
   </div>
 
