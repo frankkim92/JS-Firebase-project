@@ -35,7 +35,7 @@ header {
 #header-after {
   display: flex;
   flex-direction: row;
-  display: none;
+  /* display:none; */
 }
 .logo {
   display: flex;
