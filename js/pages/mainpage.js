@@ -32,7 +32,9 @@ export const getPostList = async () => {
     // const str = new Date(postObj.createdAt);
     // const week = str.textCon
     // const month = str.split(" ", 2);
-    const temp_html = `<div class="card">
+    const temp_html = `<div class="card" id=${
+      postObj.id
+    } onclick="getFeedData(event)">
     <div class="card-head">
       <img src="${postObj.coverInput}" />
     </div>
@@ -55,7 +57,9 @@ export const getPostList = async () => {
       </div>
       <div class="card-footer-wrapper">
         <div class="card-user">
-          <img src="${postObj.profileImg ?? "/assets/blankProfile.webp"}" class="footer-img" />
+          <img src="${
+            postObj.profileImg ?? "/assets/blankProfile.webp"
+          }" class="footer-img" />
           <p class="card-p">by</p>
           <p class="card-p">${postObj.nickname ?? "닉네임 없음"}</p>
         </div>

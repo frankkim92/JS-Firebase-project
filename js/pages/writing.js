@@ -77,7 +77,7 @@ export const save_writing = async (event) => {
 
     const defaultImage = document.getElementById("coverView");
 
-    defaultImage.src = "/image/select_file.png";
+    defaultImage.src = "/assets/select_file.png";
     artistName.value = "";
     songName.value = "";
     emojiSelect.checked = false;

@@ -1,9 +1,14 @@
 import { authService } from "./firebase.js";
 import { handleLocation, goToProfile } from "./router.js";
 import { handleAuth, onToggle, logout } from "./pages/auth.js";
-import {login_popup, closeModal} from "./pages/login.js";
-import {changeModify} from "./pages/profile.js";
-import { changeProfile, onFileChange, imageRemove,tagWrite} from "./pages/profilemodify.js";
+import { login_popup, closeModal } from "./pages/login.js";
+import { changeModify } from "./pages/profile.js";
+import {
+  changeProfile,
+  onFileChange,
+  imageRemove,
+  tagWrite,
+} from "./pages/profilemodify.js";
 import { socialLogin } from "./pages/auth.js";
 import {save_comment,update_comment, onEditing,delete_comment} from "./pages/feed.js";
 import {selectEmoji,save_writing,onCoverChange,posting} from "./pages/writing.js";
@@ -55,12 +60,16 @@ window.save_comment = save_comment;
 window.update_comment = update_comment;
 window.onEditing = onEditing;
 window.delete_comment = delete_comment;
-window.changeModify =changeModify;
+window.changeModify = changeModify;
 window.login_popup = login_popup;
 window.closeModal = closeModal;
 window.selectEmoji = selectEmoji;
 window.save_writing = save_writing;
 window.onCoverChange = onCoverChange;
 window.getPostList = getPostList;
+<<<<<<< HEAD
 window.getMyPostList = getMyPostList;
 window.getFirstPostList = getFirstPostList;
+=======
+window.getFeedData = getFeedData;
+>>>>>>> dy_mypage
