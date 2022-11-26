@@ -34,10 +34,11 @@ export const getProfileList = async () => {
   });
 
   const userID = document.getElementById("userID");
-  userID.textContent = profileObjList[0].nickname ?? "닉네임 없음";
+  userID.textContent = profileObjList[0]?.nickname || "닉네임 없음";
+  // console.log( profileObjList[0]?.nickname || "닉네임 없음")
  
   const tagInputs = profileObjList[0]?.tagInput || [];//나중에 공부..!
-  console.log(profileObjList[0].nickname)
+
   tagInputs.forEach((inputs)=>{
     const span = document.createElement("span");
     span.classList.add('tagView');  
@@ -49,7 +50,7 @@ export const getProfileList = async () => {
   })
 
   const line_txt = document.getElementById("line_txt");
-  line_txt.innerText= profileObjList[0].introTxt ?? ''
+  line_txt.innerText= profileObjList[0]?.introTxt || ''
   console.log(profileObjList[0])
 }
 getProfileList()
