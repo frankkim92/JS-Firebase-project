@@ -1,0 +1,166 @@
+<div class="mainArea">
+  <!-- 헤더 -->
+  <header>
+    <!-- 1. hidden header -->
+    <div class="header" id="header-after">
+      <div class="logo">
+        <img src="assets/musicnote.svg" alt="musiclogo" class="music-img" />
+        <h1 class="logo">소록소록</h1>
+      </div>
+      <div class="login">
+        <divs class="btn-wrapper">
+          <button class="btn-profile"></button>
+          <button class="btn-triangle"></button>
+        </divs>
+        <div class="dropdown-menu">
+          <a href="#">로그아웃</a>
+          <a href="#">마이페이지</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. login header -->
+    <div class="header" id="header-before">
+      <div class="logo">
+        <img src="assets/musicnote.svg" alt="musiclogo" class="music-img" />
+        <h1 class="logo">소록소록</h1>
+      </div>
+
+      <div class="login">
+        <a href="#" class="sign-in">로그인</a>
+        <a href="#" class="sign-up">회원가입</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 메인 페이지 -->
+  <div class="mainWrapper">
+
+    <!-- 메인 스레드 -->
+    <div class="container">
+      <!-- 1. 네비게이션 바 -->
+      <nav class="nav">
+        <button onclick="home(event)" type="button" class="home">
+          <p></p>
+        </button>
+        <button onclick="myPost(event)" type="button" class="music">
+          <p></p>
+        </button>
+      </nav>
+      <!-- 2. 스레드 -->
+      <main>
+        <div class="sub-header">
+          <h2>오늘의 음악</h2>
+          <div class="info">
+            <div class="date" id="date">날짜</div>
+            <button onclick="posting(event) " type="button" class="post"></button>
+          </div>
+        </div>
+        <div class="content" id="post-list"></div>
+    </div>
+    <!-- 글쓰기 탭 -->
+    <div class="w_page">
+      <!-- 1. 탭 설명 -->
+      <div class="wr_title">
+        <h2 class="page_title">작성중...</h2>
+      </div>
+      <!-- 2. 사진 가져오기 / 아티스트 입력 / 곡 입력 / 기분 선택 -->
+      <div class="wr_head">
+        <!-- 앨범 이미지 가져오기 -->
+        <form id="coverForm" onsubmit="changeWrite(event)" class="upload_cov">
+          <label for="coverInput">
+            <img id="coverView" src="/image/select_file.png" />
+            <input onchange="onCoverChange(event)" id="coverInput" type="file" class="upload_file" accept="image/*" />
+          </label>
+        </form>
+        <!-- 아티스트 / 곡 / 감정 입력 -->
+        <div class="head_r_side">
+          <input id="artistName" class="artist_name" type="text" placeholder="아티스트 이름" maxlength="20" required>
+
+          <input id="songName" class="song_title" type="text" placeholder="곡 이름" maxlength="20" required>
+
+          <p class="emoji_caption">곡을 들을 때 당신의 기분은?</p>
+
+          <form id class="emoji_group">
+
+            <div class="emoji_container">
+              <label for="emojiHappy">
+                <input onclick="selectEmoji(event)" id="emojiHappy" type="radio" name="emoji" value="Happy">
+                <div class="emoji_btns">
+                  <img src="./image/happy.png">
+                </div>
+              </label>
+            </div>
+
+            <div class="emoji_container">
+              <label for="emojiSad">
+                <input onclick="selectEmoji(event)" id="emojiSad" type="radio" name="emoji" value="Sad">
+                <div class="emoji_btns">
+                  <img src="./image/sad.png">
+                </div>
+              </label>
+            </div>
+
+
+            <div class="emoji_container">
+              <label for="emojiChill">
+                <input onclick="selectEmoji(event)" id="emojiChill" type="radio" name="emoji" value="Chill">
+                <div class="emoji_btns">
+                  <img src="./image/chill.png">
+                </div>
+              </label>
+            </div>
+
+            <div class="emoji_container">
+              <label for="emojiExcited">
+                <input onclick="selectEmoji(event)" id="emojiExcited" type="radio" name="emoji" value="Excited">
+                <div class="emoji_btns">
+                  <img src="./image/excited.png">
+                </div>
+              </label>
+            </div>
+
+            <div class="emoji_container">
+              <label for="emojiTouched">
+                <input onclick="selectEmoji(event)" id="emojiTouched" type="radio" name="emoji" value="Touched">
+                <div class="emoji_btns">
+                  <img src="./image/touched.png">
+                </div>
+              </label>
+            </div>
+
+          </form>
+        </div>
+      </div>
+      <!-- 3. 제목 / 해시태그 / 본문 글쓰기 -->
+      <div class="wr_body">
+        <input id="title" class="wr_body_title" type="text" placeholder="제목을 입력하세요.">
+        <!-- 해쉬태그 / 입력창 -->
+        <div class="hash_mkr">
+          <div class="hash_container">
+            <div class="hash">#태그입력</div>
+            <div class="hash">#최대3개</div>
+            <div class="hash">#4글자</div>
+          </div>
+          <div>
+            <input id="hashTag" class="hash_input" type="text" placeholder="태그를 입력하세요">
+          </div>
+        </div>
+        <div class="textWrapper">
+          <textarea id="bodyText" class="body_text" name="" placeholder="당신의 아티스트와 곡을 마음껏 자랑해주세요!"></textarea>
+        </div>
+
+      </div>
+      <!-- 4. 업로드 / 작성취소 버튼 -->
+      <div class="wr_foot">
+        <div class="Btns_wrap">
+          <button onclick="save_writing(event)" id="writeBtn" type="button">업로드 하기</button>
+          <button id="quitBtn" type="reset">작성취소</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+</div>
