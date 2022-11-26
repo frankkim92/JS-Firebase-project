@@ -48,7 +48,9 @@ export const save_writing = async (event) => {
   const title = document.getElementById("title");
   const hashTag = document.getElementById("hashTag");
   const bodyText = document.getElementById("bodyText");
-  const emojiSelect = $('input[name="emoji"]:checked').val();
+  const emojiSelect = document.querySelector("input[name='emoji']:checked");
+  // const emojiSelect = $('input[name="emoji"]:checked');
+
   // console.log(emojiSelect);
 
   const { uid, photoURL, displayName } = authService.currentUser;
@@ -57,7 +59,8 @@ export const save_writing = async (event) => {
       coverInput: coverInput,
       artistName: artistName.value,
       songName: songName.value,
-      emotion: emojiSelect,
+      emotion: emojiSelect.value,
+      // emotion: emojiSelect.val()
       title: title.value,
       hashTag: hashTag.value,
       bodyText: bodyText.value,
@@ -70,13 +73,16 @@ export const save_writing = async (event) => {
       // window.location.hash = "#fanLog";
     });
 
-    // coverInput = "";
-    // artistName.value = "";
-    // songName.value = "";
-    // emojiSelect.value = "";
-    // title.value = "";
-    // hashTag.value = "";
-    // bodyText.value = "";
+    const defaultImage = document.getElementById("coverView");
+
+    defaultImage.src = "/image/select_file.png";
+    artistName.value = "";
+    songName.value = "";
+    emojiSelect.checked = false;
+    // emojiSelect.prop("checked", false);
+    title.value = "";
+    hashTag.value = "";
+    bodyText.value = "";
 
     // 지워주기 >>> 맞는지 확인, 업로드하면 상세페이지로 전환되니까 필요없나?
     await getPostList(event);
