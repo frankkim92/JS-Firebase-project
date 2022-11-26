@@ -1,0 +1,251 @@
+/* reset css */
+@import url(reset.css);
+/* Noto sans font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+@import url(feed.css);
+@import url(profilemodify.css);
+
+/* css 기본변수 */
+:root {
+  /* color */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-dark-beige: rgba(241, 238, 234, 1);
+  --color-main: rgba(150, 100, 255, 1);
+  --color-red: rgba(252, 85, 85, 1);
+  --color-gray-dark: rgba(153, 153, 153, 1);
+  --color-gray: rgba(220, 220, 220, 1);
+  --color-black: rgba(0, 0, 0, 1);
+
+  /* font-size */
+  --font-main-tit: 32px;
+  --font-sub-tit: 18px;
+  --font-nomal: 14px;
+  --font-small: 12px;
+  --font-content: 20px;
+
+  /* border */
+  --border-large: 40px;
+  --border-medium: 20px;
+
+  /* shadow */
+  --box-normal: 0px 4px 8px rgba(41, 41, 41, 0.08);
+  --box-hover: 0 0 16px 0 rgba(150, 100, 255, 1);
+
+  /* gap */
+  --gap-20: 20px;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: var(--color-black);
+  background-color: var(--color-dark-beige);
+  font-size: var(--font-nomal);
+  line-height: 1.5;
+  letter-spacing: -5%;
+  /* height: 100vh; */
+}
+
+/* 기본 와이어프레임 사이즈  */
+.container {
+  max-width: 1400px;
+  /* height: 100vh; */
+  /* overflow: hidden; */
+  margin: auto;
+  display: flex;
+}
+/* 1600이하 */
+@media (max-width: 1600px) {
+  .container {
+    max-width: 95%;
+  }
+}
+
+.flexBox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-20);
+  padding: 20px;
+
+  border-radius: var(--border-large);
+}
+
+.flexBox.row {
+  flex-direction: row;
+  gap: var(--gap-20);
+  padding: 20px;
+  background: var(--color-white);
+}
+
+/* title */
+.main_tit {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.sub_tit {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.tit_20 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* 와이어프레임 */
+.tit_wrap {
+  display: flex;
+  padding:24px;
+  border-bottom: 1px solid var(--color-gray);
+}
+
+.con_wrap {
+  padding: 35px 0;
+}
+
+/* button css */
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn.btn_large {
+  width: 100%;
+  border-radius: var(--border-large);
+  padding: 12px 24px;
+  white-space: nowrap;
+}
+
+.btn.btn_medium {
+  width: 50%;
+  min-width: 176px;
+  border-radius: var(--border-large);
+  padding: 12px 24px;
+}
+
+.btn.btn_small {
+  width: 20%;
+  min-width: 84px;
+  border-radius: var(--border-large);
+  padding: 12px 24px;
+}
+
+.btn.btn_default {
+  background: var(--color-main);
+  color: var(--color-white);
+}
+
+.btn-Wrap {
+  display: flex;
+  justify-content: right;
+  /* width: 100%; */
+  align-items: center;
+  white-space: nowrap;
+  gap: 16px;
+}
+
+.btn.btn_secondary {
+  background: var(--color-dark-beige);
+  color: var(--color-main);
+}
+
+.btn.btn_secondary {
+  background: var(--color-dark-beige);
+  color: var(--color-red);
+}
+
+/* list */
+.list {
+  padding: 20px;
+  border-radius: var(--border-large);
+  box-shadow: var(--box-normal);
+}
+
+.list.list_hover {
+  border-radius: var(--border-large);
+  box-shadow: var(--box-hover);
+}
+
+/* hash */
+.hash {
+  padding: 4px 8px;
+  background-color: var(--color-dark-beige);
+  color: var(--color-main);
+  border-radius: 12px;
+  font-size: var(--font-small);
+}
+
+.img {
+  position: relative;
+  overflow: hidden;
+}
+
+.img.profile_small {
+  display: block;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+}
+
+.img.profile_large {
+  display: block;
+  width: 240px;
+  height: 240px;
+  border-radius: 100%;
+}
+
+.img.img_Square {
+  display: block;
+  width: 380px;
+  height: 380px;
+  border-radius: var(--border-medium);
+}
+
+.img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(50, 50);
+  width: 100%;
+  height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+/* icon */
+.icon_arr {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: url('../assets/sprite_img.svg') 0px -92px;
+  cursor: pointer;
+}
+
+.icon_music {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url('../assets/sprite_img.svg')-100px -54px;
+}
+
+/* color */
+.co_gray {
+  color: var(--color-gray-dark);
+}
+
+
+.main_right {
+  width: 40%;
+  min-width: 434px;
+  background: var(--color-white);
+  border-radius: var(--border-large) var(--border-large);
+}
