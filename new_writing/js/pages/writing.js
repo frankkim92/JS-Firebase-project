@@ -70,10 +70,10 @@ export const save_writing = async (event) => {
       // window.location.hash = "#fanLog";
     });
 
-    // coverInput = null;
+    // coverInput = "";
     // artistName.value = "";
     // songName.value = "";
-    // emojiSelect = null;
+    // emojiSelect.value = "";
     // title.value = "";
     // hashTag.value = "";
     // bodyText.value = "";
