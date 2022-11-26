@@ -1,5 +1,5 @@
 * {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 .w_back {
@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #F6F4F1;
+  background-color: #f6f4f1;
 }
 
 .w_page {
@@ -22,7 +22,7 @@
 
 .wr_title {
   padding: 12px 38px 0px 38px;
-  border-bottom: 1px solid #DCDCDC;
+  border-bottom: 1px solid #dcdcdc;
   display: block;
 }
 
@@ -62,7 +62,7 @@
   font-weight: 400;
   color: black;
   font-size: 14px;
-  background-color: #F6F4F1;
+  background-color: #f6f4f1;
   overflow: hidden;
   position: relative;
 }
@@ -165,7 +165,7 @@
   /* background-color: #FC5555; */
 }
 
-input:checked+.emoji_btns {
+input:checked + .emoji_btns {
   opacity: 100%;
 }
 
@@ -205,7 +205,7 @@ input:checked+.emoji_btns {
 
 .hash {
   font-size: 14px;
-  background-color: #F1EEEA;
+  background-color: #f1eeea;
   border-radius: 14px;
   color: #999999;
   border: none;
@@ -253,7 +253,7 @@ input:checked+.emoji_btns {
 }
 
 #writeBtn {
-  background-color: #9664FF;
+  background-color: #9664ff;
   color: white;
   border-radius: 40px;
   border-width: 0px;
@@ -265,8 +265,8 @@ input:checked+.emoji_btns {
 }
 
 #quitBtn {
-  background-color: #F1EEEA;
-  color: #FC5555;
+  background-color: #f1eeea;
+  color: #fc5555;
   border-radius: 40px;
   border-width: 0px;
   font-size: 14px;
