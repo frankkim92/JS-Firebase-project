@@ -12,6 +12,7 @@ import {
 import { socialLogin } from "./pages/auth.js";
 import {
   getFeedData,
+  deletePost,
   save_comment,
   update_comment,
   onEditing,
@@ -82,3 +83,4 @@ window.getPostList = getPostList;
 window.beforeLogin = beforeLogin;
 window.afterLogin = afterLogin;
 window.getFeedData = getFeedData;
+window.deletePost = deletePost;
