@@ -1,51 +1,17 @@
 <div class="mainArea">
-  <!-- 헤더 -->
-  <!-- <header> -->
-  <!-- 1. hidden header -->
-  <!-- <div class="header" id="header-after">
-    <div class="logo">
-      <img src="assets/musicnote.svg" alt="musiclogo" class="music-img" />
-      <h1 class="logo">소록소록</h1>
-    </div>
-    <div class="login"> -->
-  <!-- <div class="btn-wrapper">
-        <button class="btn-profile"></button>
-        <button class="btn-triangle"></button>
-      </div>
-      <div class="dropdown-menu">
-        <a href="#">로그아웃</a>
-        <a href="#">마이페이지</a>
-      </div>
-</div>
-</div> -->
-
-  <!-- 2. login header -->
-  <!-- <div class="header" id="header-before">
-      <div class="logo">
-        <img src="assets/musicnote.svg" alt="musiclogo" class="music-img" />
-        <h1 class="logo">소록소록</h1>
-      </div>
-
-      <div class="login">
-        <a href="#" class="sign-in">로그인</a>
-        <a href="#" class="sign-up">회원가입</a>
-      </div>
-    </div>
-  </header> -->
-
   <!-- 메인 페이지 -->
   <div class="mainWrapper">
 
     <!-- 메인 스레드 -->
     <div class="container">
       <!-- 1. 네비게이션 바 -->
-      
+
       <nav class="nav">
-        
-        <button onclick="home(event)" type="button" class="home">
+
+        <button onclick="goToMain(event)" type="button" class="home">
           <p></p>
         </button>
-        <button onclick="myPost(event)" type="button" class="music">
+        <button onclick="goToMypage(event)" type="button" class="music">
           <p></p>
         </button>
       </nav>
@@ -55,7 +21,7 @@
           <h2>오늘의 음악</h2>
           <div class="info">
             <div class="date" id="date">날짜</div>
-            <button onclick="posting(event) " type="button" class="post"></button>
+            <button onclick="goToWrite(event) " type="button" class="post"></button>
           </div>
         </div>
         <div class="content" id="post-list"></div>
@@ -215,7 +181,7 @@
       <div id="feed_top"></div>
 
       <!-- 2. 댓글 쓰기 -->
-      <div class="feed_miidle">
+      <div class="feed_middle">
         <div class="comment_user">
           <div class="comment_id">
             <div class="img profile_small">

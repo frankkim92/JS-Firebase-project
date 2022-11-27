@@ -1,5 +1,11 @@
 import { authService } from "./firebase.js";
-import { handleLocation, goToProfile } from "./router.js";
+import {
+  handleLocation,
+  goToProfile,
+  goToMain,
+  goToMypage,
+  goToWrite,
+} from "./router.js";
 import { handleAuth, onToggle, logout } from "./pages/auth.js";
 import { login_popup, closeModal } from "./pages/login.js";
 import { changeModify } from "./pages/profile.js";

@@ -1,10 +1,10 @@
-.tit_warp_mine {
+.tit_wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.tit_left {
+.tit_wrap_text {
   display: flex;
 }
 
@@ -19,7 +19,8 @@
 
 .con_top {
   position: relative;
-  padding: 0 24px
+  padding: 0 24px;
+  margin-top: 39px;
 }
 
 .music_tit {
@@ -41,6 +42,12 @@
 .con_bottom {
   margin: 24px 0;
   padding: 0 24px;
+}
+
+.feed_middle {
+  margin: 24px 0;
+  padding: 24px 24px 0px;
+  border-top: 1px solid var(--color-gray);
 }
 
 .view_info {

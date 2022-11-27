@@ -12,7 +12,7 @@ export function afterLogin() {
   // document.getElementById("header-after").style.visibility = "visible";
   const login = document.querySelector(".login");
   login.innerHTML = ` <div class="btn-wrapper">
-<button class="btn-profile" id="#profileImg"></button>
+<button class="btn-profile"></button>
 <button class="btn-triangle"></button>
 </div>
 <div class="dropdown-menu">
@@ -26,7 +26,7 @@ export function beforeLogin() {
   login.innerHTML = `
 <a href="#" class="sign-in">로그인</a>`.trim();
 }
-// e;
+
 //오늘 날짜.
 //
 // const date = new Date().toLocaleDateString("en-us", {

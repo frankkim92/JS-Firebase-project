@@ -79,3 +79,12 @@ export const handleLocation = async () => {
 export const goToProfile = () => {
   window.location.hash = "#profile";
 };
+export const goToMain = () => {
+  window.location.hash = "/";
+};
+export const goToMypage = () => {
+  window.location.hash = "#mypage";
+};
+export const goToWrite = () => {
+  window.location.hash = "#writePage";
+};

@@ -2,10 +2,10 @@
   <div class="wrapper">
     <div class="main_left">
       <nav class="nav">
-        <button onclick="home(event)" type="button" class="home">
+        <button onclick="goToMain(event)" type="button" class="home">
           <p></p>
         </button>
-        <button onclick="myPost(event)" type="button" class="music">
+        <button onclick="goToMypage(event)" type="button" class="music">
           <p></p>
         </button>
       </nav>
@@ -14,7 +14,7 @@
           <h2>오늘의 음악</h2>
           <div class="info">
             <div class="date" id="date">날짜</div>
-            <button onclick="posting(event) " type="button" class="post"></button>
+            <button onclick="goToWrite(event) " type="button" class="post"></button>
           </div>
         </div>
         <div class="content" id="post-list"></div>
