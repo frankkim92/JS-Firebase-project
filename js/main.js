@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // alert('dd')
     } else {
       beforeLogin();
-      getFirstPostList();
+      // getFirstPostList();
     }
   });
 });
