@@ -3,9 +3,10 @@ import { authService } from "./firebase.js";
 const routes = {
   404: "/pages/404.html",
   style: "/style.html",
-  "/": "/pages/mainPage.html",
+  "/": "/pages/main.html",
+  writePage: "/pages/mainPage.html",
   fanLog: "/pages/fanLog.html",
-  writePage: "/pages/writePage.html",
+  mypage: "/pages/myPage.html",
   login: "/pages/login.html",
   sign_up: "/pages/sign_up.html",
   login: "/pages/login.html",
@@ -15,6 +16,7 @@ const routes = {
 };
 import { getCommentList } from "./pages/feed.js";
 import { getProfileInfor } from "./pages/profile.js";
+// import { getProfileList } from "./pages/profilemodify";
 import { getMyPostList } from "./pages/myPage.js";
 import { getFirstPostList } from "./pages/mainpage.js";
 
@@ -58,12 +60,12 @@ export const handleLocation = async () => {
       authService.currentUser.displayName ?? "닉네임 없음";
     getMyPostList();
   }
-  if (path === "profile") {
-    // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
-    document.getElementById("profileView").src =
-      authService.currentUser.photoURL ?? "/assets/blankProfile.webp";
-    getProfileList();
-  }
+  // if (path === "profile") {
+  //   // 프로필 관리 화면 일 때 현재 프로필 사진과 닉네임 할당
+  //   document.getElementById("profileView").src =
+  //     authService.currentUser.photoURL ?? "/assets/blankProfile.webp";
+  //   getProfileList();
+  // }
 
   if (path === "profile" || path === "writePage") {
     document.getElementById("profileView").src =
