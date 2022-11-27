@@ -29,12 +29,12 @@ export const getFeedData = async (event) => {
   });
 
   const feedContent = document.getElementById("feed-content");
-  const currentUid = authService.currentUser.uid;
+  // const currentUid = authService.currentUser.uid; --->>
   feedContent.innerHTML = "";
   // console.log(FeedObjContent);
 
   FeedObjContent.forEach((FeedObj) => {
-    const isOwner = currentUid === FeedObj.creatorId;
+    // const isOwner = currentUid === FeedObj.creatorId; --->>
 
     const temp_html = `<!-- 앨범커버 -->
     <div class="con_top" id=${FeedObj.id}>
@@ -84,6 +84,8 @@ export const getFeedData = async (event) => {
     const FeedObjId = FeedObj.id;
     if (FeedObjId == cardId) {
       feedContent.appendChild(div);
+    } else {
+      document.querySelector(".feed_delete").style.display = "none";
     }
 
     // console.log(FeedObjId);

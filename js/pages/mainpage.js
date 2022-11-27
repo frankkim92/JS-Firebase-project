@@ -136,7 +136,10 @@ export const getFirstPostList = async () => {
     // const str = new Date(postObj.createdAt);
     // const week = str.textCon
     // const month = str.split(" ", 2);
-    const temp_html = `<div class="card">
+
+    const temp_html = `<div class="card" id=${
+      postObj.id
+    } onclick="getFeedData(event)">
     <div class="card-head">
       <img src="${postObj.coverInput}" />
     </div>
