@@ -25,6 +25,7 @@ import {
   onEditing,
   delete_comment,
   getCommentList,
+  getCommentListInFeed,
 } from "./pages/feed.js";
 
 import { selectEmoji, save_writing, onCoverChange } from "./pages/writing.js";
@@ -86,3 +87,4 @@ window.goToMain = goToMain;
 window.goToMypage = goToMypage;
 window.goToWrite = goToWrite;
 window.getCommentList = getCommentList;
+window.getCommentListInFeed = getCommentListInFeed;

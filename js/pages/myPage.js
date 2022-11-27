@@ -70,9 +70,9 @@ export const getMyPostList = async () => {
     const div = document.createElement("div");
     div.classList.add("mycards");
     div.innerHTML = temp_html;
-    console.log("isOwner", !isOwner);
-    console.log("currentUid", currentUid);
-    console.log(postObj.creatorId);
+    // console.log("isOwner", !isOwner);
+    // console.log("currentUid", currentUid);
+    // console.log(postObj.creatorId);
     if (postObj.creatorId === currentUid) {
       my_post_list.appendChild(div);
       return false;
