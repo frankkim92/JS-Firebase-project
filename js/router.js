@@ -11,6 +11,7 @@ const routes = {
   sign_up: "/pages/sign_up.html",
   login: "/pages/login.html",
   feed: "/pages/feed.html",
+  teaminfor: "/pages/teaminfor.html",
   profile: "/pages/profile.html",
   profileModify: "/pages/profilemodify.html",
 };

@@ -28,51 +28,69 @@ export const getFeedData = async (event) => {
     FeedObjContent.push(FeedObj);
   });
 
-  const feedContent = document.getElementById("feed-content");
-  // const currentUid = authService.currentUser.uid; --->>
+  const feedContent = document.getElementById("feed_top");
+  const currentUid = authService.currentUser.uid;
+  // 유저아이디 일치 확인 ----------------------
   feedContent.innerHTML = "";
   // console.log(FeedObjContent);
 
   FeedObjContent.forEach((FeedObj) => {
-    // const isOwner = currentUid === FeedObj.creatorId; --->>
+    const isOwner = currentUid === FeedObj.creatorId;
+    // 유저아이디 일치 확인 ----------------------
 
-    const temp_html = `<!-- 앨범커버 -->
-    <div class="con_top" id=${FeedObj.id}>
-      <p class="music_tit"><span class="icon_music"></span><span>${
-        FeedObj.artistName
-      }</span> - <span>${FeedObj.songName}</span></p>
-      <div class="img img_Square">
-        <img draggable="false" src="${FeedObj.coverInput}" />
+    const temp_html = `<!-- 상단 타이틀 -->
+    <div class="tit_wrap">
+      <div class="tit_wrap_text">
+        <span class="icon_arr"></span>
+        <h2 class="main_tit">Feed</h2>
       </div>
+      <div class="${isOwner ? "showBtns" : "noDisplay"}">
+        <p id="${
+          FeedObj.id
+        }" class="tit_wrap_delete" onclick="deletePost(event)">삭제</p>
+      </div>
+      
     </div>
-    <!-- 게시글 -->
-    <div class="con_bottom">
-      <div class="view_info">
-        <div class="user_info">
-          <div class="img profile_small">
-            <img draggable="false" src="${
-              FeedObj.profileImg ?? "/assets/blankProfile.webp"
-            }">
-          </div>
-          <p class="user_name">
-            <span class="co_gray">by</span>
-            <span class="user_id">${FeedObj.nickname ?? "닉네임 없음"}</span>
-          </p>
+    <!-- 카드 데이터 -->
+    <div id="feed-content">
+      <!-- 앨범커버 -->
+      <div class="con_top" id=${FeedObj.id}>
+        <p class="music_tit"><span class="icon_music"></span><span>${
+          FeedObj.artistName
+        }</span> - <span>${FeedObj.songName}</span></p>
+        <div class="img img_Square">
+          <img draggable="false" src="${FeedObj.coverInput}" />
         </div>
-        <p class="write_date co_gray">${new Date(FeedObj.createdAt)
-          .toString()
-          .slice(0, 4)}, ${new Date(FeedObj.createdAt)
+      </div>
+      <!-- 게시글 -->
+      <div class="con_bottom">
+        <div class="view_info">
+          <div class="user_info">
+            <div class="img profile_small">
+              <img draggable="false" src="${
+                FeedObj.profileImg ?? " /assets/blankProfile.webp"
+              }">
+            </div>
+            <p class="user_name">
+              <span class="co_gray">by</span>
+              <span class="user_id">${FeedObj.nickname ?? "닉네임 없음"}</span>
+            </p>
+          </div>
+          <p class="write_date co_gray">${new Date(FeedObj.createdAt)
+            .toString()
+            .slice(0, 4)}, ${new Date(FeedObj.createdAt)
       .toString()
       .slice(4, 8)}</p>
-      </div>
-      <div class="card_list">
-        <h3 class="list_tit tit_20">${FeedObj.title}</h3>
-        <p class="list_txt">${FeedObj.bodyText}</p>
-        <ul class="tag_wrap">
-          <li class="hash">#힐랭</li>
-          <li class="hash">#사랑</li>
-          <li class="hash">#정우최고</li>
-        </ul>
+        </div>
+        <div class="card_list">
+          <h3 class="list_tit tit_20">${FeedObj.title}</h3>
+          <p class="list_txt">${FeedObj.bodyText}</p>
+          <ul class="tag_wrap">
+            <li class="hash">#힐랭</li>
+            <li class="hash">#사랑</li>
+            <li class="hash">#정우최고</li>
+          </ul>
+        </div>
       </div>
     </div>`;
 
@@ -95,7 +113,7 @@ export const getFeedData = async (event) => {
 
 export const deletePost = async (event) => {
   event.preventDefault();
-  const id = document.querySelector(".con_top").id;
+  const id = document.querySelector(".tit_wrap_delete").id;
   const ok = window.confirm("해당 게시글을 정말 삭제하시겠습니까?");
   if (ok) {
     try {
@@ -199,38 +217,36 @@ export const getCommentList = async () => {
     };
     cmtObjList.push(commentObj);
   });
-  const commnetList = document.getElementById("comment-list");
+  const commnetList = document.getElementById("feed_bottom");
   const currentUid = authService.currentUser.uid;
   commnetList.innerHTML = "";
   cmtObjList.forEach((cmtObj) => {
     const isOwner = currentUid === cmtObj.creatorId;
-    const temp_html = ` 
-    <div class="comment_wrap">
-      <div class="comment_user ">
-        <div class="comment_id">
-          <div class="img profile_small">
-            <img draggable="false" src="${
-              cmtObj.profileImg ?? "/assets/blankProfile.webp"
-            }" alt="profileImg" />
-          </div>
-          <span class="user_id tit_20">${
-            cmtObj.nickname ?? "닉네임 없음"
-          }</span>
+    const temp_html = `<div class="comment_wrap">
+    <div class="comment_user ">
+      <div class="comment_id">
+        <div class="img profile_small">
+          <img draggable="false" src="${
+            cmtObj.profileImg ?? " /assets/blankProfile.webp"
+          }" alt="profileImg" />
         </div>
-        <span class="comment_date co_gray">${new Date(cmtObj.createdAt)
-          .toString()
-          .slice(0, 3)}, ${new Date(cmtObj.createdAt)
+        <span class="user_id tit_20">${cmtObj.nickname ?? "닉네임 없음"}</span>
+      </div>
+      <span class="comment_date co_gray">${new Date(cmtObj.createdAt)
+        .toString()
+        .slice(0, 3)}, ${new Date(cmtObj.createdAt)
       .toString()
       .slice(8, 10)}</span>
-      </div>
+    </div>
     <div>
       <p class="comment_txt">${cmtObj.text}</p>
       <p id="${
         cmtObj.id
-      }" class="noDisplay"><input class="newCmtInput" type="text" maxlength="30" /><button class="updateBtn" onclick="update_comment(event)">완료</button></p>
+      }" class="noDisplay"><input class="newCmtInput" type="text" maxlength="30" /><button class="updateBtn"
+          onclick="update_comment(event)">완료</button></p>
     </div>
-    <div class="btn-Wrap ${isOwner ? "updateBtns" : "noDisplay"}">
-      <button  name="${
+    <div class="btn-Wrap ${isOwner ? " updateBtns" : "noDisplay"}">
+      <button name="${
         cmtObj.id
       }" onclick="delete_comment(event)" class="btn deleteBtn btn_small btn_secondary">삭제</button>
       <button onclick="onEditing(event)" class="btn editBtn btn_small btn_default">댓글 수정</button>

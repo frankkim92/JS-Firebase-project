@@ -1,0 +1,241 @@
+/* animation */
+@keyframes rolling {
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(-20%);
+  }
+
+  50% {
+    transform: translateY(-40%);
+  }
+
+  75% {
+    transform: translateY(-60%);
+  }
+
+  100% {
+    transform: translateY(-80%);
+  }
+
+}
+
+.teaminfor {
+  max-width: 1400px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+/* 반응형 소개 */
+.profile {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-header,
+.profile-section {
+  padding-bottom: 7%;
+}
+
+.profile h1 {
+  font-weight: normal;
+}
+
+.profile a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.name {
+  font-size: 36px;
+  line-height: 1.5;
+  font-style: italic;
+  margin-bottom: 30px;
+  color: cornflowerblue;
+}
+
+.name-title {
+  font-size: 1.5em;
+
+}
+
+.name-job {
+  display: inline-block;
+  /* background-color: black; */
+  color: black;
+  vertical-align: top;
+  height: 1.5em;
+  overflow: hidden;
+  padding-right: 0.5em;
+  position: relative;
+}
+
+
+.name-job::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* border: 1px solid red; */
+  margin-left: -1em;
+  box-shadow: inset 0 0 10px 10px white;
+
+}
+
+.name-job-list {
+  animation-name: rolling;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+}
+
+
+
+
+/* 깃허브, 피그마아이콘 */
+.icons>a {
+  background-image: url(images/icons.png);
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  text-indent: -9999px;
+}
+
+
+
+
+
+
+/* 섹션 */
+.section1 {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.section-title1 h2,
+.section-title2 h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.section-title1 p,
+.section-title2>p {
+  margin-top: 15px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  line-height: 30px;
+}
+
+.content-box1 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.content-box2 {
+  display: flex;
+  justify-content: center;
+}
+
+.content-box1 .box:hover,
+.content-box2 .box:hover {
+  box-shadow: 0px 0px 16px #9664ff;
+}
+
+.box-title {
+  font-size: 18px;
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+
+.section-title2 {
+  margin-top: 40px;
+}
+
+
+
+.box {
+  margin-top: 50px;
+  background-color: white;
+  width: calc(100% /3 - 40px);
+  ;
+  height: 480px;
+  border-radius: 40px;
+  box-shadow: 1px 3px 10px gray;
+}
+
+.box-img {
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.box-img img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: 30px;
+
+}
+
+.box-title {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.box-title>h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.box-title>p {
+  margin-top: -10px;
+  font-size: 14px;
+  padding: 30px;
+}
+
+.profile-music {
+  margin-top: 1px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.profile-music>span {
+  padding: 10px;
+  width: 201px;
+  height: 36px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 3px 3px 10px gray;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.profile-music>span i {
+  color: #9664ff;
+}
+
+
+.profile-music span:hover {
+  background-color: black;
+  ;
+  color: white;
+}
+
+
+.profile-tag {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.profile-tag .hashtag {
+  width: auto;
+  padding: 8px 10px;
+}

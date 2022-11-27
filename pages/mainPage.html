@@ -207,6 +207,70 @@
       </div>
 
     </div>
+    <!-- 피드 싱세페이지 리뉴얼 -->
+    <div class="main_right">
+      <!-- 1. 상단 타이틀 & 카드 데이터 -->
+      <div id="feed_top"></div>
+
+      <!-- 2. 댓글 쓰기 -->
+      <div class="feed_miidle">
+        <div class="comment_user">
+          <div class="comment_id">
+            <div class="img profile_small">
+              <img id="commentImg" draggable="false" src="/assets/blankProfile.webp" />
+            </div>
+            <span id="nickname" class="user_id tit_20">닉네임</span>
+          </div>
+          <span class="comment_date co_gray" id="today_date">Dec, 15</span>
+        </div>
+        <div>
+          <label for="floatingtextarea">
+            <textarea class="comment_write" placeholder="댓글을 작성해 보세요." id="comment"></textarea>
+          </label>
+        </div>
+        <div class="btn-Wrap">
+          <button class="btn btn_small btn_secondary">작성 취소</button>
+          <button class="btn btn_small btn_default" type="button" onclick="save_comment(event)">댓글 등록</button>
+        </div>
+      </div>
+
+      <!-- 3. 댓글 보기 -->
+      <div id="feed_bottom">
+        <div class="comment_wrap">
+          <div class="comment_user ">
+            <div class="comment_id">
+              <div class="img profile_small">
+                <img draggable="false" src="${
+              cmtObj.profileImg ?? " /assets/blankProfile.webp" }" alt="profileImg" />
+              </div>
+              <span class="user_id tit_20">${
+                cmtObj.nickname ?? "닉네임 없음"
+                }</span>
+            </div>
+            <span class="comment_date co_gray">${new Date(cmtObj.createdAt)
+              .toString()
+              .slice(0, 3)}, ${new Date(cmtObj.createdAt)
+              .toString()
+              .slice(8, 10)}</span>
+          </div>
+          <div>
+            <p class="comment_txt">${cmtObj.text}</p>
+            <p id="${
+        cmtObj.id
+      }" class="noDisplay"><input class="newCmtInput" type="text" maxlength="30" /><button class="updateBtn"
+                onclick="update_comment(event)">완료</button></p>
+          </div>
+          <div class="btn-Wrap ${isOwner ? " updateBtns" : "noDisplay" }">
+            <button name="${
+        cmtObj.id
+      }" onclick="delete_comment(event)" class="btn deleteBtn btn_small btn_secondary">삭제</button>
+            <button onclick="onEditing(event)" class="btn editBtn btn_small btn_default">댓글 수정</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
 

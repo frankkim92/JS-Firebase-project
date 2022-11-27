@@ -10,6 +10,19 @@ import {
   tagWrite,
 } from "./pages/profilemodify.js";
 import { socialLogin } from "./pages/auth.js";
+
+// 아래 두개 번갈아가며 껐다 키면서 확인해보기
+///////////////// 이전 feed.js
+// import {
+//   getFeedData,
+//   deletePost,
+//   save_comment,
+//   update_comment,
+//   onEditing,
+//   delete_comment,
+// } from "./pages/feed.js";
+
+///////////////// 리뉴얼 feed.js
 import {
   getFeedData,
   deletePost,
@@ -17,7 +30,8 @@ import {
   update_comment,
   onEditing,
   delete_comment,
-} from "./pages/feed.js";
+} from "./pages/feed_renew.js";
+
 import { selectEmoji, save_writing, onCoverChange } from "./pages/writing.js";
 import {
   getFirstPostList,
