@@ -24,6 +24,7 @@ import {
   getPostList,
   beforeLogin,
   afterLogin,
+  darkmode,
 } from "./pages/mainpage.js";
 
 window.addEventListener("hashchange", handleLocation);
@@ -67,6 +68,8 @@ document.addEventListener("DOMContentLoaded", function () {
 // });
 
 // onclick, onchange, onsubmit 이벤트 핸들러 리스트
+
+window.darkmode = darkmode;
 window.onToggle = onToggle;
 window.handleAuth = handleAuth;
 window.goToProfile = goToProfile;

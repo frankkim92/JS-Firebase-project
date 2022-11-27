@@ -183,3 +183,28 @@ export const getFirstPostList = async () => {
     postList.appendChild(div);
   });
 };
+
+let count = 0;
+export function darkmode(event) {
+  count += 1;
+  if (count % 2 == 1) {
+    document.querySelector(".badge").innerHTML = "🌙";
+    document.querySelector("body").classList.add("dark");
+    document.querySelector(".music-img").classList.add("dark2");
+    document.querySelector("main").classList.add("dark3");
+    // document.querySelector(".card").classList.add("dark4");
+
+    // 로그인,로그아웃
+    // document.querySelector(".login .sign-in").classList.add("dark");
+    // document.querySelector(".login .sign-up").classList.add("dark");
+  } else {
+    document.querySelector(".badge").innerHTML = "☀️";
+    document.querySelector("body").classList.remove("dark");
+    document.querySelector(".music-img").classList.remove("dark2");
+    document.querySelector("main").classList.remove("dark3");
+    // document.querySelector(".card").classList.remove("dark4");
+    // 로그인,로그아웃
+    // document.querySelector(".login .sign-in").classList.add("dark");
+    // document.querySelector(".login .sign-up").classList.add("dark");
+  }
+}
