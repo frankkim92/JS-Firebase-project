@@ -30,7 +30,7 @@ import {
 
 import { selectEmoji, save_writing, onCoverChange } from "./pages/writing.js";
 import {
-  getFirstPostList,
+  // getFirstPostList,
   getPostList,
   beforeLogin,
   afterLogin,
@@ -88,3 +88,4 @@ window.goToMypage = goToMypage;
 window.goToWrite = goToWrite;
 window.getCommentList = getCommentList;
 window.getCommentListInFeed = getCommentListInFeed;
+// window.getFirstPostList = getFirstPostList;

@@ -18,7 +18,7 @@ const routes = {
 import { getCommentList } from "./pages/feed.js";
 import { getProfileInfor } from "./pages/profile.js";
 import { getMyPostList } from "./pages/myPage.js";
-import { getFirstPostList, getPostList } from "./pages/mainpage.js";
+import { getPostList } from "./pages/mainpage.js";
 
 export const handleLocation = async () => {
   let path = window.location.hash.replace("#", "");
@@ -96,3 +96,6 @@ export const goToMypage = () => {
 export const goToWrite = () => {
   window.location.hash = "#writePage";
 };
+// export const goToTeamInfor-()=>{
+//   window.location.hash = "#teamInfor";
+// }
