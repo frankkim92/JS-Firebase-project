@@ -1,0 +1,93 @@
+
+.con_top {
+  position: relative;
+  padding:0 24px
+}
+.music_tit{
+  position: absolute;
+  left:50%;
+  top:-5%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding:8px 12px;
+  background:var(--color-white);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 1;
+  border-radius: var(--border-large);
+  box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.3)
+}
+
+.con_bottom{
+  margin: 24px 0;
+  padding:0 24px;
+}
+.view_info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user_info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user_name{
+  margin-left: 4px;
+}
+.user_id{
+  margin-left: 4px;
+}
+.card_list{
+  padding:24px 0 0;
+}
+.list_txt {
+  padding:24px 0 40px;
+  color:#282828;
+}
+
+.tag_wrap{
+  display: flex;
+  align-items: center;
+  gap:8px;
+}
+
+/* 코멘트 */
+.comment_wrap{
+  padding:24px;
+  border-top: 1px solid var(--color-gray);
+}
+.comment_user, .comment_id{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment_date{
+  font-size: var(--font-small);
+}
+.comment_write{
+  width: 100%;
+  min-height: 160px;
+  margin-top:18px;
+  border-color: var(--color-gray);
+  padding:16px;
+  box-sizing: border-box;
+  resize: none;
+  color:var(--color-gray-dark)
+}
+
+.comment_txt{
+  color:var(--color-gray-dark);
+  margin-top: 16px;
+}
+
+.btn-Wrap {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}

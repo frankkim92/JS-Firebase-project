@@ -1,0 +1,286 @@
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.w_back {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f4f1;
+}
+
+.w_page {
+  border-radius: 40px;
+  background-color: white;
+  max-width: 434px;
+  min-height: 900px;
+  max-height: 90%;
+  height: auto;
+}
+
+.wr_title {
+  padding: 12px 38px 0px 38px;
+  border-bottom: 1px solid #dcdcdc;
+  display: block;
+}
+
+.wr_head {
+  padding: 0px 28px 0px 28px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 35px;
+  /* background-color: #9664FF; */
+}
+
+.wr_body {
+  padding: 0px 38px;
+  /* background-color: #9664FF; */
+  display: block;
+  margin-top: 38px;
+}
+
+.wr_foot {
+  padding: 38px 38px 35px 38px;
+  display: block;
+  /* background-color: aqua; */
+}
+
+.page_title {
+  color: black;
+  font-weight: 600;
+  font-size: 32px;
+  margin-top: 35px;
+}
+
+.upload_cov {
+  width: 170px;
+  height: 170px;
+  border-radius: 20px;
+  font-weight: 400;
+  color: black;
+  font-size: 14px;
+  background-color: #f6f4f1;
+  overflow: hidden;
+  position: relative;
+}
+
+#coverView {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.upload_file {
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* background-color: #64ff71; */
+}
+
+.upload_file::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.head_r_side {
+  /* background-color: #64ff71; */
+  width: calc(100% - 190px);
+  margin-left: 20px;
+}
+
+.artist_name {
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 30px;
+  font-size: 14px;
+  outline: none;
+}
+
+.artist_name::placeholder {
+  font-weight: 400;
+  color: #999999;
+  font-size: 14px;
+}
+
+.song_title {
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 4px;
+  width: 100%;
+  height: 30px;
+  font-size: 14px;
+  outline: none;
+  /* background-color: #9664FF; */
+}
+
+.song_title::placeholder {
+  font-weight: 400;
+  color: #999999;
+  font-size: 14px;
+}
+
+.emoji_caption {
+  font-weight: 400;
+  color: #999999;
+  font-size: 14px;
+  margin-bottom: 8px;
+  /* background-color: #9664FF; */
+}
+
+.emoji_group {
+  display: flex;
+  /* flex-wrap: wrap;
+  justify-content: center; */
+}
+
+.emoji_container {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  margin-right: 8px;
+  /* background-color: #64ff9a; */
+}
+
+.emoji_container input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.emoji_container .emoji_btns {
+  height: 30px;
+  width: 30px;
+  opacity: 10%;
+  /* background-color: #FC5555; */
+}
+
+input:checked + .emoji_btns {
+  opacity: 100%;
+}
+
+.contain {
+  object-fit: contain;
+}
+
+.wr_body_title {
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+  border: none;
+  margin-bottom: 18px;
+  outline: none;
+  width: 100%;
+}
+
+.wr_body_title::placeholder {
+  font-weight: 500;
+  color: #999999;
+  font-size: 20px;
+}
+
+.hash_mkr {
+  display: flex;
+  gap: 5px;
+}
+
+.hash_container {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 5px;
+}
+
+.hash {
+  font-size: 14px;
+  background-color: #f1eeea;
+  border-radius: 14px;
+  color: #999999;
+  border: none;
+  cursor: text;
+  padding: 4px 8px 4px 8px;
+  white-space: nowrap;
+}
+
+.hash_input {
+  border: none;
+  outline: none;
+  font-weight: 400;
+  color: black;
+  font-size: 14px;
+}
+
+.textWrapper {
+  overflow-y: scroll;
+  width: 100%;
+  height: 450px;
+}
+
+.body_text {
+  min-height: 437px;
+  width: 100%;
+  font-size: 14px;
+  color: black;
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+.body_text::placeholder {
+  font-weight: 400;
+  color: #999999;
+  font-size: 14px;
+}
+
+.Btns_wrap {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+
+#writeBtn {
+  background-color: #9664ff;
+  color: white;
+  border-radius: 40px;
+  border-width: 0px;
+  font-size: 14px;
+  width: calc(50% - 8px);
+  height: 45px;
+  padding: 12px 24px 12px 24px;
+  cursor: pointer;
+}
+
+#quitBtn {
+  background-color: #f1eeea;
+  color: #fc5555;
+  border-radius: 40px;
+  border-width: 0px;
+  font-size: 14px;
+  width: calc(50% - 8px);
+  height: 45px;
+  padding: 12px 24px 12px 24px;
+  cursor: pointer;
+}
+
+/* 로그인 버튼 */
+
+.btn.btn_large {
+  width: 100%;
+  border-radius: var(--border-large);
+  padding: 12px 24px;
+  white-space: nowrap;
+}
