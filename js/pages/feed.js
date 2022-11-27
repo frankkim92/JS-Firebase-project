@@ -105,6 +105,7 @@ export const save_comment = async (event) => {
     photoURL,
     displayName
   } = authService.currentUser;
+  
   try {
     await addDoc(collection(dbService, "comments"), {
       text: comment.value,
@@ -119,12 +120,14 @@ export const save_comment = async (event) => {
     alert(error);
     console.log("error in addDoc:", error);
   }
+
 };
 
 export const onEditing = (event) => {
   // 수정버튼 클릭
   event.preventDefault();
   const udBtns = document.querySelectorAll(".editBtn, .deleteBtn");
+
   udBtns.forEach((udBtn) => (udBtn.disabled = "true"));
 
   const cardBody = event.target.parentNode.parentNode;
