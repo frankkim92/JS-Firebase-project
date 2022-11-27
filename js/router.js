@@ -29,15 +29,18 @@ export const handleLocation = async () => {
   if (path.length == 0) {
     path = "/";
   }  
-  getMyPostList();
+  // getMyPostList();
 
   const route = routes[path] || routes[404];
   const html = await fetch(route).then((data) => data.text());
   document.getElementById("main-page").innerHTML = html;
 
   // 특정 화면 렌더링 되자마자 DOM 조작 처리
-  if (path === "/" || path === "writePage") {
-    getPostList();
+  if (path === "/") {
+    getFirstPostList()
+  }
+  if (path === "writePage" || 'profileModify') {
+    getMyPostList()
   }
   if (path === "feed") {
     // 로그인한 회원의 프로필사진과 닉네임을 화면에 표시해줌.
@@ -60,7 +63,7 @@ export const handleLocation = async () => {
   }
 
   if (path === "profile" || path === 'mypage') {
-  
+    getMyPostList()
     getProfileInfor()
   }
 

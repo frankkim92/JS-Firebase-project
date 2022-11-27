@@ -148,11 +148,6 @@ h2 {
 
 .mainWrapper {
   display: flex;
-<<<<<<< HEAD
-=======
-  justify-content: space-between;
-  width: 100%;
->>>>>>> dy_mypage
   margin: 0px auto 200px;
   align-items: stretch;
   justify-content: center;

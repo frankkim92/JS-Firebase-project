@@ -30,7 +30,7 @@ console.log(currentUid)
   
   postObjList.forEach((postObj) => {
  
-    // const isOwner = currentUid === postObj.creatorId;
+    const isOwner = currentUid === postObj.creatorId;
     const temp_html = `<div class="card">
     <div class="card-head">
       <img src="${postObj.coverInput}" />
