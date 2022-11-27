@@ -37,6 +37,7 @@ import {
 } from "./pages/mainpage.js";
 
 window.addEventListener("hashchange", handleLocation);
+
 document.addEventListener("DOMContentLoaded", function () {
   authService.onAuthStateChanged(async (user) => {
     handleLocation();

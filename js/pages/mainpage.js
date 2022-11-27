@@ -24,7 +24,7 @@ export function afterLogin() {
 export function beforeLogin() {
   const login = document.querySelector(".login");
   login.innerHTML = `
-<a href="#login" onclick = "route(evet)"class="sign-in">로그인</a>`.trim();
+<a onclick ="login_popup(event)"class="sign-in">로그인</a>`.trim();
 }
 //날짜
 // document.addEventListener("DOMContentLoaded", function () {});
@@ -177,7 +177,6 @@ export const getFirstPostList = async () => {
     postList.appendChild(div);
   });
 };
-
 let count = 0;
 export function darkmode(event) {
   count += 1;

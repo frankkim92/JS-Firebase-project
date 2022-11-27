@@ -56,7 +56,7 @@ body {
 }
 
 
-.btn-cangle {
+.btn-triangle {
   border-top: 12px solid black;
   border-right: 10px solid #cfbdff;
   border-left: 10px solid #cfbdff;
@@ -339,7 +339,7 @@ a {
   display: flex;
   flex-direction: row;
   gap: 20px;
-
+  width: calc(100% - 70%);
 }
 
 .card-user {
@@ -406,7 +406,6 @@ a {
 
 
 
-
 @media screen and (max-width: 1000px) {
 
   .mainWrapper {
@@ -460,6 +459,7 @@ a {
 
   .w_wrapper {
     flex-direction: column;
+    width: 100%;
   }
 
   .nav {

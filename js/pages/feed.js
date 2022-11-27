@@ -100,7 +100,7 @@ export const getFeedData = async (event) => {
 
     const cardId = event.target.parentNode.parentNode.id;
     const FeedObjId = FeedObj.id;
-    if (FeedObjId == cardId) {
+    if (FeedObjId === cardId) {
       feedContent.appendChild(div);
     }
 
@@ -214,7 +214,6 @@ export const getCommentList = async (event) => {
     orderBy("createdAt", "desc")
   );
   const querySnapshot = await getDocs(q);
-  // console.log("querySnapshot", querySnapshot);
   querySnapshot.forEach((doc) => {
     const commentObj = {
       id: doc.id,
@@ -223,20 +222,8 @@ export const getCommentList = async (event) => {
     cmtObjList.push(commentObj);
   });
 
-  // const cardId = event.target.parentNode.parentNode.id;
-  // const postcmtObj = cmtObjList.find((item) => item.postId == cardId);
-  // const postcmtObj = cmtObjList.find((item) => item.postId == cardId);
-  // console.log(cmtObjList.item);
-
-  const filterArray = (array, fields, value) => {
-    fields = Array.isArray(fields) ? fields : [fields];
-    return array.filter((item) =>
-      fields.some((field) => item[field] === value)
-    );
-  };
   const cardId = event.target.parentNode.parentNode.id;
-
-  matchComments = filterArray(cmtObjList, "postId", cardId);
+  const matchComments = cmtObjList.filter((cmtObj) => cmtObj.postID === cardId);
   console.log(matchComments);
 
   const commnetList = document.getElementById("feed_bottom");
@@ -279,16 +266,6 @@ export const getCommentList = async (event) => {
     div.classList.add("mycards");
     div.innerHTML = temp_html;
     commnetList.appendChild(div);
-
-    // const whereCommentId = cmtObj.postId;
-    // if (whereCommentId === cardId) {
-    //   commnetList.appendChild(div);
-    // }
-    // console.log(cmtObjList);
-    // console.log(cmtObj);
-    // console.log(cardId);
-    // console.log(whereCommentId);
-    // console.log(commnetList);
 
     let userDay = new Date(cmtObj.createdAt).toString().slice(0, 3);
     let userDate = new Date(cmtObj.createdAt).toString().slice(8, 10);
