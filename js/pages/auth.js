@@ -94,7 +94,7 @@ export const onToggle = () => {
   } else {
     authBtn.value = "로그인";
     authToggle.textContent = "회원가입 화면으로";
-    authTitle.textContent = "로그인 페이지";
+    authTitle.textContent = "로그인";
   }
 };
 
