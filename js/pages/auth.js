@@ -8,6 +8,7 @@ import {
   GithubAuthProvider,
   signOut,
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+import { closeModal } from "./login.js";
 
 // 로그인 성공 시 팬명록 화면으로 이동
 export const handleAuth = (event) => {
@@ -47,7 +48,8 @@ export const handleAuth = (event) => {
   const authBtnText = document.querySelector("#authBtn").value;
   if (authBtnText === "로그인") {
     // 유효성검사 후 로그인 성공 시 팬명록 화면으로
-
+    alert('로그인을 성공 하였습니다.')
+    closeModal()
     signInWithEmailAndPassword(authService, emailVal, pwVal)
       .then((userCredential) => {
         // Signed in
@@ -109,6 +111,7 @@ export const socialLogin = (event) => {
   signInWithPopup(authService, provider)
     .then((result) => {
       const user = result.user;
+      alert('로그인을 성공 하였습니다.')
     })
     .catch((error) => {
       // Handle Errors here.
@@ -123,7 +126,8 @@ export const logout = () => {
     .then(() => {
       // Sign-out successful.
       localStorage.clear();
-      console.log("로그아웃 성공");
+      alert("로그아웃을 성공 하였습니다.");
+      window.location.hash = "/";
     })
     .catch((error) => {
       // An error happened.
