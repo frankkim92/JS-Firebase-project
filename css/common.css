@@ -1,5 +1,5 @@
 /* Noto sans font */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap");
 /* reset css */
 @import url(reset.css);
 @import url(feed.css);
@@ -41,7 +41,7 @@
 }
 
 body {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   color: var(--color-black);
   background-color: #cfbdff;
   font-size: var(--font-nomal);
@@ -49,7 +49,6 @@ body {
   letter-spacing: -5%;
   /* height: 100vh; */
 }
-
 
 .container2 {
   max-width: 95%;
@@ -242,7 +241,7 @@ body {
   display: inline-block;
   width: 40px;
   height: 40px;
-  background: url('../assets/sprite_img.svg') 0px -92px;
+  background: url("../assets/sprite_img.svg") 0px -92px;
   cursor: pointer;
 }
 
@@ -250,7 +249,7 @@ body {
   display: inline-block;
   width: 24px;
   height: 24px;
-  background: url('../assets/sprite_img.svg')-100px -54px;
+  background: url("../assets/sprite_img.svg")-100px -54px;
 }
 
 /* color */
