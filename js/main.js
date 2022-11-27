@@ -8,7 +8,7 @@ import {
 } from "./router.js";
 import { handleAuth, onToggle, logout } from "./pages/auth.js";
 import { login_popup, closeModal } from "./pages/login.js";
-import { changeModify } from "./pages/profile.js";
+import { changeModify, getProfileInfor } from "./pages/profile.js";
 import {
   changeProfile,
   onFileChange,
@@ -20,11 +20,11 @@ import { socialLogin } from "./pages/auth.js";
 import {
   getFeedData,
   deletePost,
-  getCommentForm,
   save_comment,
   update_comment,
   onEditing,
   delete_comment,
+  getCommentList,
 } from "./pages/feed.js";
 
 import { selectEmoji, save_writing, onCoverChange } from "./pages/writing.js";
@@ -41,40 +41,17 @@ document.addEventListener("DOMContentLoaded", function () {
   authService.onAuthStateChanged(async (user) => {
     handleLocation();
     //  handleLocation();
-    getFirstPostList();
     const hash = window.location.hash;
     if (user) {
       afterLogin();
+      getPostList();
+      // alert('dd')
     } else {
       beforeLogin();
+      getFirstPostList();
     }
   });
 });
-
-// url 바뀌면 handleLocation 실행하여 화면 변경
-// window.addEventListener("hashchange", handleLocation);
-
-// // 첫 랜딩 또는 새로고침 시 handleLocation 실행하여 화면 변경
-// document.addEventListener("DOMContentLoaded", function () {
-//   // Firebase 연결상태를 감시
-//   authService.onAuthStateChanged((user) => {
-//     // Firebase 연결되면 화면 표시
-//     handleLocation();
-//     const hash = window.location.hash;
-//     if (user) {
-//       // 로그인 상태이므로 항상 팬명록 화면으로 이동
-//       // if (hash === "") {
-//       //   // 로그인 상태에서는 로그인 화면으로 되돌아갈 수 없게 설정
-//       //   window.location.replace("/");
-//       // }
-//     } else {
-//       // 로그아웃 상태이므로 로그인 화면으로 강제 이동
-//       if (hash !== "") {
-//         window.location.replace("");
-//       }
-//     }
-//   });
-// });
 
 // onclick, onchange, onsubmit 이벤트 핸들러 리스트
 
@@ -84,6 +61,7 @@ window.handleAuth = handleAuth;
 window.goToProfile = goToProfile;
 window.socialLogin = socialLogin;
 window.logout = logout;
+window.getProfileInfor = getProfileInfor;
 window.onFileChange = onFileChange;
 window.imageRemove = imageRemove;
 window.tagWrite = tagWrite;
@@ -103,4 +81,7 @@ window.beforeLogin = beforeLogin;
 window.afterLogin = afterLogin;
 window.getFeedData = getFeedData;
 window.deletePost = deletePost;
-window.getCommentForm = getCommentForm;
+window.goToMain = goToMain;
+window.goToMypage = goToMypage;
+window.goToWrite = goToWrite;
+window.getCommentList = getCommentList;

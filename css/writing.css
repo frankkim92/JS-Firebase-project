@@ -16,7 +16,7 @@
   background-color: white;
   max-width: 434px;
   min-height: 900px;
-  max-height: 90%;
+  /* max-height: 90%; */
   height: auto;
   filter: drop-shadow(0px 6px 15px rgba(0, 0, 0, 0.9));
 }

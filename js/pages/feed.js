@@ -40,17 +40,16 @@ export const getFeedData = async (event) => {
     // 유저아이디 일치 확인 ----------------------
 
     const temp_html = `<!-- 상단 타이틀 -->
-    <div class="tit_wrap">
-      <div class="tit_wrap_text">
+    <div class="tit_wrap" id="${FeedObj.id}" >
+      <div class=" tit_wrap_text">
         <span class="icon_arr"></span>
         <h2 class="main_tit">Feed</h2>
       </div>
-      <div class="${isOwner ? "showBtns" : "noDisplay"}">
+      <div class="${isOwner ? " showBtns" : "noDisplay"}">
         <p id="${
           FeedObj.id
         }" class="tit_wrap_delete" onclick="deletePost(event)">삭제</p>
       </div>
-      
     </div>
     <!-- 카드 데이터 -->
     <div id="feed-content">
@@ -124,31 +123,11 @@ export const deletePost = async (event) => {
   }
 };
 
-// ------------  댓글 작성창 ------------
-export const getCommentForm = async () => {
-  let profileObjList = [];
-  console.log(profileObjList);
-  const q = query(collection(dbService, "profileInfor"));
-  const querySnapshot = await getDocs(q);
-
-  querySnapshot.forEach((doc) => {
-    // console.log('doc.data()', doc.data())
-    const profileInfoObj = {
-      id: doc.id,
-      ...doc.data(),
-    };
-    profileObjList.push(profileInfoObj);
-  });
-
-  const userID = document.getElementById("userID");
-  const userNickName = profileObjList[0].nickname ?? "닉네임 없음";
-  userID.innerText = userNickName;
-};
-
 // ------------  댓글 리스트 ------------
 export const save_comment = async (event) => {
   event.preventDefault();
   const comment = document.getElementById("comment");
+  const postId = document.querySelector(".tit_wrap").id;
   const { uid, photoURL, displayName } = authService.currentUser;
   try {
     await addDoc(collection(dbService, "comments"), {
@@ -157,9 +136,14 @@ export const save_comment = async (event) => {
       creatorId: uid, //수정, 삭제 컨트롤
       profileImg: photoURL,
       nickname: displayName,
+      postId: postId,
+    }).then(() => {
+      alert("댓글 업로드 완료");
+      // window.location.hash = "#fanLog";
     });
+
     comment.value = "";
-    getCommentList();
+    await getCommentList(event);
   } catch (error) {
     alert(error);
     console.log("error in addDoc:", error);
@@ -223,14 +207,14 @@ export const delete_comment = async (event) => {
   }
 };
 
-export const getCommentList = async () => {
+export const getCommentList = async (event) => {
   let cmtObjList = [];
   const q = query(
     collection(dbService, "comments"),
     orderBy("createdAt", "desc")
   );
   const querySnapshot = await getDocs(q);
-  console.log("querySnapshot", querySnapshot);
+  // console.log("querySnapshot", querySnapshot);
   querySnapshot.forEach((doc) => {
     const commentObj = {
       id: doc.id,
@@ -238,10 +222,27 @@ export const getCommentList = async () => {
     };
     cmtObjList.push(commentObj);
   });
+
+  // const cardId = event.target.parentNode.parentNode.id;
+  // const postcmtObj = cmtObjList.find((item) => item.postId == cardId);
+  // const postcmtObj = cmtObjList.find((item) => item.postId == cardId);
+  // console.log(cmtObjList.item);
+
+  const filterArray = (array, fields, value) => {
+    fields = Array.isArray(fields) ? fields : [fields];
+    return array.filter((item) =>
+      fields.some((field) => item[field] === value)
+    );
+  };
+  const cardId = event.target.parentNode.parentNode.id;
+
+  matchComments = filterArray(cmtObjList, "postId", cardId);
+  console.log(matchComments);
+
   const commnetList = document.getElementById("feed_bottom");
   const currentUid = authService.currentUser.uid;
   commnetList.innerHTML = "";
-  cmtObjList.forEach((cmtObj) => {
+  matchComments.forEach((cmtObj) => {
     const isOwner = currentUid === cmtObj.creatorId;
     const temp_html = `<div class="comment_wrap">
     <div class="comment_user ">
@@ -279,14 +280,15 @@ export const getCommentList = async () => {
     div.innerHTML = temp_html;
     commnetList.appendChild(div);
 
-    /////////////////////////////////////////////////////
-    const cardId = event.target.parentNode.parentNode.id;
-    ///얘를 피드 전체(parentNode)로 바꿔서 지정해주어야 함.
-    const FeedObjId = FeedObj.id;
-    if (FeedObjId == cardId) {
-      feedContent.appendChild(div);
-    }
-    //////////////////////////////////////////////////////
+    // const whereCommentId = cmtObj.postId;
+    // if (whereCommentId === cardId) {
+    //   commnetList.appendChild(div);
+    // }
+    // console.log(cmtObjList);
+    // console.log(cmtObj);
+    // console.log(cardId);
+    // console.log(whereCommentId);
+    // console.log(commnetList);
 
     let userDay = new Date(cmtObj.createdAt).toString().slice(0, 3);
     let userDate = new Date(cmtObj.createdAt).toString().slice(8, 10);

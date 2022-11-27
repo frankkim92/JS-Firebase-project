@@ -6,6 +6,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 
 import { dbService, authService } from "../firebase.js";
+
 export const getMyPostList = async () => {
   let postObjList = [];
   const q = query(
@@ -21,12 +22,11 @@ export const getMyPostList = async () => {
     };
     postObjList.push(postObj);
   });
-  const postList = document.getElementById("post-list");
+  const my_post_list = document.getElementById("my_post_list");
   const currentUid = authService.currentUser.uid;
 
   // postList.innerHTML = "";
   // 붙여넣기전 기존것들 다 초기화(삭제)
-  console.log(currentUid);
 
   postObjList.forEach((postObj) => {
     const isOwner = currentUid === postObj.creatorId;
@@ -67,12 +67,15 @@ export const getMyPostList = async () => {
       </div>
     </div>
   </div>`;
-
     const div = document.createElement("div");
     div.classList.add("mycards");
     div.innerHTML = temp_html;
-    if (isOwner) {
-      postList.appendChild(div);
+    console.log("isOwner", !isOwner);
+    console.log("currentUid", currentUid);
+    console.log(postObj.creatorId);
+    if (postObj.creatorId === currentUid) {
+      my_post_list.appendChild(div);
+      return false;
     }
   });
 };

@@ -53,7 +53,7 @@ export const handleAuth = (event) => {
         // Signed in
         const user = userCredential.user;
         alert("로그인을 성공 하였습니다.");
-        window.location.hash = "/";
+        window.location.hash = "";
       })
       .catch((error) => {
         const errorMessage = error.message;

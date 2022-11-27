@@ -2,28 +2,35 @@
   <div class="container">
     <!-- 1. 네비게이션 바 -->
 
-    <!-- 다크모드 -->ㅎ해ㅎgoToMain
-    <span onclick="darkmode(event)" class="badge bg-dgoToMypage
-      style=" font-size: 28px">☀️</span>
+    <!-- 다크모드 -->
+    <span onclick="darkmode(event)" class="badge bg-dgoToMypage">☀️</span>
 
     <nav class="nav">
-      <button onclick="home(event)" type="button" class="home">
+      <button onclick="goToMain(event)" type="button" class="home">
         <p></p>
       </button>
-      <button onclick="myPost(event)" type="button" class="music">
-        <p></p>goToWrite
+      <button onclick="goToMypage(event)" type="button" class="music">
+        <p></p>
       </button>
     </nav>
     <!-- 2. 스레드 -->
     <main>
       <div class="sub-header">
-        <h2>오늘의 음악</h2>
+        <h2 class="main_tit">오늘의 음악</h2>
         <div class="info">
           <div class="date" id="date">날짜</div>
-          <button onclick="posting(event) " type="button" class="post"></button>
+          <button onclick="goToWrite(event) " type="button" class="post"></button>
         </div>
       </div>
       <div class="content" id="post-list"></div>
     </main>
   </div>
+</div>
+<div class="date" id="date">날짜</div>
+<button onclick="posting(event) " type="button" class="post"></button>
+</div>
+</div>
+<div class="content" id="post-list"></div>
+</main>
+</div>
 </div>

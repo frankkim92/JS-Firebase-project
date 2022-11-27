@@ -16,21 +16,21 @@ export function afterLogin() {
 <button class="btn-triangle"></button>
 </div>
 <div class="dropdown-menu">
-<a href="#">로그아웃</a>
-<a href="#">마이페이지</a>
+<a href="#" onclick ="logout()">로그아웃</a>
+<a href="#myPage" onclick="route(event)">마이페이지</a>
 </div>`.trim();
 }
 
 export function beforeLogin() {
   const login = document.querySelector(".login");
   login.innerHTML = `
-<a href="#" class="sign-in">로그인</a>`.trim();
+<a href="#login" onclick = "route(evet)"class="sign-in">로그인</a>`.trim();
 }
 //날짜
-document.addEventListener("DOMContentLoaded", function () {});
+// document.addEventListener("DOMContentLoaded", function () {});
 
 //POST LIST
-export const getPostList = async () => {
+export const getPostList = async (event) => {
   let postObjList = [];
   const q = query(
     collection(dbService, "Writings"),
@@ -45,6 +45,7 @@ export const getPostList = async () => {
     };
     postObjList.push(postObj);
   });
+
   const postList = document.getElementById("post-list");
   const currentUid = authService.currentUser.uid;
   postList.innerHTML = "";
@@ -57,7 +58,7 @@ export const getPostList = async () => {
     // const month = str.split(" ", 2);
     const temp_html = `<div class="card" id=${
       postObj.id
-    } onclick="getFeedData(event)">
+    } onclick="getFeedData(event); getCommentList(event);">
     <div class="card-head">
       <img src="${postObj.coverInput}" />
     </div>
@@ -100,6 +101,8 @@ export const getPostList = async () => {
     div.innerHTML = temp_html;
     postList.appendChild(div);
   });
+
+  // getCommentList();
 };
 
 export const getFirstPostList = async () => {
@@ -130,7 +133,7 @@ export const getFirstPostList = async () => {
 
     const temp_html = `<div class="card" id=${
       postObj.id
-    } onclick="getFeedData(event)">
+    } onclick="getFeedData(event); getCommentList(event);">
     <div class="card-head">
       <img src="${postObj.coverInput}" />
     </div>
