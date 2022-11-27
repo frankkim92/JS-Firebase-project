@@ -10,6 +10,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
 import { dbService, authService } from "../firebase.js";
 
+// ------------   ------------
 export const getFeedData = async (event) => {
   let FeedObjContent = [];
 
@@ -125,6 +126,33 @@ export const deletePost = async (event) => {
   }
 };
 
+
+// ------------  댓글 작성창 ------------
+export const getCommentForm = async () => {
+  let profileObjList = [];
+  console.log(profileObjList);
+  const q = query(
+    collection(dbService, "profileInfor"),
+  );
+  const querySnapshot = await getDocs(q);
+
+  querySnapshot.forEach((doc) => {
+    // console.log('doc.data()', doc.data())
+    const profileInfoObj = {
+      id: doc.id,
+      ...doc.data(),
+    };
+    profileObjList.push(profileInfoObj);
+  });
+
+  const userID = document.getElementById("userID");
+  const userNickName = profileObjList[0].nickname ?? "닉네임 없음";
+  userID.innerText = userNickName;
+
+};
+
+
+// ------------  댓글 리스트 ------------
 export const save_comment = async (event) => {
   event.preventDefault();
   const comment = document.getElementById("comment");

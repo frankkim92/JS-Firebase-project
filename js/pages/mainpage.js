@@ -26,17 +26,8 @@ export function beforeLogin() {
   login.innerHTML = `
 <a href="#" class="sign-in">로그인</a>`.trim();
 }
-
-//오늘 날짜.
-//
-// const date = new Date().toLocaleDateString("en-us", {
-//   weekday: "long",
-//   year: "numeric",
-//   day: "numeric",
-//   month: "short",
-// }); //"Tuesday, Nov 22, 2022"
-// const today = document.getElementById("date");
-// today.innerText = `${date}`;
+//날짜
+document.addEventListener("DOMContentLoaded", function () {});
 
 //POST LIST
 export const getPostList = async () => {

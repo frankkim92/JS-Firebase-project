@@ -37,6 +37,23 @@ export const handleLocation = async () => {
   const html = await fetch(route).then((data) => data.text());
   document.getElementById("main-page").innerHTML = html;
 
+  //날짜불러오기
+  const day = new Date().toLocaleDateString("en-us", {
+    day: "numeric",
+  });
+  const month = new Date().toLocaleDateString("en-us", {
+    month: "short",
+  });
+  const today = document.querySelector("#date");
+  const today_date = document.querySelector("#today_date");
+  today.textContent = `${month}, ${day}`;
+  today_date.textContent = `${month}, ${day}`;
+
+  //모든닉네임 불러오기
+  document.getElementById("profileNickname").textContent =
+    authService.currentUser.displayName ?? "닉네임 없음";
+
+  // console.log(today);
   // 특정 화면 렌더링 되자마자 DOM 조작 처리
   if (path === "/" || path === "writePage") {
     getFirstPostList();

@@ -1,21 +1,26 @@
-.tit_warp_mine {
+.tit_wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.tit_left {
+.tit_wrap_text {
   display: flex;
 }
 
-.feed_delete {
+.tit_wrap_delete {
   color: #FC5555;
   cursor: pointer;
 }
 
+.noDisplay {
+  display: none;
+}
+
 .con_top {
   position: relative;
-  padding: 0 24px
+  padding: 0 24px;
+  margin-top: 39px;
 }
 
 .music_tit {
@@ -37,6 +42,12 @@
 .con_bottom {
   margin: 24px 0;
   padding: 0 24px;
+}
+
+.feed_middle {
+  margin: 24px 0;
+  padding: 24px 24px 0px;
+  border-top: 1px solid var(--color-gray);
 }
 
 .view_info {
@@ -96,6 +107,7 @@
   min-height: 160px;
   margin-top: 18px;
   border-color: var(--color-gray);
+  border-radius: 8px;
   padding: 16px;
   box-sizing: border-box;
   resize: none;
@@ -113,4 +125,32 @@
   align-items: center;
   gap: 16px;
   margin-top: 16px;
+}
+
+.newCmtInput {
+  width: 100%;
+  min-height: 160px;
+  margin-top: 18px;
+  border: 1px solid var(--color-gray);
+  padding: 16px;
+  resize: none;
+  color: var(--color-gray-dark);
+}
+
+.updateBtn {
+  width: 50px;
+  height: 30px;
+  border-radius: 50px;
+  font-size: 8px;
+  font-weight: 400;
+  background-color: #9664ff;
+  border: none;
+  margin-top: 13px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.updateBtn:hover {
+  transition: 0.3s;
+  box-shadow: 0px 0px 1px 1px #b393f8;
 }

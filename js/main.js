@@ -17,26 +17,15 @@ import {
 } from "./pages/profilemodify.js";
 import { socialLogin } from "./pages/auth.js";
 
-// 아래 두개 번갈아가며 껐다 키면서 확인해보기
-///////////////// 이전 feed.js
-// import {
-//   getFeedData,
-//   deletePost,
-//   save_comment,
-//   update_comment,
-//   onEditing,
-//   delete_comment,
-// } from "./pages/feed.js";
-
-///////////////// 리뉴얼 feed.js
 import {
   getFeedData,
   deletePost,
+  getCommentForm,
   save_comment,
   update_comment,
   onEditing,
   delete_comment,
-} from "./pages/feed_renew.js";
+} from "./pages/feed.js";
 
 import { selectEmoji, save_writing, onCoverChange } from "./pages/writing.js";
 import {
@@ -50,7 +39,7 @@ import {
 window.addEventListener("hashchange", handleLocation);
 document.addEventListener("DOMContentLoaded", function () {
   authService.onAuthStateChanged(async (user) => {
-    await handleLocation();
+    handleLocation();
     //  handleLocation();
     getFirstPostList();
     const hash = window.location.hash;
@@ -114,3 +103,4 @@ window.beforeLogin = beforeLogin;
 window.afterLogin = afterLogin;
 window.getFeedData = getFeedData;
 window.deletePost = deletePost;
+window.getCommentForm = getCommentForm;
