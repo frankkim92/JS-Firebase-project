@@ -35,15 +35,14 @@
 
   <!-- 메인 페이지 -->
   <div class="mainWrapper">
-
     <!-- 메인 스레드 -->
     <div class="container">
       <!-- 1. 네비게이션 바 -->
       <nav class="nav">
-        <button onclick="home(event)" type="button" class="home">
+        <button onclick="goToMain(event)" type="button" class="home">
           <p></p>
         </button>
-        <button onclick="myPost(event)" type="button" class="music">
+        <button onclick="goToMypage(event)" type="button" class="music">
           <p></p>
         </button>
       </nav>
@@ -53,7 +52,10 @@
           <h2>오늘의 음악</h2>
           <div class="info">
             <div class="date" id="date">날짜</div>
-            <button onclick="posting(event) " type="button" class="post"></button>
+            <button
+              onclick="goToWrite(event) "
+              type="button"
+              class="post"></button>
           </div>
         </div>
         <div class="content" id="post-list"></div>
@@ -71,71 +73,114 @@
         <form id="coverForm" onsubmit="changeWrite(event)" class="upload_cov">
           <label for="coverInput">
             <img id="coverView" src="/assets/select_file.png" />
-            <input onchange="onCoverChange(event)" id="coverInput" type="file" class="upload_file" accept="image/*" />
+            <input
+              onchange="onCoverChange(event)"
+              id="coverInput"
+              type="file"
+              class="upload_file"
+              accept="image/*" />
           </label>
         </form>
         <!-- 아티스트 / 곡 / 감정 입력 -->
         <div class="head_r_side">
-          <input id="artistName" class="artist_name" type="text" placeholder="아티스트 이름" maxlength="20" required>
+          <input
+            id="artistName"
+            class="artist_name"
+            type="text"
+            placeholder="아티스트 이름"
+            maxlength="20"
+            required />
 
-          <input id="songName" class="song_title" type="text" placeholder="곡 이름" maxlength="20" required>
+          <input
+            id="songName"
+            class="song_title"
+            type="text"
+            placeholder="곡 이름"
+            maxlength="20"
+            required />
 
           <p class="emoji_caption">곡을 들을 때 당신의 기분은?</p>
 
           <form id class="emoji_group">
-
             <div class="emoji_container">
               <label for="emojiHappy">
-                <input onclick="selectEmoji(event)" id="emojiHappy" type="radio" name="emoji" value="Happy">
+                <input
+                  onclick="selectEmoji(event)"
+                  id="emojiHappy"
+                  type="radio"
+                  name="emoji"
+                  value="Happy" />
                 <div class="emoji_btns">
-                  <img src="../assets/happy.png">
+                  <img src="../assets/happy.png" />
                 </div>
               </label>
             </div>
 
             <div class="emoji_container">
               <label for="emojiSad">
-                <input onclick="selectEmoji(event)" id="emojiSad" type="radio" name="emoji" value="Sad">
+                <input
+                  onclick="selectEmoji(event)"
+                  id="emojiSad"
+                  type="radio"
+                  name="emoji"
+                  value="Sad" />
                 <div class="emoji_btns">
-                  <img src="../assets/sad.png">
+                  <img src="../assets/sad.png" />
                 </div>
               </label>
             </div>
 
-
             <div class="emoji_container">
               <label for="emojiChill">
-                <input onclick="selectEmoji(event)" id="emojiChill" type="radio" name="emoji" value="Chill">
+                <input
+                  onclick="selectEmoji(event)"
+                  id="emojiChill"
+                  type="radio"
+                  name="emoji"
+                  value="Chill" />
                 <div class="emoji_btns">
-                  <img src="../assets/chill.png">
+                  <img src="../assets/chill.png" />
                 </div>
               </label>
             </div>
 
             <div class="emoji_container">
               <label for="emojiExcited">
-                <input onclick="selectEmoji(event)" id="emojiExcited" type="radio" name="emoji" value="Excited">
+                <input
+                  onclick="selectEmoji(event)"
+                  id="emojiExcited"
+                  type="radio"
+                  name="emoji"
+                  value="Excited" />
                 <div class="emoji_btns">
-                  <img src="../assets/excited.png">
+                  <img src="../assets/excited.png" />
                 </div>
               </label>
             </div>
 
             <div class="emoji_container">
               <label for="emojiTouched">
-                <input onclick="selectEmoji(event)" id="emojiTouched" type="radio" name="emoji" value="Touched">
+                <input
+                  onclick="selectEmoji(event)"
+                  id="emojiTouched"
+                  type="radio"
+                  name="emoji"
+                  value="Touched" />
                 <div class="emoji_btns">
-                  <img src="../assets/touched.png">
+                  <img src="../assets/touched.png" />
                 </div>
               </label>
             </div>
-
           </form>
         </div>
       </div>
       <!-- 3. 제목 / 해시태그 / 본문 글쓰기 -->
       <div class="wr_body">
-        <input id="title" class="wr_body_title" type="text" placeholder="제목을 입력하세요.">
+        <input
+          id="title"
+          class="wr_body_title"
+          type="text"
+          placeholder="제목을 입력하세요." />
         <!-- 해쉬태그 / 입력창 -->
         <div class="hash_mkr">
           <div class="hash_container">
@@ -144,18 +189,27 @@
             <div class="hash">#4글자</div>
           </div>
           <div>
-            <input id="hashTag" class="hash_input" type="text" placeholder="태그를 입력하세요">
+            <input
+              id="hashTag"
+              class="hash_input"
+              type="text"
+              placeholder="태그를 입력하세요" />
           </div>
         </div>
         <div class="textWrapper">
-          <textarea id="bodyText" class="body_text" name="" placeholder="당신의 아티스트와 곡을 마음껏 자랑해주세요!"></textarea>
+          <textarea
+            id="bodyText"
+            class="body_text"
+            name=""
+            placeholder="당신의 아티스트와 곡을 마음껏 자랑해주세요!"></textarea>
         </div>
-
       </div>
       <!-- 4. 업로드 / 작성취소 버튼 -->
       <div class="wr_foot">
         <div class="Btns_wrap">
-          <button onclick="save_writing(event)" id="writeBtn" type="button">업로드 하기</button>
+          <button onclick="save_writing(event)" id="writeBtn" type="button">
+            업로드 하기
+          </button>
           <button id="quitBtn" type="reset">작성취소</button>
         </div>
       </div>
@@ -168,8 +222,7 @@
           <span class="icon_arr"></span>
           <h2 class="main_tit">Feed</h2>
         </div>
-        <p class="feed_delete">삭제</p>
-
+        <p class="feed_delete" onclick="deletePost(event)">삭제</p>
       </div>
 
       <!-- content -->
@@ -182,7 +235,10 @@
           <div class="comment_user">
             <div class="comment_id">
               <div class="img profile_small">
-                <img id="commentImg" draggable="false" src="/assets/blankProfile.webp" />
+                <img
+                  id="commentImg"
+                  draggable="false"
+                  src="/assets/blankProfile.webp" />
               </div>
               <span id="nickname" class="user_id tit_20">닉네임</span>
             </div>
@@ -190,25 +246,28 @@
           </div>
           <div>
             <label for="floatingtextarea">
-              <textarea class="comment_write" placeholder="댓글을 작성해 보세요." id="comment"></textarea>
+              <textarea
+                class="comment_write"
+                placeholder="댓글을 작성해 보세요."
+                id="comment"></textarea>
             </label>
           </div>
           <div class="btn-Wrap">
             <button class="btn btn_small btn_secondary">작성 취소</button>
-            <button class="btn btn_small btn_default" type="button" onclick="save_comment(event)">댓글 등록</button>
+            <button
+              class="btn btn_small btn_default"
+              type="button"
+              onclick="save_comment(event)">
+              댓글 등록
+            </button>
           </div>
         </div>
 
         <!-- 댓글 보기-->
         <div id="comment-list">
-          <div class="comment_wrap">
-          </div>
+          <div class="comment_wrap"></div>
         </div>
       </div>
-
     </div>
   </div>
-
-
-</div>
 </div>

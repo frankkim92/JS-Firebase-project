@@ -29,15 +29,15 @@ export const getFeedData = async (event) => {
   });
 
   const feedContent = document.getElementById("feed-content");
-  const currentUid = authService.currentUser.uid;
+  // const currentUid = authService.currentUser.uid; --->>
   feedContent.innerHTML = "";
   // console.log(FeedObjContent);
 
   FeedObjContent.forEach((FeedObj) => {
-    const isOwner = currentUid === FeedObj.creatorId;
+    // const isOwner = currentUid === FeedObj.creatorId; --->>
 
     const temp_html = `<!-- 앨범커버 -->
-    <div class="con_top">
+    <div class="con_top" id=${FeedObj.id}>
       <p class="music_tit"><span class="icon_music"></span><span>${
         FeedObj.artistName
       }</span> - <span>${FeedObj.songName}</span></p>
@@ -84,11 +84,27 @@ export const getFeedData = async (event) => {
     const FeedObjId = FeedObj.id;
     if (FeedObjId == cardId) {
       feedContent.appendChild(div);
+    } else {
+      document.querySelector(".feed_delete").style.display = "none";
     }
 
     // console.log(FeedObjId);
     // console.log(cardId);
   });
+};
+
+export const deletePost = async (event) => {
+  event.preventDefault();
+  const id = document.querySelector(".con_top").id;
+  const ok = window.confirm("해당 게시글을 정말 삭제하시겠습니까?");
+  if (ok) {
+    try {
+      await deleteDoc(doc(dbService, "Writings", id));
+      getPostList();
+    } catch (error) {
+      alert(error);
+    }
+  }
 };
 
 export const save_comment = async (event) => {
