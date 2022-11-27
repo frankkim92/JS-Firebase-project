@@ -12,18 +12,22 @@ import {
 import { socialLogin } from "./pages/auth.js";
 import {
   getFeedData,
+  deletePost,
   save_comment,
   update_comment,
   onEditing,
   delete_comment,
 } from "./pages/feed.js";
 import { selectEmoji, save_writing, onCoverChange } from "./pages/writing.js";
-import { getPostList, beforeLogin, afterLogin } from "./pages/mainpage.js";
+import {getFirstPostList,getPostList, beforeLogin, afterLogin } from "./pages/mainpage.js";
 
+
+window.addEventListener("hashchange", handleLocation);
 document.addEventListener("DOMContentLoaded", function () {
   authService.onAuthStateChanged(async (user) => {
     await handleLocation();
-    getPostList();
+    //  handleLocation();
+     getFirstPostList();
     const hash = window.location.hash;
     if (user) {
       afterLogin();
@@ -82,3 +86,4 @@ window.getPostList = getPostList;
 window.beforeLogin = beforeLogin;
 window.afterLogin = afterLogin;
 window.getFeedData = getFeedData;
+window.deletePost = deletePost
