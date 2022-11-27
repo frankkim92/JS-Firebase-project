@@ -36,12 +36,12 @@ export const handleLocation = async () => {
   document.getElementById("main-page").innerHTML = html;
 
   // 특정 화면 렌더링 되자마자 DOM 조작 처리
-  if (path === "/") {
+  if (path === "/" ||path === "writePage" ) {
     getFirstPostList()
   }
-  if (path === "writePage" || 'profileModify') {
-    getMyPostList()
-  }
+  // if (|| 'profileModify') {
+    
+  // }
   if (path === "feed") {
     // 로그인한 회원의 프로필사진과 닉네임을 화면에 표시해줌.
     console.log('authService.currentUser',authService.currentUser)
@@ -59,10 +59,12 @@ export const handleLocation = async () => {
       authService.currentUser.photoURL ?? "/assets/blankProfile.webp";
     document.getElementById("profileNickname").placeholder =
       authService.currentUser.displayName ?? "닉네임 없음";
-      // getProfileList()
+      getMyPostList()
   }
 
   if (path === "profile" || path === 'mypage') {
+        document.getElementById("profileView").src =
+      authService.currentUser.photoURL ?? "/assets/blankProfile.webp";
     getMyPostList()
     getProfileInfor()
   }
