@@ -224,7 +224,7 @@ export const getCommentList = async (event) => {
 
   const cardId = event.target.parentNode.parentNode.id;
   const matchComments = cmtObjList.filter((cmtObj) => cmtObj.postID === cardId);
-  console.log(matchComments);
+  console.log(cmtObj.postID);
 
   const commnetList = document.getElementById("feed_bottom");
   const currentUid = authService.currentUser.uid;

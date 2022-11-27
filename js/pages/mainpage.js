@@ -24,7 +24,7 @@ export function afterLogin() {
 export function beforeLogin() {
   const login = document.querySelector(".login");
   login.innerHTML = `
-<a onclick ="login_popup(event)"class="sign-in">로그인</a>`.trim();
+<button onclick="login_popup(event)""class="sign-in">로그인</button>`.trim();
 }
 //날짜
 // document.addEventListener("DOMContentLoaded", function () {});
