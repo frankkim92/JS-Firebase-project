@@ -222,10 +222,6 @@ export const getCommentList = async (event) => {
     cmtObjList.push(commentObj);
   });
 
-  const cardId = event.target.parentNode.parentNode.id;
-  const matchComments = cmtObjList.filter((cmtObj) => cmtObj.postID === cardId);
-  console.log(cmtObj.postID);
-
   const commnetList = document.getElementById("feed_bottom");
   const currentUid = authService.currentUser.uid;
   commnetList.innerHTML = "";
@@ -266,6 +262,12 @@ export const getCommentList = async (event) => {
     div.classList.add("mycards");
     div.innerHTML = temp_html;
     commnetList.appendChild(div);
+
+    const matchComments = cmtObjList.filter((cmtObj) => {
+      const cardId = event.target.parentNode.parentNode.id;
+      return cmtObj.postID === cardId;
+    });
+    console.log(matchComments);
 
     let userDay = new Date(cmtObj.createdAt).toString().slice(0, 3);
     let userDate = new Date(cmtObj.createdAt).toString().slice(8, 10);
