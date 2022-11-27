@@ -52,6 +52,7 @@ export const handleAuth = (event) => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        alert("로그인을 성공 하였습니다.");
         window.location.hash = "/";
       })
       .catch((error) => {
@@ -123,7 +124,8 @@ export const logout = () => {
     .then(() => {
       // Sign-out successful.
       localStorage.clear();
-      console.log("로그아웃 성공");
+      alert("로그아웃을 성공 하였습니다.");
+      window.location.hash = "/";
     })
     .catch((error) => {
       // An error happened.

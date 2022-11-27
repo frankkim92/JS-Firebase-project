@@ -1,26 +1,26 @@
 <div class="mainArea">
   <!-- 헤더 -->
-  <header>
-    <!-- 1. hidden header -->
-    <div class="header" id="header-after">
-      <div class="logo">
-        <img src="assets/musicnote.svg" alt="musiclogo" class="music-img" />
-        <h1 class="logo">소록소록</h1>
-      </div>
-      <div class="login">
-        <divs class="btn-wrapper">
-          <button class="btn-profile"></button>
-          <button class="btn-triangle"></button>
-        </divs>
-        <div class="dropdown-menu">
-          <a href="#">로그아웃</a>
-          <a href="#">마이페이지</a>
-        </div>
-      </div>
+  <!-- <header> -->
+  <!-- 1. hidden header -->
+  <!-- <div class="header" id="header-after">
+    <div class="logo">
+      <img src="assets/musicnote.svg" alt="musiclogo" class="music-img" />
+      <h1 class="logo">소록소록</h1>
     </div>
+    <div class="login"> -->
+  <!-- <div class="btn-wrapper">
+        <button class="btn-profile"></button>
+        <button class="btn-triangle"></button>
+      </div>
+      <div class="dropdown-menu">
+        <a href="#">로그아웃</a>
+        <a href="#">마이페이지</a>
+      </div>
+</div>
+</div> -->
 
-    <!-- 2. login header -->
-    <div class="header" id="header-before">
+  <!-- 2. login header -->
+  <!-- <div class="header" id="header-before">
       <div class="logo">
         <img src="assets/musicnote.svg" alt="musiclogo" class="music-img" />
         <h1 class="logo">소록소록</h1>
@@ -31,7 +31,7 @@
         <a href="#" class="sign-up">회원가입</a>
       </div>
     </div>
-  </header>
+  </header> -->
 
   <!-- 메인 페이지 -->
   <div class="mainWrapper">
@@ -159,6 +159,53 @@
           <button id="quitBtn" type="reset">작성취소</button>
         </div>
       </div>
+    </div>
+    <!-- 피드 싱세페이지 -->
+    <div class="main_right">
+      <!-- title  -->
+      <div class="tit_wrap tit_warp_mine">
+        <div class="tit_left">
+          <span class="icon_arr"></span>
+          <h2 class="main_tit">Feed</h2>
+        </div>
+        <p class="feed_delete">삭제</p>
+
+      </div>
+
+      <!-- content -->
+      <div class="con_wrap">
+        <!-- 게시글 -->
+        <div id="feed-content"></div>
+
+        <!-- 댓글 쓰기-->
+        <div class="comment_wrap">
+          <div class="comment_user">
+            <div class="comment_id">
+              <div class="img profile_small">
+                <img id="commentImg" draggable="false" src="/assets/blankProfile.webp" />
+              </div>
+              <span id="nickname" class="user_id tit_20">닉네임</span>
+            </div>
+            <span class="comment_date co_gray" id="today_date">Dec, 15</span>
+          </div>
+          <div>
+            <label for="floatingtextarea">
+              <textarea class="comment_write" placeholder="댓글을 작성해 보세요." id="comment"></textarea>
+            </label>
+          </div>
+          <div class="btn-Wrap">
+            <button class="btn btn_small btn_secondary">작성 취소</button>
+            <button class="btn btn_small btn_default" type="button" onclick="save_comment(event)">댓글 등록</button>
+          </div>
+        </div>
+
+        <!-- 댓글 보기-->
+        <div id="comment-list">
+          <div class="comment_wrap">
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 

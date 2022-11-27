@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="css/common.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <title>소록소록</title>
 </head>
 
@@ -22,10 +23,43 @@
       <a href="#profile" onclick="route(event)">profile</a>
       <a href="#profileModify" onclick="route(event)">profileModify</a>
     </nav>
+    <header>
+      <!-- 1. hidden header -->
+      <div class="header" id="header-after">
+        <div class="logo">
+          <img src="assets/musicnote.svg" alt="musiclogo" class="music-img" />
+          <h1 class="logo">소록소록</h1>
+        </div>
+        <div class="login">
+          <!-- main.js import -->
+          <!-- <divs class="btn-wrapper">
+            <button class="btn-profile"></button>
+            <button class="btn-triangle"></button>
+          </divs>
+          <div class="dropdown-menu">
+            <a href="#">로그아웃</a>
+            <a href="#">마이페이지</a>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- 2. login header -->
+      <!-- <div class="header" id="header-before">
+        <div class="logo">
+          <img src="assets/musicnote.svg" alt="musiclogo" class="music-img" />
+          <h1 class="logo">소록소록</h1>
+        </div>
+
+        <div class="login">
+          <a href="#" class="sign-in" id="open" onclick="login_popup(event)">로그인</a>
+        </div> -->
+    </header>
 
 
     <div id="main-page"></div>
   </div>
+
+
 
   <script src="js/main.js" type="module"></script>
 </body>
