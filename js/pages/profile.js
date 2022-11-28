@@ -45,6 +45,12 @@ export const getProfileInfor = async () => {
   line_txt.innerText =
     profileObjList[0]?.introTxt ||
     "당신에 대한 간단한 한 줄 소개를 적어주세요.";
+
+  const profileIMG = document.getElementById("profileView");
+  profileIMG.setAttribute(
+    `${profileObjList[0].profileImg ?? "/assets/blankProfile.webp"}`
+  );
+  console.log(profileIMG);
 };
 
 export const changeModify = () => {

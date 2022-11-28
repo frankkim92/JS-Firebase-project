@@ -12,7 +12,7 @@ export function afterLogin() {
   // document.getElementById("header-after").style.visibility = "visible";
   const login = document.querySelector(".login");
   login.innerHTML = ` <div class="btn-wrapper">
-<button class="btn-profile"></button>
+<div class="img profile_small" > <img id="commentImg" src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"></div>
 <button class="btn-triangle"></button>
 </div>
 <div class="dropdown-menu">
@@ -58,7 +58,7 @@ export const getPostList = async (event) => {
     // const month = str.split(" ", 2);
     const temp_html = `<div class="card" id=${
       postObj.id
-    } onclick="getFeedData(event); getCommentList(event);">
+    } onclick="getFeedData(event); getCommentList(event); goToView();">
     <div class="card-head">
       <img src="${postObj.coverInput}" />
     </div>

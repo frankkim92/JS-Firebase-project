@@ -339,7 +339,7 @@ ul li.tag-item {
 
 .tagWrite {
   border: none;
-  max-width: 50px;
+  /* max-width: 50px; */
   border-radius: 15px;
   padding: 4px 8px;
   background-color: var(--color-dark-beige);

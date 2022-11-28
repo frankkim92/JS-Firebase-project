@@ -1,29 +1,18 @@
-import {
-  authService,
-  storageService,
-  dbService,
-} from "../firebase.js";
+import { authService, storageService, dbService } from "../firebase.js";
 import {
   ref,
   uploadString,
   getDownloadURL,
-
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
 import {
   addDoc,
   collection,
   query,
   getDocs,
-  orderBy
+  orderBy,
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
-import {
-  updateProfile
-} from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-import {
-  v4 as uuidv4
-} from "https://jspm.dev/uuid";
-
-
+import { updateProfile } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 
 export const changeProfile = async (event) => {
   // event.preventDefault();
@@ -43,34 +32,31 @@ export const changeProfile = async (event) => {
   let downloadUrl;
   if (imgDataUrl) {
     const response = await uploadString(imgRef, imgDataUrl, "data_url");
-    console.log('response', response)
+    console.log("response", response);
     downloadUrl = await getDownloadURL(response.ref);
   }
   await updateProfile(authService.currentUser, {
-      displayName: newNickname ? newNickname : null,
-      photoURL: downloadUrl ? downloadUrl : null,
-    })
+    displayName: newNickname ? newNickname : null,
+    photoURL: downloadUrl ? downloadUrl : null,
+  })
     // tagWrite()
     .then(() => {
       alert("프로필 수정 완료");
-      window.location.hash = "#profile";
+      window.location.hash = "#myPage";
     })
     .catch((error) => {
       alert("프로필 수정 실패");
       console.log("error:", error);
     });
 
-
-  let tagList = []
-  const tagTexts = document.querySelectorAll('.tagView')
+  let tagList = [];
+  const tagTexts = document.querySelectorAll(".tagView");
   const introInput = document.getElementById("intro_txt");
   tagTexts.forEach((tag) => {
-    const newTag = tag.textContent.substring(2, tag.textContent.length - 1)
+    const newTag = tag.textContent.substring(2, tag.textContent.length - 1);
     tagList.push(newTag);
-  })
-  const {
-    displayName,
-  } = authService.currentUser;
+  });
+  const { displayName } = authService.currentUser;
   try {
     await addDoc(collection(dbService, "profileInfor"), {
       tagInput: tagList,
@@ -78,18 +64,15 @@ export const changeProfile = async (event) => {
       createdAt: Date.now(),
       nickname: displayName,
     });
-    getProfileList()
+    getProfileList();
   } catch (error) {
     alert(error);
     console.log("error in addDoc:", error);
   }
-
-
 };
 
-
 export const onFileChange = (event) => {
-  console.log('event.taret.files:', event.target.files)
+  console.log("event.taret.files:", event.target.files);
   const theFile = event.target.files[0]; // file 객체
   const reader = new FileReader();
   reader.readAsDataURL(theFile); // file 객체를 브라우저가 읽을 수 있는 data URL로 읽음.
@@ -101,43 +84,40 @@ export const onFileChange = (event) => {
   };
 };
 
-
 export const imageRemove = async (event) => {
-  const img = document.querySelector('#profileView');
-  img.setAttribute('src', "/assets/blankProfile.webp");
-}
+  const img = document.querySelector("#profileView");
+  img.setAttribute("src", "/assets/blankProfile.webp");
+};
 
 export const tagWrite = (event) => {
-
   const tagInput = document.getElementById("tagName");
   const tagInputValue = tagInput.value;
-  const tagList = document.getElementById("tag-list")
+  const tagList = document.getElementById("tag-list");
   const tagText = document.createElement("p");
   tagText.textContent = `# ${tagInputValue} x`;
-  tagInput.value = ''
+  tagInput.value = "";
   tagText.classList.add("tagView");
 
   const removeTag = () => {
-    tagList.removeChild(tagText)
-  }
+    tagList.removeChild(tagText);
+  };
 
-  tagText.addEventListener('click', removeTag)
+  tagText.addEventListener("click", removeTag);
 
   if (tagInputValue.keyCode == 13) {
-    tagList.appendChild(tagText)
+    tagList.appendChild(tagText);
   }
   if (tagList.childElementCount <= 2) {
-    tagList.appendChild(tagText)
+    tagList.appendChild(tagText);
   } else {
-    return false
+    return false;
   }
-
 };
 
 export const getProfileList = async () => {
   //프로필 해쉬태그 + 간단한소개 저장
   let profileObjList = [];
-  console.log(profileObjList)
+  console.log(profileObjList);
   const q = query(
     collection(dbService, "profileInfor"),
     orderBy("createdAt", "desc")
@@ -154,20 +134,20 @@ export const getProfileList = async () => {
   });
 
   const userID = document.getElementById("userID");
-  userID.innerText= profileObjList[0]?.nickname || "닉네임 없음";
- 
+  userID.innerText = profileObjList[0]?.nickname || "닉네임 없음";
+
   const tagInputs = profileObjList[0]?.tagInput || []; //나중에 공부..!
-  tagInputs.forEach((inputs)=>{
+  tagInputs.forEach((inputs) => {
     const span = document.createElement("span");
-    span.classList.add('tagView');  
+    span.classList.add("tagView");
     span.innerHTML = inputs;
-  //갯수가 3개 일때 보여주기를 멈춰라.
-   if( document.querySelector('#tagViewList').childElementCount <= 2){
-     document.querySelector('#tagViewList').appendChild(span);
-   }
-  })
+    //갯수가 3개 일때 보여주기를 멈춰라.
+    if (document.querySelector("#tagViewList").childElementCount <= 2) {
+      document.querySelector("#tagViewList").appendChild(span);
+    }
+  });
 
   const line_txt = document.getElementById("line_txt");
-  line_txt.innerText= profileObjList[0]?.introTxt || '';
-  console.log(profileObjList[0])
-}
+  line_txt.innerText = profileObjList[0]?.introTxt || "";
+  console.log(profileObjList[0]);
+};

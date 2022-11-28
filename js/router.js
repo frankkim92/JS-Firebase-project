@@ -2,18 +2,17 @@ import { authService } from "./firebase.js";
 
 const routes = {
   404: "/pages/404.html",
-  style: "/style.html",
+
   "/": "/pages/login.html",
-  writePage: "/pages/mainPage.html",
-  fanLog: "/pages/fanLog.html",
+  writePage: "/pages/writePage.html",
+  viewPage: "/pages/viewPage.html",
   myPage: "/pages/myPage.html",
-  login: "/pages/login.html",
-  sign_up: "/pages/sign_up.html",
+  myviewPage: "/pages/myviewPage.html",
+  profileModify: "/pages/profileModify.html",
+  teamInfor: "/pages/teamInfor.html",
   main: "/pages/main.html",
   feed: "/pages/feed.html",
   teamInfor: "/pages/teamInfor.html",
-  profile: "/pages/profile.html",
-  profileModify: "/pages/profilemodify.html",
 };
 import { getCommentList } from "./pages/feed.js";
 import { getProfileInfor } from "./pages/profile.js";
@@ -36,32 +35,39 @@ export const handleLocation = async () => {
   const html = await fetch(route).then((data) => data.text());
   document.getElementById("main-page").innerHTML = html;
 
+  if (
+    path === "profileModify" ||
+    path === "viewPage" ||
+    path === "main" ||
+    path === "myPage" ||
+    path === "myviewPage"
+  ) {
+    getMyPostList();
+    getPostList();
+  }
+
+  if (path === "myviewPage") {
+    getMyPostList();
+  }
+
+  if (path === "main" || path === "writePage" || path === "veiwPage") {
+    getPostList();
+  }
+
   if (path === "myPage") {
+    document.getElementById("profileView").src =
+      authService.currentUser.photoURL ?? "../assets/blankProfile.webp";
     getProfileInfor();
     getMyPostList();
-    document.getElementById("commentImg").src =
-      authService.currentUser.photoURL ?? "../assets/blankProfile.webp";
-  }
-
-  if (path === "profileModify") {
-    getMyPostList();
-  }
-
-  if (path === "feed") {
+    getProfileList();
     document.getElementById("nickname").textContent =
       authService.currentUser.displayName ?? "닉네임 없음";
-
-    document.getElementById("commentImg").src =
-      authService.currentUser.photoURL ?? "../assets/blankProfile.webp";
 
     getCommentList();
   }
 
   // console.log(today);
   // 특정 화면 렌더링 되자마자 DOM 조작 처리
-  if (path === "/" || path === "writePage") {
-    getPostList();
-  }
 
   //날짜불러오기
   const day = new Date().toLocaleDateString("en-us", {
@@ -88,14 +94,28 @@ export const goToProfile = () => {
   window.location.hash = "#profile";
 };
 export const goToMain = () => {
-  window.location.hash = "/";
+  window.location.hash = "#main";
 };
-export const goToMypage = () => {
-  window.location.hash = "#myPage";
-};
+// export const goToMypage = () => {
+//   window.location.hash = "#mainPage";
+// };
 export const goToWrite = () => {
   window.location.hash = "#writePage";
 };
-// export const goToTeamInfor-()=>{
-//   window.location.hash = "#teamInfor";
-// }
+
+export const goToView = () => {
+  console.log("goToView");
+
+  window.location.hash = "#viewPage";
+};
+
+export const goTomyView = () => {
+  console.log("goTomyView");
+
+  window.location.hash = "#myviewPage";
+  getMyPostList();
+};
+
+export const goToTeamInfor = () => {
+  window.location.hash = "#teamInfor";
+};

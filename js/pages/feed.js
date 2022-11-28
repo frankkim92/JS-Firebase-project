@@ -14,6 +14,8 @@ import { dbService, authService } from "../firebase.js";
 export const getFeedData = async (event) => {
   let FeedObjContent = [];
 
+  console.log("getFeedData");
+
   const q = query(
     collection(dbService, "Writings"),
     orderBy("createdAt", "desc")
@@ -52,7 +54,7 @@ export const getFeedData = async (event) => {
       </div>
     </div>
     <!-- 카드 데이터 -->
-    <div id="feed-content">
+    <div id="feed-content" class="feed_content">
       <!-- 앨범커버 -->
       <div class="con_top" id=${FeedObj.id}>
         <p class="music_tit"><span class="icon_music"></span><span>${
@@ -143,7 +145,7 @@ export const save_comment = async (event) => {
     });
 
     comment.value = "";
-    await getCommentListInFeed(event);
+    await getCommentList(event);
   } catch (error) {
     alert(error);
     console.log("error in addDoc:", error);
@@ -208,6 +210,8 @@ export const delete_comment = async (event) => {
 };
 
 export const getCommentList = async (event) => {
+  console.log("getCommentList");
+
   let cmtObjList = [];
   const q = query(
     collection(dbService, "comments"),
@@ -270,90 +274,18 @@ export const getCommentList = async (event) => {
     // });
     // console.log(matchComments);
 
-    const maincardId = event.target.parentNode.parentNode.id;
+    const maincardId =
+      event.target.parentNode.parentNode.id ||
+      localStorage.getItem("maincardId");
+    localStorage.setItem("maincardId", maincardId);
+    // const feedcardId =
+    //   event.target.parentNode.parentNode.parentNode.firstChild.id;
     if (cmtObj.postId === maincardId) {
       commnetList.appendChild(div);
     }
 
-    let userDay = new Date(cmtObj.createdAt).toString().slice(0, 3);
-    let userDate = new Date(cmtObj.createdAt).toString().slice(8, 10);
-
-    const tmp = document.getElementById("today_date");
-    tmp.innerText = `${userDay}, ${userDate}`;
-
-    document.getElementById("commentImg");
-    // .setAttribute(`${cmtObj.profileImg ?? "/assets/blankProfile.webp"}`);
-  });
-};
-
-export const getCommentListInFeed = async (event) => {
-  let cmtObjList = [];
-  const q = query(
-    collection(dbService, "comments"),
-    orderBy("createdAt", "desc")
-  );
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
-    const commentObj = {
-      id: doc.id,
-      ...doc.data(),
-    };
-    cmtObjList.push(commentObj);
-  });
-
-  const commnetList = document.getElementById("feed_bottom");
-  const currentUid = authService.currentUser.uid;
-  commnetList.innerHTML = "";
-
-  cmtObjList.forEach((cmtObj) => {
-    const isOwner = currentUid === cmtObj.creatorId;
-    const temp_html = `<div class="comment_wrap">
-    <div class="comment_user ">
-      <div class="comment_id">
-        <div class="img profile_small">
-          <img draggable="false" src="${
-            cmtObj.profileImg ?? " /assets/blankProfile.webp"
-          }" alt="profileImg" />
-        </div>
-        <span class="user_id tit_20">${cmtObj.nickname ?? "닉네임 없음"}</span>
-      </div>
-      <span class="comment_date co_gray">${new Date(cmtObj.createdAt)
-        .toString()
-        .slice(0, 3)}, ${new Date(cmtObj.createdAt)
-      .toString()
-      .slice(8, 10)}</span>
-    </div>
-    <div>
-      <p class="comment_txt">${cmtObj.text}</p>
-      <p id="${
-        cmtObj.id
-      }" class="noDisplay"><input class="newCmtInput" type="text" maxlength="30" /><button class="updateBtn"
-          onclick="update_comment(event)">완료</button></p>
-    </div>
-    <div class="btn-Wrap ${isOwner ? " updateBtns" : "noDisplay"}">
-      <button name="${
-        cmtObj.id
-      }" onclick="delete_comment(event)" class="btn deleteBtn btn_small btn_secondary">삭제</button>
-      <button onclick="onEditing(event)" class="btn editBtn btn_small btn_default">댓글 수정</button>
-    </div>
-  </div>`;
-
-    const div = document.createElement("div");
-    div.classList.add("mycards");
-    div.innerHTML = temp_html;
-    // commnetList.appendChild(div);
-
-    // const matchComments = cmtObjList.filter((cmtObj) => {
-    //   const cardId = event.target.parentNode.parentNode.id;
-    //   return cmtObj.postID === cardId;
-    // });
-    // console.log(matchComments);
-
-    const feedcardId =
-      event.target.parentNode.parentNode.parentNode.firstChild.id;
-    if (cmtObj.postId === feedcardId) {
-      commnetList.appendChild(div);
-    }
+    console.log(maincardId);
+    // console.log(feedcardId);
 
     let userDay = new Date(cmtObj.createdAt).toString().slice(0, 3);
     let userDate = new Date(cmtObj.createdAt).toString().slice(8, 10);
@@ -361,7 +293,87 @@ export const getCommentListInFeed = async (event) => {
     const tmp = document.getElementById("today_date");
     tmp.innerText = `${userDay}, ${userDate}`;
 
-    document.getElementById("commentImg");
+    // document.getElementById("commentImg");
     // .setAttribute(`${cmtObj.profileImg ?? "/assets/blankProfile.webp"}`);
   });
 };
+
+// export const getCommentListInFeed = async (event) => {
+//   let cmtObjList = [];
+//   const q = query(
+//     collection(dbService, "comments"),
+//     orderBy("createdAt", "desc")
+//   );
+//   const querySnapshot = await getDocs(q);
+//   querySnapshot.forEach((doc) => {
+//     const commentObj = {
+//       id: doc.id,
+//       ...doc.data(),
+//     };
+//     cmtObjList.push(commentObj);
+//   });
+
+//   const commnetList = document.getElementById("feed_bottom");
+//   const currentUid = authService.currentUser.uid;
+//   commnetList.innerHTML = "";
+
+//   cmtObjList.forEach((cmtObj) => {
+//     const isOwner = currentUid === cmtObj.creatorId;
+//     const temp_html = `<div class="comment_wrap">
+//     <div class="comment_user ">
+//       <div class="comment_id">
+//         <div class="img profile_small">
+//           <img draggable="false" src="${
+//             cmtObj.profileImg ?? " /assets/blankProfile.webp"
+//           }" alt="profileImg" />
+//         </div>
+//         <span class="user_id tit_20">${cmtObj.nickname ?? "닉네임 없음"}</span>
+//       </div>
+//       <span class="comment_date co_gray">${new Date(cmtObj.createdAt)
+//         .toString()
+//         .slice(0, 3)}, ${new Date(cmtObj.createdAt)
+//       .toString()
+//       .slice(8, 10)}</span>
+//     </div>
+//     <div>
+//       <p class="comment_txt">${cmtObj.text}</p>
+//       <p id="${
+//         cmtObj.id
+//       }" class="noDisplay"><input class="newCmtInput" type="text" maxlength="30" /><button class="updateBtn"
+//           onclick="update_comment(event)">완료</button></p>
+//     </div>
+//     <div class="btn-Wrap ${isOwner ? " updateBtns" : "noDisplay"}">
+//       <button name="${
+//         cmtObj.id
+//       }" onclick="delete_comment(event)" class="btn deleteBtn btn_small btn_secondary">삭제</button>
+//       <button onclick="onEditing(event)" class="btn editBtn btn_small btn_default">댓글 수정</button>
+//     </div>
+//   </div>`;
+
+//     const div = document.createElement("div");
+//     div.classList.add("mycards");
+//     div.innerHTML = temp_html;
+//     // commnetList.appendChild(div);
+
+//     // const matchComments = cmtObjList.filter((cmtObj) => {
+//     //   const cardId = event.target.parentNode.parentNode.id;
+//     //   return cmtObj.postID === cardId;
+//     // });
+//     // console.log(matchComments);
+
+//     const feedcardId =
+//       event.target.parentNode.parentNode.parentNode.firstChild.id;
+//     if (cmtObj.postId === feedcardId) {
+//       commnetList.appendChild(div);
+//     }
+
+//     let userDay = new Date(cmtObj.createdAt).toString().slice(0, 3);
+//     let userDate = new Date(cmtObj.createdAt).toString().slice(8, 10);
+
+//     const tmp = document.getElementById("today_date");
+//     tmp.innerText = `${userDay}, ${userDate}`;
+
+//     document.getElementById("commentImg");
+//     // .setAttribute(`${cmtObj.profileImg ?? "/assets/blankProfile.webp"}`);
+//   });
+// };

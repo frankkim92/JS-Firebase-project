@@ -13,24 +13,16 @@
 
 <body>
   <div id="root">
-    <!-- <nav id="main-nav">
-      <a href="" onclick="route(event)">main</a>
-      <a href="#writePage" onclick="route(event)">writepage</a>
-      <a href="#style" onclick="route(event)">style</a>
-      <a href="#fanLog" onclick="route(event)">fanLog</a>
-      <a href="#myPage" onclick="route(event)">myPage</a>
-      <a href="#feed" onclick="route(event)">feed</a>
-      <a href="#login" onclick="route(event)">login</a>
-      <a href="#teamInfor" onclick="route(event)">teamInfor</a>
-      <a href="#profile" onclick="route(event)">profile</a>
-      <a href="#profileModify" onclick="route(event)">profileModify</a>
-    </nav> -->
+
     <header>
       <!-- 1. hidden header -->
       <div class="header" id="header-after">
-        <div class="logo">
+        <div class="logo" href="#main" onclick="route(event)">
+
           <img src="assets/musicnote.svg" alt="musiclogo" class="music-img" />
+
           <h1 class="logo">소록소록</h1>
+
         </div>
         <div class="login">
           <p onclick="login_popup()" class="sign-in">로그인</p>
@@ -39,7 +31,7 @@
     </header>
 
 
-    
+
     <div id="main-page"></div>
   </div>
   <script src="js/main.js" type="module"></script>

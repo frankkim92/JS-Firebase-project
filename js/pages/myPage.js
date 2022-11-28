@@ -30,7 +30,9 @@ export const getMyPostList = async () => {
 
   postObjList.forEach((postObj) => {
     const isOwner = currentUid === postObj.creatorId;
-    const temp_html = `<div class="card">
+    const temp_html = `<div class="card" id=${
+      postObj.id
+    } onclick="getFeedData(event); getCommentList(event); goTomyView();">
     <div class="card-head">
       <img src="${postObj.coverInput}" />
     </div>

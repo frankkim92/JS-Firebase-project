@@ -3,8 +3,11 @@ import {
   handleLocation,
   goToProfile,
   goToMain,
-  goToMypage,
+  // goToMypage,
+  goTomyView,
   goToWrite,
+  goToTeamInfor,
+  goToView,
 } from "./router.js";
 import { handleAuth, onToggle, logout } from "./pages/auth.js";
 import { login_popup, closeModal } from "./pages/login.js";
@@ -25,7 +28,6 @@ import {
   onEditing,
   delete_comment,
   getCommentList,
-  getCommentListInFeed,
 } from "./pages/feed.js";
 
 import { selectEmoji, save_writing, onCoverChange } from "./pages/writing.js";
@@ -84,8 +86,10 @@ window.afterLogin = afterLogin;
 window.getFeedData = getFeedData;
 window.deletePost = deletePost;
 window.goToMain = goToMain;
-window.goToMypage = goToMypage;
+// window.goToMypage = goToMypage;
 window.goToWrite = goToWrite;
 window.getCommentList = getCommentList;
-window.getCommentListInFeed = getCommentListInFeed;
 // window.getFirstPostList = getFirstPostList;
+window.goToTeamInfor = goToTeamInfor;
+window.goToView = goToView;
+window.goTomyView = goTomyView;
