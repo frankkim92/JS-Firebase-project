@@ -19,6 +19,7 @@ import {
   tagWrite,
 } from "./pages/profilemodify.js";
 import { socialLogin } from "./pages/auth.js";
+import { getMyPostList } from "./pages/myPage.js";
 
 import {
   getFeedData,
@@ -89,7 +90,7 @@ window.goToMain = goToMain;
 // window.goToMypage = goToMypage;
 window.goToWrite = goToWrite;
 window.getCommentList = getCommentList;
-// window.getFirstPostList = getFirstPostList;
+window.getMyPostList = getMyPostList;
 window.goToTeamInfor = goToTeamInfor;
 window.goToView = goToView;
 window.goTomyView = goTomyView;

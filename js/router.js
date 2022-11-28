@@ -38,11 +38,7 @@ export const handleLocation = async () => {
   if (
     path === "profileModify" ||
     path === "viewPage" ||
-    path === "main" ||
-    path === "myPage" ||
-    path === "myviewPage"
-  ) {
-    getMyPostList();
+    path === "main"  ) {
     getPostList();
   }
 
@@ -50,15 +46,17 @@ export const handleLocation = async () => {
     getMyPostList();
   }
 
+
+
   if (path === "main" || path === "writePage" || path === "veiwPage") {
     getPostList();
   }
 
   if (path === "myPage") {
+    getMyPostList()
     document.getElementById("profileView").src =
       authService.currentUser.photoURL ?? "../assets/blankProfile.webp";
     getProfileInfor();
-    getMyPostList();
     getProfileList();
     document.getElementById("nickname").textContent =
       authService.currentUser.displayName ?? "닉네임 없음";
@@ -113,7 +111,7 @@ export const goTomyView = () => {
   console.log("goTomyView");
 
   window.location.hash = "#myviewPage";
-  getMyPostList();
+  // getMyPostList();
 };
 
 export const goToTeamInfor = () => {
